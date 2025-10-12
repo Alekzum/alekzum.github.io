@@ -1,6 +1,10 @@
-// operations.js
+import {
+  isBehindWindow,
+  isInShopTruck,
+  isInOwnTruck,
+} from "./classifications.js";
 
-function serializeData(objects) {
+export function serializeData(objects) {
   return (
     objects
       .map(
@@ -13,7 +17,7 @@ function serializeData(objects) {
   );
 }
 
-function returnObjects(objects) {
+export function returnObjects(objects) {
   const objectsToReturn = objects.filter(
     (obj) => isBehindWindow(obj) && !isInShopTruck(obj) && !isInOwnTruck(obj)
   );
@@ -21,7 +25,7 @@ function returnObjects(objects) {
   if (objectsToReturn.length === 0) {
     return {
       success: false,
-      message: "No objects behind window available for return",
+      message: "Нет объектов за окном для возврата",
     };
   }
 
@@ -70,7 +74,7 @@ function returnObjects(objects) {
 
   return {
     success: true,
-    message: `Returned ${objectsToReturn.length} objects from behind window`,
+    message: `Возвращено ${objectsToReturn.length} объектов из-за окна`,
     updatedObjects: objects,
   };
 }

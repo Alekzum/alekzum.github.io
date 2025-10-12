@@ -3,87 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Object Processor</title>
-    <link rel="stylesheet" href="styles.css" />
+    <title>Bakery Magnate Helper</title>
   </head>
   <body>
-    <h1>Object Processor</h1>
-
-    <div class="section">
-      <h3>1. Загрузка данных</h3>
-      <div>
-        <input type="file" id="fileInput" accept=".bm,.txt" />
-        <div class="file-info" id="fileInfo">Файл не выбран</div>
-      </div>
-
-      <div>
-        <h4>Или вставьте данные вручную:</h4>
-        <textarea
-          id="dataInput"
-          placeholder="Вставьте сырые данные здесь..."
-        ></textarea>
-      </div>
-
-      <button id="processButton">Обработать данные</button>
-    </div>
-
-    <div class="section">
-      <h3>2. Результаты обработки</h3>
-      <div class="stats" id="statsInfo"></div>
-
-      <div class="classification">
-        <div class="class-badge stall-badge">
-          В ларьке: <span id="stallCount">0</span>
-        </div>
-        <div class="class-badge window-badge">
-          За окном: <span id="windowCount">0</span>
-        </div>
-        <div class="class-badge shop-truck-badge">
-          В грузовике магазина: <span id="shopTruckCount">0</span>
-        </div>
-        <div class="class-badge own-truck-badge">
-          В своем грузовике: <span id="ownTruckCount">0</span>
-        </div>
-        <div class="class-badge other-badge">
-          Другие: <span id="otherCount">0</span>
-        </div>
-      </div>
-
-      <button class="toggle-btn" id="toggleResultsButton">
-        Показать/скрыть список объектов
-      </button>
-
-      <div
-        id="resultsContainer"
-        class="results-container"
-        style="display: none"
-      >
-        <div id="results"></div>
-      </div>
-
-      <button id="returnObjectsButton" class="return-btn">
-        Вернуть вещи (только за окном)
-      </button>
-    </div>
-
-    <div class="download-section">
-      <h3>3. Скачать результат</h3>
-      <div>
-        <h4>Результат обработки:</h4>
-        <textarea
-          id="resultOutput"
-          readonly
-          placeholder="Здесь будут отображены данные для сохранения..."
-        ></textarea>
-      </div>
-      <button id="downloadButton">Скачать файл сохранения</button>
-      <div id="downloadInfo" class="file-info"></div>
-    </div>
-
-    <!-- Подключаем все необходимые скрипты -->
-    <script src="utils/utils.js"></script>
-    <script src="script.js"></script>
-    <script src="classifications.js"></script>
-    <script src="operations.js"></script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

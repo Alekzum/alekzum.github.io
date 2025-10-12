@@ -1,11 +1,7 @@
-// script.js
-
-// Переменные для хранения состояния
 let currentFileName = "dyn_obj.bm";
 let showResults = false;
 let currentObjects = [];
 
-// Элементы DOM
 const fileInput = document.getElementById("fileInput");
 const dataInput = document.getElementById("dataInput");
 const processButton = document.getElementById("processButton");
@@ -21,10 +17,13 @@ const stallCount = document.getElementById("stallCount");
 const windowCount = document.getElementById("windowCount");
 const shopTruckCount = document.getElementById("shopTruckCount");
 const ownTruckCount = document.getElementById("ownTruckCount");
+const warehouseCount = document.getElementById("warehouseCount");
+const warehouseCabinetsCount = document.getElementById(
+  "warehouseCabinetsCount"
+);
 const otherCount = document.getElementById("otherCount");
 const resultOutput = document.getElementById("resultOutput");
 
-// Обработчик загрузки файла
 fileInput.addEventListener("change", function (event) {
   const file = event.target.files[0];
   if (!file) return;
@@ -40,19 +39,11 @@ fileInput.addEventListener("change", function (event) {
   reader.readAsText(file);
 });
 
-// Обработчик кнопки обработки данных
 processButton.addEventListener("click", processData);
-
-// Обработчик кнопки возврата объектов
 returnObjectsButton.addEventListener("click", handleReturnObjects);
-
-// Обработчик кнопки скачивания
 downloadButton.addEventListener("click", downloadResult);
-
-// Обработчик кнопки показа/скрытия результатов
 toggleResultsButton.addEventListener("click", toggleResults);
 
-// Основная функция обработки
 function processData() {
   const input = dataInput.value;
 
@@ -63,82 +54,68 @@ function processData() {
 
   try {
     currentObjects = parseData(input);
-
-    // Обновляем статистику
     updateStats();
-
-    // Обновляем отображение результатов
     updateResultsDisplay();
-
-    // Обновляем поле с результатом (без изменения исходных данных)
     updateResultOutput();
   } catch (error) {
     statsInfo.innerHTML = `<p style="color:red">Ошибка: ${error.message}</p>`;
-    console.error(error);
   }
 }
 
-// Обработчик возврата объектов
 function handleReturnObjects() {
   if (currentObjects.length === 0) {
-    alert("No data to process");
+    alert("Нет данных для обработки");
     return;
   }
 
   try {
     const result = returnObjects(currentObjects);
-
     if (!result.success) {
       alert(result.message);
       return;
     }
-
     currentObjects = result.updatedObjects;
     updateStats();
     updateResultsDisplay();
     updateResultOutput();
-
     alert(result.message);
   } catch (error) {
-    alert("Error: " + error.message);
+    alert("Ошибка: " + error.message);
   }
 }
 
-// Обновление статистики
 function updateStats() {
   const objectsInStall = currentObjects.filter(isInStall);
   const objectsBehindWindow = currentObjects.filter(isBehindWindow);
   const objectsInShopTruck = currentObjects.filter(isInShopTruck);
   const objectsInOwnTruck = currentObjects.filter(isInOwnTruck);
+  const objectsInWarehouse = currentObjects.filter(isInWarehouse);
+  const objectsInWarehouseCabinets = currentObjects.filter(
+    isInWarehouseCabinets
+  );
 
   const otherObjects =
     currentObjects.length -
     objectsInStall.length -
     objectsBehindWindow.length -
     objectsInShopTruck.length -
-    objectsInOwnTruck.length;
+    objectsInOwnTruck.length -
+    objectsInWarehouse.length -
+    objectsInWarehouseCabinets.length;
 
-  // Обновляем счетчики
   stallCount.textContent = objectsInStall.length;
   windowCount.textContent = objectsBehindWindow.length;
   shopTruckCount.textContent = objectsInShopTruck.length;
   ownTruckCount.textContent = objectsInOwnTruck.length;
+  warehouseCount.textContent = objectsInWarehouse.length;
+  warehouseCabinetsCount.textContent = objectsInWarehouseCabinets.length;
   otherCount.textContent = otherObjects;
 
-  statsInfo.innerHTML = `
-        Всего объектов: <strong>${currentObjects.length}</strong> | 
-        В ларьке: <strong>${objectsInStall.length}</strong> |
-        За окном: <strong>${objectsBehindWindow.length}</strong> |
-        В грузовике магазина: <strong>${objectsInShopTruck.length}</strong> |
-        В своем грузовике: <strong>${objectsInOwnTruck.length}</strong> |
-        Другие: <strong>${otherObjects}</strong>
-    `;
+  statsInfo.innerHTML = `Всего объектов: <strong>${currentObjects.length}</strong>`;
 }
 
-// Обновление отображения результатов
 function updateResultsDisplay() {
   let html = "";
-
   currentObjects.forEach((obj) => {
     let classification = "other";
     let classificationText = "";
@@ -155,42 +132,39 @@ function updateResultsDisplay() {
     } else if (isInOwnTruck(obj)) {
       classification = "in-own-truck";
       classificationText = "В СВОЕМ ГРУЗОВИКЕ";
+    } else if (isInWarehouse(obj)) {
+      classification = "in-warehouse";
+      classificationText = "НА СКЛАДЕ";
+    } else if (isInWarehouseCabinets(obj)) {
+      classification = "in-warehouse-cabinets";
+      classificationText = "В ШКАФАХ СКЛАДА";
     }
 
-    html += `
-            <div class="result ${classification}">
-                <strong>${obj.name}</strong> | 
-                Позиция: x=${obj.position.x}, y=${obj.position.y}, z=${
+    html += `<div class="result ${classification}">
+            <strong>${obj.name}</strong> | 
+            Позиция: x=${obj.position.x}, y=${obj.position.y}, z=${
       obj.position.z
     } |
-                ${classificationText ? "✓ " + classificationText : ""}
-            </div>`;
+            ${classificationText ? "✓ " + classificationText : ""}
+        </div>`;
   });
 
   resultsDiv.innerHTML = html;
-
-  // Если результаты показываются, обновляем контейнер
   if (showResults) {
     resultsContainer.style.display = "block";
   }
 }
 
-// Обновление поля с результатом
 function updateResultOutput() {
-  if (currentObjects.length > 0) {
-    resultOutput.value = serializeData(currentObjects);
-  } else {
-    resultOutput.value = "";
-  }
+  resultOutput.value =
+    currentObjects.length > 0 ? serializeData(currentObjects) : "";
 }
 
-// Переключение видимости результатов
 function toggleResults() {
   showResults = !showResults;
   resultsContainer.style.display = showResults ? "block" : "none";
 }
 
-// Скачивание результата
 function downloadResult() {
   if (currentObjects.length === 0) {
     alert("Нет данных для скачивания");
@@ -202,21 +176,18 @@ function downloadResult() {
     const blob = new Blob([data], { type: "text/plain" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
-
     a.href = url;
     a.download = currentFileName;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
-
     downloadInfo.textContent = `Файл "${currentFileName}" готов к скачиванию`;
   } catch (error) {
     alert("Ошибка при создании файла: " + error.message);
   }
 }
 
-// Инициализация при загрузке страницы
 document.addEventListener("DOMContentLoaded", function () {
   downloadInfo.textContent = `Имя файла по умолчанию: ${currentFileName}`;
 });
