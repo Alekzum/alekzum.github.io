@@ -6,7 +6,7 @@
     <style>
       body {
         font-family: Arial;
-        max-width: 800px;
+        max-width: 1000px;
         margin: 0 auto;
         padding: 20px;
       }
@@ -18,97 +18,207 @@
       button {
         padding: 10px;
         margin: 5px;
+        cursor: pointer;
       }
       .result {
         margin: 10px 0;
         padding: 10px;
         background: #f5f5f5;
       }
-      .highlight {
-        background: #ffeaa7;
+      .in-stall {
+        background: #d4edda;
+        border-left: 4px solid #28a745;
+      }
+      .behind-window {
+        background: #d1ecf1;
+        border-left: 4px solid #17a2b8;
+      }
+      .other {
+        background: #f8f9fa;
+        border-left: 4px solid #6c757d;
+      }
+      .section {
+        margin: 20px 0;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+      .toggle-btn {
+        background: #6c757d;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+      .results-container {
+        max-height: 400px;
+        overflow-y: auto;
+      }
+      .download-section {
+        background: #e8f5e8;
+        padding: 15px;
+        margin: 15px 0;
+      }
+      .stats {
+        font-weight: bold;
+        margin: 10px 0;
+      }
+      .file-info {
+        color: #666;
+        font-style: italic;
+        margin: 5px 0;
+      }
+      .classification {
+        display: flex;
+        gap: 10px;
+        margin: 10px 0;
+      }
+      .class-badge {
+        padding: 5px 10px;
+        border-radius: 15px;
+        font-size: 14px;
+        font-weight: bold;
+      }
+      .stall-badge {
+        background: #d4edda;
+        color: #155724;
+      }
+      .window-badge {
+        background: #d1ecf1;
+        color: #0c5460;
+      }
+      .other-badge {
+        background: #f8f9fa;
+        color: #383d41;
       }
     </style>
   </head>
   <body>
     <h1>Object Processor</h1>
 
-    <div>
-      <h3>Ввод данных:</h3>
-      <textarea
-        id="dataInput"
-        placeholder="Вставьте сырые данные здесь..."
-      ></textarea>
-      <br />
-      <button onclick="processData()">Обработать</button>
+    <div class="section">
+      <h3>1. Загрузка данных</h3>
+      <div>
+        <input type="file" id="fileInput" accept=".bm,.txt" />
+        <div class="file-info" id="fileInfo">Файл не выбран</div>
+      </div>
+
+      <div>
+        <h4>Или вставьте данные вручную:</h4>
+        <textarea
+          id="dataInput"
+          placeholder="Вставьте сырые данные здесь..."
+        ></textarea>
+      </div>
+
+      <button onclick="processData()">Обработать данные</button>
     </div>
 
-    <div>
-      <h3>Результаты:</h3>
-      <div id="results"></div>
+    <div class="section">
+      <h3>2. Результаты обработки</h3>
+      <div class="stats" id="statsInfo"></div>
+
+      <div class="classification">
+        <div class="class-badge stall-badge">
+          В ларьке: <span id="stallCount">0</span>
+        </div>
+        <div class="class-badge window-badge">
+          За окном: <span id="windowCount">0</span>
+        </div>
+        <div class="class-badge other-badge">
+          Другие: <span id="otherCount">0</span>
+        </div>
+      </div>
+
+      <button class="toggle-btn" onclick="toggleResults()">
+        Показать/скрыть список объектов
+      </button>
+
+      <div
+        id="resultsContainer"
+        class="results-container"
+        style="display: none"
+      >
+        <div id="results"></div>
+      </div>
+
       <button onclick="returnObjects()" class="return-btn">Вернуть вещи</button>
     </div>
 
+    <div class="download-section">
+      <h3>3. Скачать результат</h3>
+      <button onclick="downloadResult()">Скачать файл сохранения</button>
+      <div id="downloadInfo" class="file-info"></div>
+    </div>
+
     <script>
-      // Основная функция обработки - просто возвращает результат parseData
+      // Переменные для хранения состояния
+      let currentFileName = "dyn_obj.bm";
+      let showResults = false;
+      let currentObjects = [];
+
+      // Элементы DOM
+      const fileInput = document.getElementById("fileInput");
+      const dataInput = document.getElementById("dataInput");
+      const resultsContainer = document.getElementById("resultsContainer");
+      const resultsDiv = document.getElementById("results");
+      const statsInfo = document.getElementById("statsInfo");
+      const fileInfo = document.getElementById("fileInfo");
+      const downloadInfo = document.getElementById("downloadInfo");
+      const stallCount = document.getElementById("stallCount");
+      const windowCount = document.getElementById("windowCount");
+      const otherCount = document.getElementById("otherCount");
+
+      // Обработчик загрузки файла
+      fileInput.addEventListener("change", function (event) {
+        const file = event.target.files[0];
+        if (!file) return;
+
+        currentFileName = file.name;
+        fileInfo.textContent = `Выбран файл: ${file.name}`;
+
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          dataInput.value = e.target.result;
+          processData();
+        };
+        reader.readAsText(file);
+      });
+
+      // Основная функция обработки
       function processData() {
         const input = document.getElementById("dataInput").value;
-        const resultsDiv = document.getElementById("results");
 
         if (!input.trim()) {
-          resultsDiv.innerHTML = "<p>Введите данные</p>";
+          statsInfo.innerHTML = "<p>Введите данные или загрузите файл</p>";
           return;
         }
 
         try {
-          // Просто вызываем parseData с сырой строкой
-          const objects = parseData(input);
+          currentObjects = parseData(input);
 
-          // Отображаем результаты
-          let html = `<p>Обработано объектов: ${objects.length}</p>`;
+          // Обновляем статистику
+          updateStats();
 
-          objects.forEach((obj) => {
-            if (!obj.position) {
-                throw Error;
-            }
-            const meetsCondition = obj.position.x <= -195 && 
-                                  obj.position.z >= 2 && 
-                                  obj.position.z <= 12;
-            const highlightClass = meetsCondition ? "highlight" : "";
-
-            html += `
-                    <div class="result ${highlightClass}">
-                        <strong>${obj.name}</strong> | 
-                        Позиция: x=${obj.position.x}, y=${obj.position.y}, z=${
-              obj.position.z
-            } |
-                        ${meetsCondition ? "✓ В ГРАНИЦАХ ЛАРЬКА" : ""}
-                    </div>`;
-          });
-
-          resultsDiv.innerHTML = html;
+          // Обновляем отображение результатов
+          updateResultsDisplay();
         } catch (error) {
-          resultsDiv.innerHTML = `<p style="color:red">Ошибка: ${error.message}</p>`;
+          statsInfo.innerHTML = `<p style="color:red">Ошибка: ${error.message}</p>`;
+          console.error(error);
         }
       }
 
       // Функция возврата объектов
       function returnObjects() {
-        const input = document.getElementById("dataInput").value;
-
-        if (!input.trim()) {
+        if (currentObjects.length === 0) {
           alert("Нет данных для обработки");
           return;
         }
 
         try {
-          const objects = parseData(input);
-          
           // Фильтруем объекты по условиям ларька
-          const objectsInStall = objects.filter(obj => 
-            obj.position.x <= -195 && 
-            obj.position.z >= 2 && 
-            obj.position.z <= 12
-          );
+          const objectsInStall = currentObjects.filter(isInStall);
 
           if (objectsInStall.length === 0) {
             alert("Нет объектов в границах ларька для возврата");
@@ -119,56 +229,85 @@
           const stallBounds = {
             x: { min: -195, max: -185 },
             y: { min: 15, max: 21 },
-            z: { min: 2, max: 12 }
+            z: { min: 2, max: 12 },
           };
 
           // Центр ларька
           const center = {
             x: (stallBounds.x.min + stallBounds.x.max) / 2,
             y: (stallBounds.y.min + stallBounds.y.max) / 2,
-            z: (stallBounds.z.min + stallBounds.z.max) / 2
+            z: (stallBounds.z.min + stallBounds.z.max) / 2,
           };
 
           // Размещаем объекты по сетке от центра
           objectsInStall.forEach((obj, index) => {
-            // Вычисляем смещение от центра на основе индекса
-            const offset = Math.ceil((index + 1) / 2) * ((index % 2 === 0) ? 1 : -1);
-            
-            // Распределяем по осям
+            const offset =
+              Math.ceil((index + 1) / 2) * (index % 2 === 0 ? 1 : -1);
+
             if (index % 3 === 0) {
-              // X ось
               obj.position.x = center.x + offset;
               obj.position.y = center.y;
               obj.position.z = center.z;
             } else if (index % 3 === 1) {
-              // Y ось
               obj.position.x = center.x;
               obj.position.y = center.y + offset;
               obj.position.z = center.z;
             } else {
-              // Z ось
               obj.position.x = center.x;
               obj.position.y = center.y;
               obj.position.z = center.z + offset;
             }
 
             // Ограничиваем позиции границами ларька
-            obj.position.x = Math.max(stallBounds.x.min, Math.min(stallBounds.x.max, obj.position.x));
-            obj.position.y = Math.max(stallBounds.y.min, Math.min(stallBounds.y.max, obj.position.y));
-            obj.position.z = Math.max(stallBounds.z.min, Math.min(stallBounds.z.max, obj.position.z));
+            obj.position.x = Math.max(
+              stallBounds.x.min,
+              Math.min(stallBounds.x.max, obj.position.x)
+            );
+            obj.position.y = Math.max(
+              stallBounds.y.min,
+              Math.min(stallBounds.y.max, obj.position.y)
+            );
+            obj.position.z = Math.max(
+              stallBounds.z.min,
+              Math.min(stallBounds.z.max, obj.position.z)
+            );
           });
 
           // Обновляем данные в textarea
-          document.getElementById("dataInput").value = serializeData(objects);
-          
+          dataInput.value = serializeData(currentObjects);
+
           // Обновляем отображение
           processData();
-          
-          alert(`Возвращено ${objectsInStall.length} объектов в границы ларька`);
 
+          alert(
+            `Возвращено ${objectsInStall.length} объектов в границы ларька`
+          );
         } catch (error) {
           alert("Ошибка: " + error.message);
         }
+      }
+
+      // Функция проверки объекта в ларьке
+      function isInStall(obj) {
+        return (
+          obj.position.z >= 2 &&
+          obj.position.z <= 12 &&
+          obj.position.y >= 14 &&
+          obj.position.y <= 21 &&
+          obj.position.x >= -195 &&
+          obj.position.x <= -185
+        );
+      }
+
+      // Функция проверки объекта за окном
+      function isBehindWindow(obj) {
+        return (
+          obj.position.z >= -2 &&
+          obj.position.z <= 16 &&
+          obj.position.y >= 0 &&
+          obj.position.y <= 30 &&
+          obj.position.x < -195
+        );
       }
 
       // Функция парсинга данных
@@ -187,12 +326,112 @@
         return result;
       }
 
-      // Функция сериализации данных обратно в строку
+      // Функция сериализации данных
       function serializeData(objects) {
-        return objects.map(obj => 
-          `${obj.name}|${JSON.stringify(obj.position)}|${JSON.stringify(obj.rotation)}|${JSON.stringify(obj.data)}|`
-        ).join('№') + '№';
+        return (
+          objects
+            .map(
+              (obj) =>
+                `${obj.name}|${JSON.stringify(obj.position)}|${JSON.stringify(
+                  obj.rotation
+                )}|${JSON.stringify(obj.data)}|`
+            )
+            .join("№") + "№"
+        );
       }
+
+      // Обновление статистики
+      function updateStats() {
+        const objectsInStall = currentObjects.filter(isInStall);
+        const objectsBehindWindow = currentObjects.filter(isBehindWindow);
+        const otherObjects =
+          currentObjects.length -
+          objectsInStall.length -
+          objectsBehindWindow.length;
+
+        // Обновляем счетчики
+        stallCount.textContent = objectsInStall.length;
+        windowCount.textContent = objectsBehindWindow.length;
+        otherCount.textContent = otherObjects;
+
+        statsInfo.innerHTML = `
+          Всего объектов: <strong>${currentObjects.length}</strong> | 
+          В ларьке: <strong>${objectsInStall.length}</strong> |
+          За окном: <strong>${objectsBehindWindow.length}</strong> |
+          Другие: <strong>${otherObjects}</strong>
+        `;
+      }
+
+      // Обновление отображения результатов
+      function updateResultsDisplay() {
+        let html = "";
+
+        currentObjects.forEach((obj) => {
+          let classification = "other";
+          let classificationText = "";
+
+          if (isInStall(obj)) {
+            classification = "in-stall";
+            classificationText = "В ЛАРЬКЕ";
+          } else if (isBehindWindow(obj)) {
+            classification = "behind-window";
+            classificationText = "ЗА ОКНОМ";
+          }
+
+          html += `
+            <div class="result ${classification}">
+              <strong>${obj.name}</strong> | 
+              Позиция: x=${obj.position.x}, y=${obj.position.y}, z=${
+            obj.position.z
+          } |
+              ${classificationText ? "✓ " + classificationText : ""}
+            </div>`;
+        });
+
+        resultsDiv.innerHTML = html;
+
+        // Если результаты показываются, обновляем контейнер
+        if (showResults) {
+          resultsContainer.style.display = "block";
+        }
+      }
+
+      // Переключение видимости результатов
+      function toggleResults() {
+        showResults = !showResults;
+        resultsContainer.style.display = showResults ? "block" : "none";
+      }
+
+      // Скачивание результата
+      function downloadResult() {
+        if (currentObjects.length === 0) {
+          alert("Нет данных для скачивания");
+          return;
+        }
+
+        try {
+          const data = serializeData(currentObjects);
+          const blob = new Blob([data], { type: "text/plain" });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+
+          a.href = url;
+          a.download = currentFileName;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+
+          downloadInfo.textContent = `Файл "${currentFileName}" готов к скачиванию`;
+        } catch (error) {
+          alert("Ошибка при создании файла: " + error.message);
+        }
+      }
+
+      // Инициализация при загрузке страницы
+      document.addEventListener("DOMContentLoaded", function () {
+        downloadInfo.textContent = `Имя файла по умолчанию: ${currentFileName}`;
+      });
     </script>
   </body>
 </html>
