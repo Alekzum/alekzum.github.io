@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Object Processor</title>
+    <style>
+      body {
+        font-family: Arial;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      textarea {
+        width: 100%;
+        height: 150px;
+        margin: 10px 0;
+      }
+      button {
+        padding: 10px;
+        margin: 5px;
+      }
+      .result {
+        margin: 10px 0;
+        padding: 10px;
+        background: #f5f5f5;
+      }
+      .highlight {
+        background: #ffeaa7;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Object Processor</h1>
+
+    <div>
+      <h3>Ввод данных:</h3>
+      <textarea
+        id="dataInput"
+        placeholder="Вставьте сырые данные здесь..."
+      ></textarea>
+      <br />
+      <button onclick="processData()">Обработать</button>
+    </div>
+
+    <div>
+      <h3>Результаты:</h3>
+      <div id="results"></div>
+      <button onclick="returnObjects()" class="return-btn">Вернуть вещи</button>
+    </div>
+
+    <script>
+      // Основная функция обработки - просто возвращает результат parseData
+      function processData() {
+        const input = document.getElementById("dataInput").value;
+        const resultsDiv = document.getElementById("results");
+
+        if (!input.trim()) {
+          resultsDiv.innerHTML = "<p>Введите данные</p>";
+          return;
+        }
+
+        try {
+          // Просто вызываем parseData с сырой строкой
+          const objects = parseData(input);
+
+          // Отображаем результаты
+          let html = `<p>Обработано объектов: ${objects.length}</p>`;
+
+          objects.forEach((obj) => {
+            if (!obj.position) {
+                throw Error;
+            }
+            const meetsCondition = obj.position.x <= -195 && 
+                                  obj.position.z >= 2 && 
+                                  obj.position.z <= 12;
+            const highlightClass = meetsCondition ? "highlight" : "";
+
+            html += `
+                    <div class="result ${highlightClass}">
+                        <strong>${obj.name}</strong> | 
+                        Позиция: x=${obj.position.x}, y=${obj.position.y}, z=${
+              obj.position.z
+            } |
+                        ${meetsCondition ? "✓ В ГРАНИЦАХ ЛАРЬКА" : ""}
+                    </div>`;
+          });
+
+          resultsDiv.innerHTML = html;
+        } catch (error) {
+          resultsDiv.innerHTML = `<p style="color:red">Ошибка: ${error.message}</p>`;
+        }
+      }
+
+      // Функция возврата объектов
+      function returnObjects() {
+        const input = document.getElementById("dataInput").value;
+
+        if (!input.trim()) {
+          alert("Нет данных для обработки");
+          return;
+        }
+
+        try {
+          const objects = parseData(input);
+          
+          // Фильтруем объекты по условиям ларька
+          const objectsInStall = objects.filter(obj => 
+            obj.position.x <= -195 && 
+            obj.position.z >= 2 && 
+            obj.position.z <= 12
+          );
+
+          if (objectsInStall.length === 0) {
+            alert("Нет объектов в границах ларька для возврата");
+            return;
+          }
+
+          // Границы ларька
+          const stallBounds = {
+            x: { min: -195, max: -185 },
+            y: { min: 15, max: 21 },
+            z: { min: 2, max: 12 }
+          };
+
+          // Центр ларька
+          const center = {
+            x: (stallBounds.x.min + stallBounds.x.max) / 2,
+            y: (stallBounds.y.min + stallBounds.y.max) / 2,
+            z: (stallBounds.z.min + stallBounds.z.max) / 2
+          };
+
+          // Размещаем объекты по сетке от центра
+          objectsInStall.forEach((obj, index) => {
+            // Вычисляем смещение от центра на основе индекса
+            const offset = Math.ceil((index + 1) / 2) * ((index % 2 === 0) ? 1 : -1);
+            
+            // Распределяем по осям
+            if (index % 3 === 0) {
+              // X ось
+              obj.position.x = center.x + offset;
+              obj.position.y = center.y;
+              obj.position.z = center.z;
+            } else if (index % 3 === 1) {
+              // Y ось
+              obj.position.x = center.x;
+              obj.position.y = center.y + offset;
+              obj.position.z = center.z;
+            } else {
+              // Z ось
+              obj.position.x = center.x;
+              obj.position.y = center.y;
+              obj.position.z = center.z + offset;
+            }
+
+            // Ограничиваем позиции границами ларька
+            obj.position.x = Math.max(stallBounds.x.min, Math.min(stallBounds.x.max, obj.position.x));
+            obj.position.y = Math.max(stallBounds.y.min, Math.min(stallBounds.y.max, obj.position.y));
+            obj.position.z = Math.max(stallBounds.z.min, Math.min(stallBounds.z.max, obj.position.z));
+          });
+
+          // Обновляем данные в textarea
+          document.getElementById("dataInput").value = serializeData(objects);
+          
+          // Обновляем отображение
+          processData();
+          
+          alert(`Возвращено ${objectsInStall.length} объектов в границы ларька`);
+
+        } catch (error) {
+          alert("Ошибка: " + error.message);
+        }
+      }
+
+      // Функция парсинга данных
+      function parseData(rawString) {
+        let raw_objects = rawString.split("№").slice(0, -1);
+        let result = raw_objects.map((raw_object) => {
+          let raw_data = raw_object.split("|").slice(0, -1);
+          let obj = {
+            name: raw_data[0],
+            position: JSON.parse(raw_data[1]),
+            rotation: JSON.parse(raw_data[2]),
+            data: JSON.parse(raw_data[3]),
+          };
+          return obj;
+        });
+        return result;
+      }
+
+      // Функция сериализации данных обратно в строку
+      function serializeData(objects) {
+        return objects.map(obj => 
+          `${obj.name}|${JSON.stringify(obj.position)}|${JSON.stringify(obj.rotation)}|${JSON.stringify(obj.data)}|`
+        ).join('№') + '№';
+      }
+    </script>
+  </body>
+</html>
