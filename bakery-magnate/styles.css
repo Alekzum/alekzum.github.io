@@ -86,3 +86,7 @@ button {
     background: #f8f9fa;
     color: #383d41;
 }
+#resultOutput {
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+}
