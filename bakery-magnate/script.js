@@ -236,21 +236,35 @@ function updateResultsDisplay() {
 
   let html = "";
 
-  let classification
-  let classificationText
+  let objText = "";
+  let classification;
+  let classificationText;
+  let priorities = new Map();
+  let i;
+
   currentObjects.forEach((obj) => {
-    for (let i = 0; i < classifications.length; i++) {
+    for (i = 0; i < classifications.length; i++) {
       const items = classifications[i];
-      if (items[0](obj)){
+      if (items[0](obj)) {
         [classification, classificationText] = items[1];
-        break
+        break;
       }
     }
+    objText = `<div class="result ${classification}"><strong>${
+      obj.name
+    }</strong>
+    | Позиция: x=${obj.position.x}, y=${obj.position.y}, z=${obj.position.z}
+    | ${classificationText ? "✓ " + classificationText : ""}</div>`;
 
-    html += `<div class="result ${classification}"><strong>${obj.name}</strong>
-     | Позиция: x=${obj.position.x}, y=${obj.position.y}, z=${obj.position.z}
-     | ${classificationText ? "✓ " + classificationText : ""}</div>`;
+    if (!priorities[i]) priorities[i] = [];
+    priorities[i].push(objText);
   });
+
+  for (let index = 0; index < classifications.length; index++) {
+    const array = priorities[index];
+    if (!array) continue;
+    html += array.join("");
+  }
 
   resultsDiv.innerHTML = html;
 
