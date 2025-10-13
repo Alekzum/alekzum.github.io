@@ -1,25 +1,9 @@
-import {
-  isBehindWindow,
-  isInShopTruck,
-  isInOwnTruck,
-} from "./classifications.js";
-
-export function serializeData(objects) {
-  return (
-    objects
-      .map(
-        (obj) =>
-          `${obj.name}|${JSON.stringify(obj.position)}|${JSON.stringify(
-            obj.rotation
-          )}|${JSON.stringify(obj.data)}|`
-      )
-      .join("№") + "№"
-  );
-}
-
-export function returnObjects(objects) {
+function returnObjects(objects) {
   const objectsToReturn = objects.filter(
-    (obj) => isBehindWindow(obj) && !isInShopTruck(obj) && !isInOwnTruck(obj)
+    (obj) =>
+      classifications.isBehindWindow(obj) &&
+      !classifications.isInShopTruck(obj) &&
+      !classifications.isInOwnTruck(obj)
   );
 
   if (objectsToReturn.length === 0) {
@@ -30,7 +14,7 @@ export function returnObjects(objects) {
   }
 
   const stallBounds = {
-    x: { min: -195, max: -185 },
+    x: { min: -195.3, max: -185 },
     y: { min: 15, max: 21 },
     z: { min: 2, max: 12 },
   };
