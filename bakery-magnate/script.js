@@ -242,6 +242,9 @@ function updateResultsDisplay() {
   let priorities = new Map();
   let i;
 
+  currentObjects.sort((obj1, obj2) =>
+    obj1.name < obj2.name ? -1 : obj1.name == obj2.name ? 0 : 1
+  );
   currentObjects.forEach((obj) => {
     for (i = 0; i < classifications.length; i++) {
       const items = classifications[i];
