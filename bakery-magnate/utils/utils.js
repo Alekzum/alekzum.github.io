@@ -1,16 +1,3 @@
-function serializeData(objects) {
-  return (
-    objects
-      .map(
-        (obj) =>
-          `${obj.name}|${JSON.stringify(obj.position)}|${JSON.stringify(
-            obj.rotation
-          )}|${JSON.stringify(obj.data)}|`
-      )
-      .join("№") + "№"
-  );
-}
-
 function parseData(rawString) {
   let raw_objects = rawString.split("№").slice(0, -1);
   let result = raw_objects.map((raw_object) => {
@@ -25,3 +12,5 @@ function parseData(rawString) {
   });
   return result;
 }
+
+export { parseData };
