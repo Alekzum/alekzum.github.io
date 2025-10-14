@@ -1,171 +1,523 @@
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-tertiary: #e8f5e8;
+  --bg-accent: #f5f5f5;
+
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --text-muted: #999999;
+
+  --border-primary: #ddd;
+  --border-secondary: #ced4da;
+  --border-accent: #28a745;
+
+  --shadow: rgba(0, 0, 0, 0.1);
+
+  --stall-bg: #d4edda;
+  --stall-border: #28a745;
+  --stall-text: #155724;
+
+  --window-bg: #d1ecf1;
+  --window-border: #17a2b8;
+  --window-text: #0c5460;
+
+  --shop-truck-bg: #fff3cd;
+  --shop-truck-border: #ffc107;
+  --shop-truck-text: #856404;
+
+  --own-truck-bg: #f8d7da;
+  --own-truck-border: #dc3545;
+  --own-truck-text: #721c24;
+
+  --warehouse-bg: #e2e3e5;
+  --warehouse-border: #6c757d;
+  --warehouse-text: #383d41;
+
+  --warehouse-cabinets-bg: #d6d8db;
+  --warehouse-cabinets-border: #495057;
+  --warehouse-cabinets-text: #1b1e21;
+
+  --outside-warehouse-bg: #d9c2db;
+  --outside-warehouse-border: #3f0c0c;
+  --outside-warehouse-text: #3f0c0c;
+
+  --outside-stall-bg: #bfcde2;
+  --outside-stall-border: #252210;
+  --outside-stall-text: #252210;
+
+  --other-bg: #f8f9fa;
+  --other-border: #6c757d;
+  --other-text: #383d41;
+
+  --button-bg: #6c757d;
+  --button-text: white;
+  --button-hover: #5a6268;
+
+  --return-button-bg: #28a745;
+  --return-button-text: white;
+  --return-button-hover: #218838;
+
+  --transition: all 0.3s ease;
+}
+
+[data-theme="dark"] {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #1a331a;
+  --bg-accent: #2d2d2d;
+
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+
+  --border-primary: #475569;
+  --border-secondary: #64748b;
+  --border-accent: #10b981;
+
+  --shadow: rgba(0, 0, 0, 0.3);
+
+  --stall-bg: #064e3b;
+  --stall-border: #047857;
+  --stall-text: #a7f3d0;
+
+  --window-bg: #1e3a8a;
+  --window-border: #3b82f6;
+  --window-text: #bfdbfe;
+
+  --shop-truck-bg: #78350f;
+  --shop-truck-border: #d97706;
+  --shop-truck-text: #fde68a;
+
+  --own-truck-bg: #7f1d1d;
+  --own-truck-border: #dc2626;
+  --own-truck-text: #fecaca;
+
+  --warehouse-bg: #374151;
+  --warehouse-border: #6b7280;
+  --warehouse-text: #d1d5db;
+
+  --warehouse-cabinets-bg: #4b5563;
+  --warehouse-cabinets-border: #9ca3af;
+  --warehouse-cabinets-text: #e5e7eb;
+
+  --outside-warehouse-bg: #4c1d95;
+  --outside-warehouse-border: #7c3aed;
+  --outside-warehouse-text: #ddd6fe;
+
+  --outside-stall-bg: #1e40af;
+  --outside-stall-border: #3b82f6;
+  --outside-stall-text: #dbeafe;
+
+  --other-bg: #374151;
+  --other-border: #6b7280;
+  --other-text: #d1d5db;
+
+  --button-bg: #475569;
+  --button-text: #f1f5f9;
+  --button-hover: #64748b;
+
+  --return-button-bg: #047857;
+  --return-button-text: white;
+  --return-button-hover: #065f46;
+}
+
+* {
+  transition: var(--transition);
+}
+
 body {
-  font-family: Arial;
+  font-family: Arial, sans-serif;
   max-width: 1000px;
   margin: 0 auto;
   padding: 20px;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text-primary);
+  margin-top: 0;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+}
+
+h3 {
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+h4 {
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+  font-size: 1.2rem;
 }
 
 textarea {
   width: 100%;
   height: 150px;
   margin: 10px 0;
+  padding: 12px;
+  border: 1px solid var(--border-secondary);
+  border-radius: 5px;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: inherit;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: var(--border-accent);
+  box-shadow: 0 0 0 2px var(--shadow);
+}
+
+input[type="file"] {
+  margin: 10px 0;
+  color: var(--text-primary);
 }
 
 button {
-  padding: 10px;
+  padding: 12px 20px;
   margin: 5px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+button:not([disabled]):hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px var(--shadow);
+}
+
+button:not(.toggle-btn):not(.return-stall-btn):not(.return-warehouse-btn) {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+}
+
+button:not([disabled]):not(.toggle-btn):not(.return-stall-btn):not(
+    .return-warehouse-btn
+  ):hover {
+  background-color: var(--button-hover);
+}
+
+button[disabled] {
+  cursor: not-allowed;
+}
+
+.theme-toggle-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  color: var(--text-primary);
+  padding: 10px 15px;
+  border-radius: 25px;
+  cursor: pointer;
+  z-index: 1000;
+  font-size: 12px;
+}
+
+.theme-toggle-btn:hover {
+  background: var(--accent-primary);
+  color: white;
+}
+
+.toggle-btn {
+  background: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 3px;
   cursor: pointer;
 }
 
-.result {
-  margin: 10px 0;
-  padding: 10px;
-  background: #f5f5f5;
+.toggle-btn:hover {
+  background: var(--button-hover);
 }
 
-.in-stall {
-  background: #d4edda;
-  border-left: 4px solid #28a745;
+.return-stall-btn,
+.return-warehouse-btn {
+  background-color: var(--return-button-bg);
+  color: var(--return-button-text);
+  font-weight: bold;
 }
 
-.behind-window {
-  background: #d1ecf1;
-  border-left: 4px solid #17a2b8;
-}
-
-.in-shop-truck {
-  background: #fff3cd;
-  border-left: 4px solid #ffc107;
-}
-
-.in-own-truck {
-  background: #f8d7da;
-  border-left: 4px solid #dc3545;
-}
-
-.in-warehouse {
-  background: #e2e3e5;
-  border-left: 4px solid #6c757d;
-}
-
-.in-warehouse-cabinets {
-  background: #d6d8db;
-  border-left: 4px solid #495057;
-}
-
-.outside-warehouse {
-  background: #d9c2db;
-  border-left: 4px solid #3f0c0c;
-}
-
-.outside-stall {
-  background: #bfcde2;
-  border-left: 4px solid #252210;
-}
-
-.other {
-  background: #f8f9fa;
-  border-left: 4px solid #6c757d;
+.return-stall-btn:hover,
+.return-warehouse-btn:hover {
+  background-color: var(--return-button-hover);
 }
 
 .section {
   margin: 20px 0;
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  padding: 25px;
+  border: 1px solid var(--border-primary);
+  border-radius: 8px;
+  background-color: var(--bg-secondary);
+  box-shadow: 0 2px 4px var(--shadow);
 }
 
-.toggle-btn {
-  background: #6c757d;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 3px;
-  cursor: pointer;
+.download-section {
+  margin: 20px 0;
+  padding: 25px;
+  border: 1px solid var(--border-accent);
+  border-radius: 8px;
+  background-color: var(--bg-tertiary);
+  box-shadow: 0 2px 4px var(--shadow);
+  /* position: relative; */
+  /* overflow: hidden; */
+}
+
+.download-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--border-accent), transparent);
+}
+
+.download-section h3 {
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.download-section h3::before {
+  content: "💾";
+  font-size: 1.2em;
+}
+
+.download-section .file-info {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: var(--bg-secondary);
+  border-radius: 5px;
+  border-left: 3px solid var(--border-accent);
+}
+
+.result {
+  margin: 10px 0;
+  padding: 12px 15px;
+  background: var(--bg-accent);
+  border-radius: 5px;
+  border-left: 4px solid;
+}
+
+.in-stall {
+  background-color: var(--stall-bg);
+  border-left-color: var(--stall-border);
+  color: var(--stall-text);
+}
+
+.behind-window {
+  background-color: var(--window-bg);
+  border-left-color: var(--window-border);
+  color: var(--window-text);
+}
+
+.in-shop-truck {
+  background-color: var(--shop-truck-bg);
+  border-left-color: var(--shop-truck-border);
+  color: var(--shop-truck-text);
+}
+
+.in-own-truck {
+  background-color: var(--own-truck-bg);
+  border-left-color: var(--own-truck-border);
+  color: var(--own-truck-text);
+}
+
+.in-warehouse {
+  background-color: var(--warehouse-bg);
+  border-left-color: var(--warehouse-border);
+  color: var(--warehouse-text);
+}
+
+.in-warehouse-cabinets {
+  background-color: var(--warehouse-cabinets-bg);
+  border-left-color: var(--warehouse-cabinets-border);
+  color: var(--warehouse-cabinets-text);
+}
+
+.outside-warehouse {
+  background-color: var(--outside-warehouse-bg);
+  border-left-color: var(--outside-warehouse-border);
+  color: var(--outside-warehouse-text);
+}
+
+.outside-stall {
+  background-color: var(--outside-stall-bg);
+  border-left-color: var(--outside-stall-border);
+  color: var(--outside-stall-text);
+}
+
+.other {
+  background-color: var(--other-bg);
+  border-left-color: var(--other-border);
+  color: var(--other-text);
 }
 
 .results-container {
   max-height: 400px;
   overflow-y: auto;
-}
-
-.download-section {
-  background: #e8f5e8;
-  padding: 15px;
   margin: 15px 0;
+  padding: 10px;
+  background-color: var(--bg-primary);
+  border-radius: 5px;
+  border: 1px solid var(--border-primary);
 }
 
 .stats {
   font-weight: bold;
-  margin: 10px 0;
+  margin: 15px 0;
+  color: var(--text-primary);
+  font-size: 1.1rem;
 }
 
 .file-info {
-  color: #666;
+  color: var(--text-muted);
   font-style: italic;
   margin: 5px 0;
+  font-size: 0.9rem;
 }
 
 .classification {
   display: flex;
   gap: 10px;
-  margin: 10px 0;
+  margin: 15px 0;
   flex-wrap: wrap;
 }
 
 .class-badge {
-  padding: 5px 10px;
-  border-radius: 15px;
+  padding: 8px 12px;
+  border-radius: 20px;
   font-size: 14px;
   font-weight: bold;
+  text-align: center;
+  min-width: 60px;
+  box-shadow: 0 2px 4px var(--shadow);
 }
 
 .stall-badge {
-  background: #d4edda;
-  color: #155724;
+  background: var(--stall-bg);
+  color: var(--stall-text);
 }
 
 .window-badge {
-  background: #d1ecf1;
-  color: #0c5460;
+  background: var(--window-bg);
+  color: var(--window-text);
 }
 
 .shop-truck-badge {
-  background: #fff3cd;
-  color: #856404;
+  background: var(--shop-truck-bg);
+  color: var(--shop-truck-text);
 }
 
 .own-truck-badge {
-  background: #f8d7da;
-  color: #721c24;
+  background: var(--own-truck-bg);
+  color: var(--own-truck-text);
 }
 
 .warehouse-badge {
-  background: #e2e3e5;
-  color: #383d41;
+  background: var(--warehouse-bg);
+  color: var(--warehouse-text);
 }
 
 .warehouse-cabinets-badge {
-  background: #d6d8db;
-  color: #1b1e21;
+  background: var(--warehouse-cabinets-bg);
+  color: var(--warehouse-cabinets-text);
 }
 
 .outside-warehouse-badge {
-  background: #d9c2db;
-  color: #3f0c0c;
+  background: var(--outside-warehouse-bg);
+  color: var(--outside-warehouse-text);
 }
 
 .outside-stall-badge {
-  background: #bfcde2;
-  color: #252210;
+  background: var(--outside-stall-bg);
+  color: var(--outside-stall-text);
 }
 
 .other-badge {
-  background: #f8f9fa;
-  color: #383d41;
+  background: var(--other-bg);
+  color: var(--other-text);
 }
 
 #resultOutput {
-  background-color: #f8f9fa;
-  border: 1px solid #ced4da;
+  background-color: var(--bg-accent);
+  border: 1px solid var(--border-secondary);
+  color: var(--text-primary);
+  margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  .section,
+  .download-section {
+    padding: 15px;
+    margin: 15px 0;
+  }
+
+  .classification {
+    gap: 5px;
+  }
+
+  .class-badge {
+    font-size: 10px;
+    padding: 6px 8px;
+  }
+
+  .theme-toggle-btn {
+    position: relative;
+    top: auto;
+    right: auto;
+    margin-bottom: 15px;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+}
+
+.results-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.results-container::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+  border-radius: 4px;
+}
+
+.results-container::-webkit-scrollbar-thumb {
+  background: var(--border-primary);
+  border-radius: 4px;
+}
+
+.results-container::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
 }

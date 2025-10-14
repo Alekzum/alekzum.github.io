@@ -6,9 +6,12 @@
     <title>Bakery Magnate Helper</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
+
   <body>
     <h1>Bakery Magnate Helper</h1>
 
+    <button class="theme-toggle-btn" id="themeToggle">🌙 Тёмная тема</button>
+    <!-- <button id="theme-toggle" class="theme-toggle-btn">Переключить тему</button> -->
     <div class="section">
       <h3>1. Загрузка данных</h3>
       <div>
@@ -77,7 +80,7 @@
 
       <div
         id="resultsContainer"
-        class="results-container"
+        class="section results-container"
         style="display: none"
       >
         <div id="results"></div>
@@ -94,8 +97,8 @@
           placeholder="Здесь будут отображены данные для сохранения..."
         ></textarea>
       </div>
-      <button id="downloadButton">Скачать файл сохранения</button>
-      <div id="downloadInfo" class="file-info"></div>
+      <button id="downloadButton" disabled>Скачать файл сохранения</button>
+      <div id="downloadInfo" class="file-info" style="display: none"></div>
     </div>
 
     <script type="module" src="script.js"></script>
