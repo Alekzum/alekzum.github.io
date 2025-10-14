@@ -10,7 +10,7 @@ import {
   isInShopTruck,
   isInOwnTruck,
   isInWarehouse,
-  isInWarehouseCabinets,
+  isInWarehouseFreezers,
   isOutsideStall,
   isOutsideWarehouse,
 } from "./utils/classifications.js";
@@ -43,8 +43,8 @@ const windowCount = document.getElementById("windowCount");
 const shopTruckCount = document.getElementById("shopTruckCount");
 const ownTruckCount = document.getElementById("ownTruckCount");
 const warehouseCount = document.getElementById("warehouseCount");
-const warehouseCabinetsCount = document.getElementById(
-  "warehouseCabinetsCount"
+const warehouseFreezersCount = document.getElementById(
+  "warehouseFreezersCount"
 );
 const outsideStallCount = document.getElementById("outsideStallCount");
 const outsideWarehouseCount = document.getElementById("outsideWarehouseCount");
@@ -164,7 +164,7 @@ function updateStats() {
     [isBehindWindow, objectsBehindWindow],
     [isInShopTruck, objectsInShopTruck],
     [isInOwnTruck, objectsInOwnTruck],
-    [isInWarehouseCabinets, objectsInWarehouseCabinets],
+    [isInWarehouseFreezers, objectsInWarehouseFreezers],
     [isInWarehouse, objectsInWarehouse],
     [isOutsideWarehouse, objectsOutsideWarehouse],
     [isOutsideStall, objectsOutsideStall],
@@ -188,7 +188,7 @@ function updateStats() {
     objectsInShopTruck.length -
     objectsInOwnTruck.length -
     objectsInWarehouse.length -
-    objectsInWarehouseCabinets.length -
+    objectsInWarehouseFreezers.length -
     objectsOutsideWarehouse.length -
     objectsOutsideStall.length;
 
@@ -198,7 +198,7 @@ function updateStats() {
   shopTruckCount.textContent = objectsInShopTruck.length;
   ownTruckCount.textContent = objectsInOwnTruck.length;
   warehouseCount.textContent = objectsInWarehouse.length;
-  warehouseCabinetsCount.textContent = objectsInWarehouseCabinets.length;
+  warehouseFreezersCount.textContent = objectsInWarehouseFreezers.length;
   outsideWarehouseCount.textContent = objectsOutsideWarehouse.length;
   outsideStallCount.textContent = objectsOutsideStall.length;
   otherCount.textContent = otherObjects;
@@ -222,7 +222,7 @@ function updateStats() {
         В грузовике магазина: <strong>${objectsInShopTruck.length}</strong> |
         В своем грузовике: <strong>${objectsInOwnTruck.length}</strong> |
         На складе: <strong>${objectsInWarehouse.length}</strong> |
-        В шкафах склада: <strong>${objectsInWarehouseCabinets.length}</strong> |
+        В холодильниках склада: <strong>${objectsInWarehouseFreezers.length}</strong> |
         Вне склада: <strong>${objectsOutsideWarehouse.length}</strong> |
         Вне ларька: <strong>${objectsOutsideStall.length}</strong> |
         Другие: <strong>${otherObjects}</strong>
@@ -236,7 +236,10 @@ function updateResultsDisplay() {
     [isBehindWindow, ["behind-window", "ЗА ОКНОМ"]],
     [isInShopTruck, ["in-shop-truck", "В ГРУЗОВИКЕ МАГАЗИНА"]],
     [isInOwnTruck, ["in-own-truck", "В СВОЕМ ГРУЗОВИКЕ"]],
-    [isInWarehouseCabinets, ["in-warehouse-cabinets", "В ШКАФАХ СКЛАДА"]],
+    [
+      isInWarehouseFreezers,
+      ["in-warehouse-freezers", "В ХОЛОДИЛЬНИКАХ СКЛАДА"],
+    ],
     [isInWarehouse, ["in-warehouse", "НА СКЛАДЕ"]],
     [isOutsideWarehouse, ["outside-warehouse", "ВНЕ СКЛАДА"]],
     [isOutsideStall, ["outside-stall", "ВНЕ ЛАРЬКА"]],
@@ -253,10 +256,8 @@ function updateResultsDisplay() {
 
   currentObjects.sort((obj1, obj2) => {
     var [name1, name2] = [obj1.name, obj2.name];
-    var [pos1, pos2] = [obj1.position, obj2.position];
     var name = name1 < name2 ? -1 : name1 == name2 ? 0 : 1;
-    var position = pos1 < pos2 ? -1 : pos1 == pos2 ? 0 : 1;
-    return name == 0 ? position : name;
+    return name;
   });
 
   currentObjects.forEach((obj) => {
