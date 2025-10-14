@@ -103,14 +103,6 @@ function isInStall(obj) {
   );
 }
 
-function isBehindWindow(obj) {
-  return isBetween3d(
-    obj.position,
-    { x: -Infinity, y: 0, z: -2 },
-    { x: -197.0, y: 30, z: 30 }
-  );
-}
-
 function isOutsideStall(obj) {
   return isBetween3d(
     obj.position,
@@ -179,7 +171,6 @@ const OUTSIDE_DISTANCE = 100;
 export {
   isInStallFreezer,
   isInStall,
-  isBehindWindow,
   isInShopTruck,
   isInOwnTruck,
   isInWarehouse,

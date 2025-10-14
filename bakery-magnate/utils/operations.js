@@ -1,5 +1,4 @@
 import {
-  isBehindWindow,
   isInShopTruck,
   isInOwnTruck,
   isOutsideWarehouse,

@@ -18,6 +18,10 @@
   --stall-border: #28a745;
   --stall-text: #155724;
 
+  --stall-freezer-bg: #d4eaed;
+  --stall-freezer-border: #28a3a7;
+  --stall-freezer-text: #15574e;
+
   --window-bg: #d1ecf1;
   --window-border: #17a2b8;
   --window-text: #0c5460;
@@ -34,9 +38,9 @@
   --warehouse-border: #6c757d;
   --warehouse-text: #383d41;
 
-  --warehouse-cabinets-bg: #d6d8db;
-  --warehouse-cabinets-border: #495057;
-  --warehouse-cabinets-text: #1b1e21;
+  --warehouse-freezers-bg: #d6d8db;
+  --warehouse-freezers-border: #495057;
+  --warehouse-freezers-text: #1b1e21;
 
   --outside-warehouse-bg: #d9c2db;
   --outside-warehouse-border: #3f0c0c;
@@ -81,6 +85,10 @@
   --stall-border: #047857;
   --stall-text: #a7f3d0;
 
+  --stall-freezer-bg: #04316d;
+  --stall-freezer-border: #047857;
+  --stall-freezer-text: #a7d5f3;
+
   --window-bg: #1e3a8a;
   --window-border: #3b82f6;
   --window-text: #bfdbfe;
@@ -97,9 +105,9 @@
   --warehouse-border: #6b7280;
   --warehouse-text: #d1d5db;
 
-  --warehouse-cabinets-bg: #4b5563;
-  --warehouse-cabinets-border: #9ca3af;
-  --warehouse-cabinets-text: #e5e7eb;
+  --warehouse-freezers-bg: #4b5563;
+  --warehouse-freezers-border: #9ca3af;
+  --warehouse-freezers-text: #e5e7eb;
 
   --outside-warehouse-bg: #4c1d95;
   --outside-warehouse-border: #7c3aed;
@@ -324,6 +332,12 @@ button[disabled] {
   border-left: 4px solid;
 }
 
+.in-stall-freezer {
+  background-color: var(--stall-freezer-bg);
+  border-left-color: var(--stall-freezer-border);
+  color: var(--stall-freezer-text);
+}
+
 .in-stall {
   background-color: var(--stall-bg);
   border-left-color: var(--stall-border);
@@ -354,10 +368,10 @@ button[disabled] {
   color: var(--warehouse-text);
 }
 
-.in-warehouse-cabinets {
-  background-color: var(--warehouse-cabinets-bg);
-  border-left-color: var(--warehouse-cabinets-border);
-  color: var(--warehouse-cabinets-text);
+.in-warehouse-freezers {
+  background-color: var(--warehouse-freezers-bg);
+  border-left-color: var(--warehouse-freezers-border);
+  color: var(--warehouse-freezers-text);
 }
 
 .outside-warehouse {
@@ -419,14 +433,14 @@ button[disabled] {
   box-shadow: 0 2px 4px var(--shadow);
 }
 
+.stall-freezer-badge {
+  background: var(--stall-freezer-bg);
+  color: var(--stall-freezer-text);
+}
+
 .stall-badge {
   background: var(--stall-bg);
   color: var(--stall-text);
-}
-
-.window-badge {
-  background: var(--window-bg);
-  color: var(--window-text);
 }
 
 .shop-truck-badge {
@@ -444,9 +458,9 @@ button[disabled] {
   color: var(--warehouse-text);
 }
 
-.warehouse-cabinets-badge {
-  background: var(--warehouse-cabinets-bg);
-  color: var(--warehouse-cabinets-text);
+.warehouse-freezers-badge {
+  background: var(--warehouse-freezers-bg);
+  color: var(--warehouse-freezers-text);
 }
 
 .outside-warehouse-badge {

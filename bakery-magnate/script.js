@@ -1,12 +1,12 @@
-import { parseData, DataValidator } from "./utils/utils.js";
+import { parseData } from "./utils/utils.js";
 import {
   serializeData,
   returnObjectsStall,
   returnObjectsWarehouse,
 } from "./utils/operations.js";
 import {
+  isInStallFreezer,
   isInStall,
-  isBehindWindow,
   isInShopTruck,
   isInOwnTruck,
   isInWarehouse,
@@ -38,8 +38,8 @@ const resultsDiv = document.getElementById("results");
 const statsInfo = document.getElementById("statsInfo");
 const fileInfo = document.getElementById("fileInfo");
 const downloadInfo = document.getElementById("downloadInfo");
+const inStallFreezerCount = document.getElementById("stallFreezerCount");
 const inStallCount = document.getElementById("stallCount");
-const windowCount = document.getElementById("windowCount");
 const shopTruckCount = document.getElementById("shopTruckCount");
 const ownTruckCount = document.getElementById("ownTruckCount");
 const warehouseCount = document.getElementById("warehouseCount");
@@ -152,16 +152,16 @@ function handleReturnObjectsWarehouse() {
 // Обновление статистики
 function updateStats() {
   const objectsInStall = [];
-  const objectsBehindWindow = [];
+  const objectsInStallFreezer = [];
   const objectsInShopTruck = [];
   const objectsInOwnTruck = [];
   const objectsInWarehouse = [];
-  const objectsInWarehouseCabinets = [];
+  const objectsInWarehouseFreezers = [];
   const objectsOutsideWarehouse = [];
   const objectsOutsideStall = [];
   const priorities = [
+    [isInStallFreezer, objectsInStallFreezer],
     [isInStall, objectsInStall],
-    [isBehindWindow, objectsBehindWindow],
     [isInShopTruck, objectsInShopTruck],
     [isInOwnTruck, objectsInOwnTruck],
     [isInWarehouseFreezers, objectsInWarehouseFreezers],
@@ -183,8 +183,8 @@ function updateStats() {
 
   const otherObjects =
     currentObjects.length -
+    objectsInStallFreezer.length -
     objectsInStall.length -
-    objectsBehindWindow.length -
     objectsInShopTruck.length -
     objectsInOwnTruck.length -
     objectsInWarehouse.length -
@@ -193,8 +193,8 @@ function updateStats() {
     objectsOutsideStall.length;
 
   // Обновляем счетчики
+  inStallFreezerCount.textContent = objectsInStallFreezer.length;
   inStallCount.textContent = objectsInStall.length;
-  windowCount.textContent = objectsBehindWindow.length;
   shopTruckCount.textContent = objectsInShopTruck.length;
   ownTruckCount.textContent = objectsInOwnTruck.length;
   warehouseCount.textContent = objectsInWarehouse.length;
@@ -217,8 +217,8 @@ function updateStats() {
 
   statsInfo.innerHTML = `
         Всего объектов: <strong>${currentObjects.length}</strong>${validationInfo} |
+        В холодильнике ларька: <strong>${objectsInStallFreezer.length}</strong> |
         В ларьке: <strong>${objectsInStall.length}</strong> |
-        За окном: <strong>${objectsBehindWindow.length}</strong> |
         В грузовике магазина: <strong>${objectsInShopTruck.length}</strong> |
         В своем грузовике: <strong>${objectsInOwnTruck.length}</strong> |
         На складе: <strong>${objectsInWarehouse.length}</strong> |
@@ -232,8 +232,8 @@ function updateStats() {
 // Обновление отображения результатов
 function updateResultsDisplay() {
   const classifications = [
+    [isInStallFreezer, ["in-stall-freezer", "В ХОЛОДИЛЬНИКЕ ЛАРЬКА"]],
     [isInStall, ["in-stall", "В ЛАРЬКЕ"]],
-    [isBehindWindow, ["behind-window", "ЗА ОКНОМ"]],
     [isInShopTruck, ["in-shop-truck", "В ГРУЗОВИКЕ МАГАЗИНА"]],
     [isInOwnTruck, ["in-own-truck", "В СВОЕМ ГРУЗОВИКЕ"]],
     [
