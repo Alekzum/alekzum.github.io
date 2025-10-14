@@ -62,7 +62,6 @@ fileInput.addEventListener("change", function (event) {
   const reader = new FileReader();
   reader.onload = function (e) {
     dataInput.value = e.target.result;
-    processData();
   };
   reader.readAsText(file);
 });
@@ -85,18 +84,16 @@ toggleResultsButton.addEventListener("click", toggleResults);
 
 // Основная функция обработки
 function processData() {
+  fileInput.value = "";
+  fileInfo.textContent = "Файл не выбран";
   const input = dataInput.value;
 
-  if (!input.trim()) {
-    currentObjects = parseData(input);
-    updateStats();
-    updateResultsDisplay();
-    updateResultOutput();
-    statsInfo.innerHTML = "<p>Введите данные или загрузите файл</p>";
-    return;
-  }
-
   try {
+    if (!input.trim()) {
+      statsInfo.innerHTML = "<p>Введите данные или загрузите файл</p>";
+      return;
+    }
+
     currentObjects = parseData(input);
 
     updateStats();
