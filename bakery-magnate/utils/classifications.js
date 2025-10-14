@@ -136,7 +136,7 @@ function isOutsideWarehouse(obj) {
 }
 
 const STALL_BOUNDS = {
-  x: { min: -196.07, max: -179 },
+  x: { min: -196.07, max: -177 },
   y: { min: 13, max: 26.4 },
   z: { min: 1.1, max: 28.9 },
 };
@@ -157,7 +157,7 @@ const WAREHOUSE_FREEZERS_BOUNDS = {
 };
 const SHOP_TRUCK_BOUNDS = {
   x: { min: -467.4, max: -458.2 },
-  y: { min: 17.7, max: 27.5 },
+  y: { min: 17, max: 27.5 },
   z: { min: -107.7, max: -81.8 },
 };
 const OWN_TRUCK_BOUNDS = {
