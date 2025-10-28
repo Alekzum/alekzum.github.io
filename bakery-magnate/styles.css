@@ -219,9 +219,7 @@ button:not(.toggle-btn):not(.return-stall-btn):not(.return-warehouse-btn) {
   color: var(--button-text);
 }
 
-button:not([disabled]):not(.toggle-btn):not(.return-stall-btn):not(
-    .return-warehouse-btn
-  ):hover {
+button:not([disabled]):not(.toggle-btn):not(.return-stall-btn):not(.return-warehouse-btn):hover {
   background-color: var(--button-hover);
 }
 
@@ -534,4 +532,8 @@ button[disabled] {
 
 .results-container::-webkit-scrollbar-thumb:hover {
   background: var(--text-muted);
+}
+
+.no-display {
+  display: none
 }

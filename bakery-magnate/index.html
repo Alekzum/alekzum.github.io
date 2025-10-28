@@ -1,105 +1,95 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bakery Magnate Helper</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
 
-  <body>
-    <h1>Bakery Magnate Helper</h1>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bakery Magnate Helper</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
 
-    <button class="theme-toggle-btn" id="themeToggle">🌙 Тёмная тема</button>
-    <!-- <button id="theme-toggle" class="theme-toggle-btn">Переключить тему</button> -->
-    <div class="section">
-      <h3>1. Загрузка данных</h3>
-      <div>
-        <input type="file" id="fileInput" accept=".bm" />
-        <div class="file-info" id="fileInfo">Файл не выбран</div>
-      </div>
+<body>
+  <h1>Bakery Magnate Helper</h1>
 
-      <div>
-        <h4>Или вставьте данные вручную:</h4>
-        <textarea
-          id="dataInput"
-          placeholder="Вставьте сырые данные здесь..."
-        ></textarea>
-      </div>
-
-      <button id="processButton">Обработать данные</button>
+  <button id="themeToggle" class="theme-toggle-btn" type="button">🌙 Тёмная тема</button>
+  <div class="section">
+    <h3>1. Загрузка данных</h3>
+    <div>
+      <input type="file" id="fileInput" accept=".bm" title="Выберите файл сохранения..." />
+      <div id="fileInfo" class="file-info">Файл не выбран</div>
     </div>
-    <div class="section">
-      <h3>2. Результаты обработки</h3>
-      <div class="stats" id="statsInfo"></div>
 
-      <div class="classification">
-        <div class="class-badge stall-freezer-badge">
-          В холодильнике ларька: <span id="stallFreezerCount">0</span>
-        </div>
-        <div class="class-badge stall-badge">
-          В ларьке: <span id="stallCount">0</span>
-        </div>
-        <div class="class-badge outside-stall-badge">
-          Вне ларька: <span id="outsideStallCount">0</span>
-        </div>     
-        <div class="class-badge own-truck-badge">
-          В своем грузовике: <span id="ownTruckCount">0</span>
-        </div>
-        <div class="class-badge warehouse-freezers-badge">
-          В холодильнике склада: <span id="warehouseFreezersCount">0</span>
-        </div>
-        <div class="class-badge warehouse-badge">
-          На складе: <span id="warehouseCount">0</span>
-        </div>
-        <div class="class-badge outside-warehouse-badge">
-          Вне склада: <span id="outsideWarehouseCount">0</span>
-        </div>
-        <div class="class-badge shop-truck-badge">
-          В грузовике магазина: <span id="shopTruckCount">0</span>
-        </div>   
-        <div class="class-badge other-badge">
-          Другие: <span id="otherCount">0</span>
-        </div>
+    <div>
+      <h4>Или вставьте данные вручную:</h4>
+      <textarea id="dataInput" placeholder="Вставьте сырые данные здесь..."></textarea>
+    </div>
+
+    <button id="processButton" type="button">Обработать данные</button>
+  </div>
+  <div class="section">
+    <h3>2. Результаты обработки</h3>
+    <div id="statsInfo" class="stats"></div>
+
+    <div class="classification">
+      <div class="class-badge stall-freezer-badge">
+        В холодильнике ларька: <span id="stallFreezerCount">0</span>
       </div>
-
-      <button id="returnObjectsButtonStall" class="return-stall-btn">
-        Вернуть вещи (за ларьком)
-      </button>
-
-      <button id="returnObjectsButtonWarehouse" class="return-warehouse-btn">
-        Вернуть вещи (за складом)
-      </button>
-
-      <br />
-
-      <button class="toggle-btn" id="toggleResultsButton">
-        Показать/скрыть список объектов
-      </button>
-
-      <div
-        id="resultsContainer"
-        class="section results-container"
-        style="display: none"
-      >
-        <div id="results"></div>
+      <div class="class-badge stall-badge">
+        В ларьке: <span id="stallCount">0</span>
+      </div>
+      <div class="class-badge outside-stall-badge">
+        Вне ларька: <span id="outsideStallCount">0</span>
+      </div>
+      <div class="class-badge own-truck-badge">
+        В своем грузовике: <span id="ownTruckCount">0</span>
+      </div>
+      <div class="class-badge warehouse-freezers-badge">
+        В холодильнике склада: <span id="warehouseFreezersCount">0</span>
+      </div>
+      <div class="class-badge warehouse-badge">
+        На складе: <span id="warehouseCount">0</span>
+      </div>
+      <div class="class-badge outside-warehouse-badge">
+        Вне склада: <span id="outsideWarehouseCount">0</span>
+      </div>
+      <div class="class-badge shop-truck-badge">
+        В грузовике магазина: <span id="shopTruckCount">0</span>
+      </div>
+      <div class="class-badge other-badge">
+        Другие: <span id="otherCount">0</span>
       </div>
     </div>
 
-    <div class="download-section">
-      <h3>3. Скачать результат</h3>
-      <div>
-        <h4>Результат обработки:</h4>
-        <textarea
-          id="resultOutput"
-          readonly
-          placeholder="Здесь будут отображены данные для сохранения..."
-        ></textarea>
-      </div>
-      <button id="downloadButton" disabled>Скачать файл сохранения</button>
-      <div id="downloadInfo" class="file-info" style="display: none"></div>
-    </div>
+    <button id="returnObjectsButtonStall" class="return-stall-btn" type="button">
+      Вернуть вещи (за ларьком)
+    </button>
 
-    <script type="module" src="script.js"></script>
-  </body>
+    <button id="returnObjectsButtonWarehouse" class="return-warehouse-btn" type="button">
+      Вернуть вещи (за складом)
+    </button>
+
+    <br />
+
+    <button id="toggleResultsButton" class="toggle-btn" type="button">
+      Показать/скрыть список объектов
+    </button>
+
+    <div id="resultsContainer" class="section results-container no-display">
+      <div id="results"></div>
+    </div>
+  </div>
+
+  <div class="download-section">
+    <h3>3. Скачать результат</h3>
+    <div>
+      <h4>Результат обработки:</h4>
+      <textarea id="resultOutput" readonly placeholder="Здесь будут отображены данные для сохранения..."></textarea>
+    </div>
+    <button id="downloadButton" disabled type="button">Скачать файл сохранения</button>
+    <div id="downloadInfo" class="file-info no-display"></div>
+  </div>
+
+  <script type="module" src="script.js"></script>
+</body>
+
 </html>
