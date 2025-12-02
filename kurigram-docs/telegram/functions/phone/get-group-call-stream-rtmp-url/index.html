@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="orange" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>phone.GetGroupCallStreamRtmpUrl - Kurigram</title><link rel="shortcut icon" href="../../../../_static/favicon.ico"/><link rel="index" title="Index" href="../../../../genindex/" /><link rel="search" title="Search" href="../../../../search/" /><link rel="next" title="phone.GetGroupParticipants" href="../get-group-participants/" /><link rel="prev" title="phone.GetGroupCallStreamChannels" href="../get-group-call-stream-channels/" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=d88b86f9" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/shibuya.css?v=14737038" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../../../_static/print.css?v=20ff2c19" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/all.min.css?v=24d2f23b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/custom.css?v=b0e8149c" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    <meta property="og:type" content="website"/><meta property="og:title" content="phone.GetGroupCallStreamRtmpUrl"/>
+    <meta name="twitter:card" content="summary"/>
+  </head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="../../../../">
+      <img class="light-logo" src="../../../.././_static/img/kurigram_logo_light.png" alt="KurimuzonAkuma's Fork" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../../.././_static/img/kurigram_logo_dark.png" alt="KurimuzonAkuma's Fork" height="28" loading="lazy" />
+      <strong>KurimuzonAkuma's Fork</strong>
+    </a>
+    <div class="sy-head-nav" id="head-nav">
+      <nav class="sy-head-links"></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../../../search/" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="head-nav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2"></span>
+          <span class="hamburger_3"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="sy-scrollbar p-6"><div class="sidebar-links">
+  <ul>
+    <li><a class="icon-link" href="https://t.me/kurigram_chat">
+  <span class="icon">
+    <svg viewBox="0 0 24 24" fill="none">
+      <path fill="var(--accent-9)" fill-rule="evenodd" clip-rule="evenodd" d="M11 5a6 6 0 0 0-4.687 9.746c.215.27.315.62.231.954l-.514 2.058a1 1 0 0 0 1.485 1.1l2.848-1.71c.174-.104.374-.15.576-.148H13a6 6 0 0 0 0-12h-2Z"/>
+      <circle fill="white" cx="12" cy="11" r="1"/>
+      <circle fill="white" cx="9" cy="11" r="1"/>
+      <circle fill="white" cx="15" cy="11" r="1"/>
+    </svg>
+  </span>
+  <span class="text">Discussion</span>
+</a></li>
+  </ul>
+</div>
+        <div class="globaltoc" data-expand-depth="0"><p class="caption" role="heading" aria-level="3"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../intro/quickstart/">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../intro/install/">Install Guide</a></li>
+</ul>
+<p class="caption" role="heading" aria-level="3"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../start/setup/">Project Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../start/auth/">Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../start/invoking/">Invoking Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../start/updates/">Handling Updates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../start/errors/">Error Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../start/examples/">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../start/examples/hello_world/">hello_world</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../start/examples/echo_bot/">echo_bot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../start/examples/welcome_bot/">welcome_bot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../start/examples/get_chat_history/">get_history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../start/examples/get_chat_members/">get_chat_members</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../start/examples/get_dialogs/">get_dialogs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../start/examples/callback_queries/">callback_queries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../start/examples/inline_queries/">inline_queries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../start/examples/use_inline_bots/">use_inline_bots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../start/examples/bot_keyboards/">bot_keyboards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../start/examples/raw_updates/">raw_updates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../start/examples/stars/">stars</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading" aria-level="3"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/client/">Pyrogram Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/methods/">Available Methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/start/">start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/stop/">stop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/run/">run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/restart/">restart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/add_handler/">add_handler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/remove_handler/">remove_handler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/stop_transmission/">stop_transmission</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/export_session_string/">export_session_string</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/set_parse_mode/">set_parse_mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/set_dc/">set_dc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_dc_option/">get_dc_option</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_session/">get_session</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_file/">get_file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/idle/">idle()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/compose/">compose()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/send_message/">send_message</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/forward_media_group/">forward_media_group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/forward_messages/">forward_messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/copy_message/">copy_message</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/copy_media_group/">copy_media_group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/send_photo/">send_photo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/send_audio/">send_audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/send_document/">send_document</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/send_screenshot_notification/">send_screenshot_notification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/send_sticker/">send_sticker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/send_video/">send_video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/send_animation/">send_animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/send_voice/">send_voice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/send_video_note/">send_video_note</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/send_media_group/">send_media_group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/send_location/">send_location</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/send_venue/">send_venue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/send_contact/">send_contact</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/send_cached_media/">send_cached_media</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/send_reaction/">send_reaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/edit_message_text/">edit_message_text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/edit_message_caption/">edit_message_caption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/edit_message_checklist/">edit_message_checklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/edit_message_media/">edit_message_media</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/edit_message_reply_markup/">edit_message_reply_markup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/edit_inline_text/">edit_inline_text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/edit_inline_caption/">edit_inline_caption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/edit_inline_media/">edit_inline_media</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/edit_inline_reply_markup/">edit_inline_reply_markup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/send_chat_action/">send_chat_action</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/send_checklist/">send_checklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/delete_messages/">delete_messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_available_effects/">get_available_effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_messages/">get_messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_scheduled_messages/">get_scheduled_messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_stickers/">get_stickers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_web_app_link_url/">get_web_app_link_url</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_web_app_url/">get_web_app_url</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/mark_checklist_tasks_as_done/">mark_checklist_tasks_as_done</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/open_web_app/">open_web_app</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_media_group/">get_media_group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_chat_history/">get_chat_history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_chat_history_count/">get_chat_history_count</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/read_mentions/">read_mentions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/read_reactions/">read_reactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/read_chat_history/">read_chat_history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/send_poll/">send_poll</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/view_messages/">view_messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/vote_poll/">vote_poll</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/stop_poll/">stop_poll</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/retract_vote/">retract_vote</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/send_dice/">send_dice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/search_messages/">search_messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/search_messages_count/">search_messages_count</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/search_posts/">search_posts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/search_posts_count/">search_posts_count</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/search_global/">search_global</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/search_global_count/">search_global_count</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/download_media/">download_media</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/stream_media/">stream_media</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/translate_message_text/">translate_message_text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/translate_text/">translate_text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_discussion_message/">get_discussion_message</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_discussion_replies/">get_discussion_replies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_discussion_replies_count/">get_discussion_replies_count</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_main_web_app/">get_main_web_app</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_custom_emoji_stickers/">get_custom_emoji_stickers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_direct_messages_chat_topic_history/">get_direct_messages_chat_topic_history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/delete_direct_messages_chat_topic_history/">delete_direct_messages_chat_topic_history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/set_direct_messages_chat_topic_is_marked_as_unread/">set_direct_messages_chat_topic_is_marked_as_unread</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/send_web_page/">send_web_page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/start_bot/">start_bot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/delete_chat_history/">delete_chat_history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/send_paid_media/">send_paid_media</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/send_paid_reaction/">send_paid_reaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/add_to_gifs/">add_to_gifs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/approve_suggested_post/">approve_suggested_post</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/decline_suggested_post/">decline_suggested_post</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/add_checklist_tasks/">add_checklist_tasks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/join_chat/">join_chat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/leave_chat/">leave_chat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/ban_chat_member/">ban_chat_member</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/unban_chat_member/">unban_chat_member</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/restrict_chat_member/">restrict_chat_member</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/promote_chat_member/">promote_chat_member</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/set_administrator_title/">set_administrator_title</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/set_chat_photo/">set_chat_photo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/delete_chat_photo/">delete_chat_photo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/set_chat_title/">set_chat_title</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/set_chat_description/">set_chat_description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/set_chat_direct_messages_group/">set_chat_direct_messages_group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/set_chat_permissions/">set_chat_permissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/pin_chat_message/">pin_chat_message</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/unpin_chat_message/">unpin_chat_message</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/pin_forum_topic/">pin_forum_topic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/unpin_forum_topic/">unpin_forum_topic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/unpin_all_chat_messages/">unpin_all_chat_messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_chat/">get_chat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_chat_member/">get_chat_member</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_chat_members/">get_chat_members</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_chat_members_count/">get_chat_members_count</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_dialogs/">get_dialogs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_dialogs_count/">get_dialogs_count</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_direct_messages_topics_by_id/">get_direct_messages_topics_by_id</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_direct_messages_topics/">get_direct_messages_topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/set_chat_username/">set_chat_username</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/archive_chats/">archive_chats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/unarchive_chats/">unarchive_chats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/add_chat_members/">add_chat_members</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/create_channel/">create_channel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/create_group/">create_group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/create_supergroup/">create_supergroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/delete_channel/">delete_channel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/delete_folder_invite_link/">delete_folder_invite_link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_folder_invite_links/">get_folder_invite_links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/delete_supergroup/">delete_supergroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/delete_user_history/">delete_user_history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/set_slow_mode/">set_slow_mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/mark_chat_unread/">mark_chat_unread</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_chat_event_log/">get_chat_event_log</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_chat_online_count/">get_chat_online_count</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_send_as_chats/">get_send_as_chats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/set_send_as_chat/">set_send_as_chat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/set_chat_protected_content/">set_chat_protected_content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/close_forum_topic/">close_forum_topic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/create_forum_topic/">create_forum_topic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/delete_forum_topic/">delete_forum_topic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/edit_forum_topic/">edit_forum_topic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_forum_topics/">get_forum_topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_forum_topics_by_id/">get_forum_topics_by_id</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/update_color/">update_color</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/update_chat_notifications/">update_chat_notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/toggle_forum_topics/">toggle_forum_topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/create_folder_invite_link/">create_folder_invite_link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_chats_for_folder_invite_link/">get_chats_for_folder_invite_link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_folders/">get_folders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/create_folder/">create_folder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/delete_folder/">delete_folder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/reorder_folders/">reorder_folders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/edit_folder/">edit_folder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_similar_channels/">get_similar_channels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/join_folder/">join_folder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/leave_folder/">leave_folder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/toggle_join_to_send/">toggle_join_to_send</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/toggle_folder_tags/">toggle_folder_tags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/set_chat_ttl/">set_chat_ttl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_personal_channels/">get_personal_channels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_chat_settings/">get_chat_settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/transfer_chat_ownership/">transfer_chat_ownership</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_suitable_discussion_chats/">get_suitable_discussion_chats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/set_chat_discussion_group/">set_chat_discussion_group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/set_main_profile_tab/">set_main_profile_tab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_me/">get_me</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_users/">get_users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_chat_photos/">get_chat_photos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_chat_audios/">get_chat_audios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_chat_photos_count/">get_chat_photos_count</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_chat_audios_count/">get_chat_audios_count</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/set_profile_photo/">set_profile_photo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/set_personal_channel/">set_personal_channel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/delete_profile_photos/">delete_profile_photos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/set_username/">set_username</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/update_profile/">update_profile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/block_user/">block_user</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/unblock_user/">unblock_user</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_common_chats/">get_common_chats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_default_emoji_statuses/">get_default_emoji_statuses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/set_emoji_status/">set_emoji_status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/update_status/">update_status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/check_username/">check_username</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/update_birthday/">update_birthday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_chat_invite_link/">get_chat_invite_link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/export_chat_invite_link/">export_chat_invite_link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/create_chat_invite_link/">create_chat_invite_link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/edit_chat_invite_link/">edit_chat_invite_link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/revoke_chat_invite_link/">revoke_chat_invite_link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/delete_chat_invite_link/">delete_chat_invite_link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_chat_invite_link_joiners/">get_chat_invite_link_joiners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_chat_invite_link_joiners_count/">get_chat_invite_link_joiners_count</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_chat_admin_invite_links/">get_chat_admin_invite_links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_chat_admin_invite_links_count/">get_chat_admin_invite_links_count</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_chat_admins_with_invite_links/">get_chat_admins_with_invite_links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_chat_join_requests/">get_chat_join_requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/delete_chat_admin_invite_links/">delete_chat_admin_invite_links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/approve_chat_join_request/">approve_chat_join_request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/approve_all_chat_join_requests/">approve_all_chat_join_requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/decline_chat_join_request/">decline_chat_join_request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/decline_all_chat_join_requests/">decline_all_chat_join_requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/add_contact/">add_contact</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/delete_contacts/">delete_contacts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/import_contacts/">import_contacts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_contacts/">get_contacts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_contacts_count/">get_contacts_count</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/search_contacts/">search_contacts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/set_contact_note/">set_contact_note</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/enable_cloud_password/">enable_cloud_password</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/change_cloud_password/">change_cloud_password</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/remove_cloud_password/">remove_cloud_password</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_inline_bot_results/">get_inline_bot_results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/send_inline_bot_result/">send_inline_bot_result</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/send_invoice/">send_invoice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/answer_callback_query/">answer_callback_query</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/answer_inline_query/">answer_inline_query</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/request_callback_answer/">request_callback_answer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/send_game/">send_game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/set_game_score/">set_game_score</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_game_high_scores/">get_game_high_scores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/set_bot_commands/">set_bot_commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_bot_commands/">get_bot_commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/delete_bot_commands/">delete_bot_commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/edit_user_star_subscription/">edit_user_star_subscription</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/set_bot_default_privileges/">set_bot_default_privileges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_bot_default_privileges/">get_bot_default_privileges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/set_chat_menu_button/">set_chat_menu_button</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_chat_menu_button/">get_chat_menu_button</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/answer_web_app_query/">answer_web_app_query</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/answer_pre_checkout_query/">answer_pre_checkout_query</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/answer_shipping_query/">answer_shipping_query</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/create_invoice_link/">create_invoice_link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/refund_star_payment/">refund_star_payment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/set_bot_info_description/">set_bot_info_description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_bot_info_description/">get_bot_info_description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/set_bot_info_short_description/">set_bot_info_short_description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_bot_info_short_description/">get_bot_info_short_description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/set_bot_name/">set_bot_name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_bot_name/">get_bot_name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_owned_bots/">get_owned_bots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/connect/">connect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/disconnect/">disconnect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/initialize/">initialize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/terminate/">terminate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/send_code/">send_code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/resend_code/">resend_code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/sign_in/">sign_in</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/sign_in_bot/">sign_in_bot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/sign_up/">sign_up</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_password_hint/">get_password_hint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/check_password/">check_password</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/send_recovery_code/">send_recovery_code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/recover_password/">recover_password</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/accept_terms_of_service/">accept_terms_of_service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/log_out/">log_out</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_active_sessions/">get_active_sessions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/reset_session/">reset_session</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/reset_sessions/">reset_sessions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/can_post_stories/">can_post_stories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/copy_story/">copy_story</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/delete_stories/">delete_stories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/edit_story_caption/">edit_story_caption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/edit_story_media/">edit_story_media</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/edit_story_privacy/">edit_story_privacy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/forward_story/">forward_story</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_all_stories/">get_all_stories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_chat_stories/">get_chat_stories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_pinned_stories/">get_pinned_stories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_archived_stories/">get_archived_stories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_stories/">get_stories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/hide_chat_stories/">hide_chat_stories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/show_chat_stories/">show_chat_stories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/view_stories/">view_stories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/pin_chat_stories/">pin_chat_stories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/unpin_chat_stories/">unpin_chat_stories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/read_chat_stories/">read_chat_stories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/send_story/">send_story</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/enable_stealth_mode/">enable_stealth_mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_story_views/">get_story_views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/apply_boost/">apply_boost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_boosts/">get_boosts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_boosts_status/">get_boosts_status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_call_members/">get_call_members</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/delete_business_messages/">delete_business_messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_business_account_gifts/">get_business_account_gifts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_business_account_star_balance/">get_business_account_star_balance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_business_connection/">get_business_connection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/transfer_business_account_stars/">transfer_business_account_stars</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/apply_gift_code/">apply_gift_code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/buy_gift_upgrade/">buy_gift_upgrade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/check_gift_code/">check_gift_code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/convert_gift_to_stars/">convert_gift_to_stars</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_available_gifts/">get_available_gifts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_chat_gifts/">get_chat_gifts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_chat_gifts_count/">get_chat_gifts_count</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/add_collection_gifts/">add_collection_gifts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/create_gift_collection/">create_gift_collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/delete_gift_collection/">delete_gift_collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/drop_gift_original_details/">drop_gift_original_details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/edit_star_subscription/">edit_star_subscription</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_gift_collections/">get_gift_collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/remove_collection_gifts/">remove_collection_gifts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/reorder_collection_gifts/">reorder_collection_gifts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/reorder_gift_collections/">reorder_gift_collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/reuse_star_subscription/">reuse_star_subscription</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/set_gift_collection_name/">set_gift_collection_name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_gift_upgrade_preview/">get_gift_upgrade_preview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_payment_form/">get_payment_form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_stars_balance/">get_stars_balance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_ton_balance/">get_ton_balance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_upgraded_gift_value_info/">get_upgraded_gift_value_info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_upgraded_gift/">get_upgraded_gift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/gift_premium_with_stars/">gift_premium_with_stars</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/hide_gift/">hide_gift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/search_gifts_for_resale/">search_gifts_for_resale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/send_gift/">send_gift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/send_payment_form/">send_payment_form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/send_resold_gift/">send_resold_gift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/set_gift_resale_price/">set_gift_resale_price</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/set_pinned_gifts/">set_pinned_gifts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/show_gift/">show_gift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/suggest_birthday/">suggest_birthday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/transfer_gift/">transfer_gift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/upgrade_gift/">upgrade_gift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/add_profile_audio/">add_profile_audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/remove_profile_audio/">remove_profile_audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/set_profile_audio_position/">set_profile_audio_position</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_account_ttl/">get_account_ttl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/set_account_ttl/">set_account_ttl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/set_privacy/">set_privacy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_privacy/">get_privacy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/set_global_privacy_settings/">set_global_privacy_settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/set_inactive_session_ttl/">set_inactive_session_ttl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_global_privacy_settings/">get_global_privacy_settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/invoke/">invoke</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/recover_gaps/">recover_gaps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/resolve_peer/">resolve_peer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/save_file/">save_file</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/types/">Available Types</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/AcceptedGiftTypes/">AcceptedGiftTypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/Birthday/">Birthday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/BusinessConnection/">BusinessConnection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/BusinessIntro/">BusinessIntro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/BusinessRecipients/">BusinessRecipients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/BusinessWeeklyOpen/">BusinessWeeklyOpen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/BusinessWorkingHours/">BusinessWorkingHours</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/User/">User</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/Username/">Username</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/VerificationStatus/">VerificationStatus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/Chat/">Chat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/ChatPhoto/">ChatPhoto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/ChatMember/">ChatMember</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/ChatPermissions/">ChatPermissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/ChatAdministratorRights/">ChatAdministratorRights</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/ChatInviteLink/">ChatInviteLink</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/ChatAdminWithInviteLinks/">ChatAdminWithInviteLinks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/ChatEvent/">ChatEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/ChatEventFilter/">ChatEventFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/ChatMemberUpdated/">ChatMemberUpdated</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/ChatJoinRequest/">ChatJoinRequest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/ChatJoiner/">ChatJoiner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/Dialog/">Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/Restriction/">Restriction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/EmojiStatus/">EmojiStatus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/FailedToAddMember/">FailedToAddMember</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/Folder/">Folder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/GroupCallMember/">GroupCallMember</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/ChatColor/">ChatColor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/FoundContacts/">FoundContacts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/PrivacyRule/">PrivacyRule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/StoriesStealthMode/">StoriesStealthMode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/UserRating/">UserRating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/BotVerification/">BotVerification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/BusinessBotRights/">BusinessBotRights</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/ChatSettings/">ChatSettings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/GlobalPrivacySettings/">GlobalPrivacySettings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/HistoryCleared/">HistoryCleared</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/BusinessMessage/">BusinessMessage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/Message/">Message</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/MessageEntity/">MessageEntity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/MessageOriginChannel/">MessageOriginChannel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/MessageOriginChat/">MessageOriginChat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/MessageOriginHiddenUser/">MessageOriginHiddenUser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/MessageOriginImport/">MessageOriginImport</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/MessageOriginUser/">MessageOriginUser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/MessageOrigin/">MessageOrigin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/Photo/">Photo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/Thumbnail/">Thumbnail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/StrippedThumbnail/">StrippedThumbnail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/Audio/">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/AvailableEffect/">AvailableEffect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/Document/">Document</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/ExternalReplyInfo/">ExternalReplyInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/FactCheck/">FactCheck</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/FormattedText/">FormattedText</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/ForumTopic/">ForumTopic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/ForumTopicClosed/">ForumTopicClosed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/ForumTopicCreated/">ForumTopicCreated</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/ForumTopicEdited/">ForumTopicEdited</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/ForumTopicReopened/">ForumTopicReopened</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/GeneralForumTopicHidden/">GeneralForumTopicHidden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/GeneralForumTopicUnhidden/">GeneralForumTopicUnhidden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/Animation/">Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/Video/">Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/Voice/">Voice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/VideoNote/">VideoNote</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/Contact/">Contact</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/Location/">Location</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/MaskPosition/">MaskPosition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/MediaArea/">MediaArea</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/Venue/">Venue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/Sticker/">Sticker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/Game/">Game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/WebPage/">WebPage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/Poll/">Poll</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/ProximityAlertTriggered/">ProximityAlertTriggered</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/PollOption/">PollOption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/Dice/">Dice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/Reaction/">Reaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/RestrictionReason/">RestrictionReason</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/Gift/">Gift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/VideoChatScheduled/">VideoChatScheduled</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/VideoChatStarted/">VideoChatStarted</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/VideoChatEnded/">VideoChatEnded</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/VideoChatMembersInvited/">VideoChatMembersInvited</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/PhoneCallStarted/">PhoneCallStarted</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/PhoneCallEnded/">PhoneCallEnded</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/WebAppData/">WebAppData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/MessageReactions/">MessageReactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/ChatReactions/">ChatReactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/Story/">Story</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/MyBoost/">MyBoost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/BoostsStatus/">BoostsStatus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/Giveaway/">Giveaway</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InputChecklistTask/">InputChecklistTask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/GiveawayCreated/">GiveawayCreated</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/GiveawayPrizeStars/">GiveawayPrizeStars</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/GiveawayCompleted/">GiveawayCompleted</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/GiveawayWinners/">GiveawayWinners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/Invoice/">Invoice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/LinkPreviewOptions/">LinkPreviewOptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/GiftCollection/">GiftCollection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/GiftCode/">GiftCode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/GiftPurchaseLimit/">GiftPurchaseLimit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/GiftResaleParameters/">GiftResaleParameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/GiftResalePrice/">GiftResalePrice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/GiftResalePriceStar/">GiftResalePriceStar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/GiftResalePriceTon/">GiftResalePriceTon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/GiftUpgradePreview/">GiftUpgradePreview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/GiftUpgradePrice/">GiftUpgradePrice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/CheckedGiftCode/">CheckedGiftCode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/ChecklistTask/">ChecklistTask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/ChecklistTasksAdded/">ChecklistTasksAdded</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/ChecklistTasksDone/">ChecklistTasksDone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/Checklist/">Checklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/RefundedPayment/">RefundedPayment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/ReplyParameters/">ReplyParameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/SuccessfulPayment/">SuccessfulPayment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/SuggestedPostParameters/">SuggestedPostParameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/SuggestedPostInfo/">SuggestedPostInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/SuggestedPostPaid/">SuggestedPostPaid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/SuggestedPostPrice/">SuggestedPostPrice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/SuggestedPostPriceStar/">SuggestedPostPriceStar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/SuggestedPostPriceTon/">SuggestedPostPriceTon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/SuggestedPostApprovalFailed/">SuggestedPostApprovalFailed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/SuggestedPostApproved/">SuggestedPostApproved</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/SuggestedPostDeclined/">SuggestedPostDeclined</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/SuggestedPostRefunded/">SuggestedPostRefunded</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/TextQuote/">TextQuote</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/PaidMediaInfo/">PaidMediaInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/PaidMediaPreview/">PaidMediaPreview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/PaidMessagesRefunded/">PaidMessagesRefunded</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/PaidReactor/">PaidReactor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/PaidMessagesPriceChanged/">PaidMessagesPriceChanged</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/DirectMessagePriceChanged/">DirectMessagePriceChanged</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/DirectMessagesTopic/">DirectMessagesTopic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/PaymentForm/">PaymentForm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/PaymentOption/">PaymentOption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/SavedCredentials/">SavedCredentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/PaymentResult/">PaymentResult</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/ChatBoost/">ChatBoost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/ContactRegistered/">ContactRegistered</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/ScreenshotTaken/">ScreenshotTaken</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/StarAmount/">StarAmount</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/WriteAccessAllowed/">WriteAccessAllowed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/GiftAttribute/">GiftAttribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/StoryView/">StoryView</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/GiftedPremium/">GiftedPremium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/ChatBackground/">ChatBackground</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/ChatTheme/">ChatTheme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/GiftedStars/">GiftedStars</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/GiftedTon/">GiftedTon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/UpgradedGiftValueInfo/">UpgradedGiftValueInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/UpgradedGiftAttributeId/">UpgradedGiftAttributeId</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/UpgradedGiftAttributeIdModel/">UpgradedGiftAttributeIdModel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/UpgradedGiftAttributeIdSymbol/">UpgradedGiftAttributeIdSymbol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/UpgradedGiftAttributeIdBackdrop/">UpgradedGiftAttributeIdBackdrop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InputChatPhoto/">InputChatPhoto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InputChatPhotoPrevious/">InputChatPhotoPrevious</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InputChatPhotoStatic/">InputChatPhotoStatic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InputChatPhotoAnimation/">InputChatPhotoAnimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/ReplyKeyboardMarkup/">ReplyKeyboardMarkup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/KeyboardButton/">KeyboardButton</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/ReplyKeyboardRemove/">ReplyKeyboardRemove</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InlineKeyboardMarkup/">InlineKeyboardMarkup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InlineKeyboardButton/">InlineKeyboardButton</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/LoginUrl/">LoginUrl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/ForceReply/">ForceReply</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/CallbackQuery/">CallbackQuery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/GameHighScore/">GameHighScore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/CallbackGame/">CallbackGame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/WebAppInfo/">WebAppInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/MenuButton/">MenuButton</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/MenuButtonCommands/">MenuButtonCommands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/MenuButtonWebApp/">MenuButtonWebApp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/MenuButtonDefault/">MenuButtonDefault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/SentWebAppMessage/">SentWebAppMessage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/KeyboardButtonRequestChat/">KeyboardButtonRequestChat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/KeyboardButtonRequestUsers/">KeyboardButtonRequestUsers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/KeyboardButtonPollType/">KeyboardButtonPollType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/OrderInfo/">OrderInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/PreCheckoutQuery/">PreCheckoutQuery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/ShippingAddress/">ShippingAddress</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/ShippingQuery/">ShippingQuery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/MessageReactionUpdated/">MessageReactionUpdated</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/MessageReactionCountUpdated/">MessageReactionCountUpdated</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/ChatBoostUpdated/">ChatBoostUpdated</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/ShippingOption/">ShippingOption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/PurchasedPaidMedia/">PurchasedPaidMedia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/ChatShared/">ChatShared</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/UsersShared/">UsersShared</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/BotCommand/">BotCommand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/BotCommandScope/">BotCommandScope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/BotCommandScopeDefault/">BotCommandScopeDefault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/BotCommandScopeAllPrivateChats/">BotCommandScopeAllPrivateChats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/BotCommandScopeAllGroupChats/">BotCommandScopeAllGroupChats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/BotCommandScopeAllChatAdministrators/">BotCommandScopeAllChatAdministrators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/BotCommandScopeChat/">BotCommandScopeChat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/BotCommandScopeChatAdministrators/">BotCommandScopeChatAdministrators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/BotCommandScopeChatMember/">BotCommandScopeChatMember</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InlineQuery/">InlineQuery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InlineQueryResult/">InlineQueryResult</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InlineQueryResultCachedAudio/">InlineQueryResultCachedAudio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InlineQueryResultCachedDocument/">InlineQueryResultCachedDocument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InlineQueryResultCachedAnimation/">InlineQueryResultCachedAnimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InlineQueryResultCachedPhoto/">InlineQueryResultCachedPhoto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InlineQueryResultCachedSticker/">InlineQueryResultCachedSticker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InlineQueryResultCachedVideo/">InlineQueryResultCachedVideo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InlineQueryResultCachedVoice/">InlineQueryResultCachedVoice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InlineQueryResultArticle/">InlineQueryResultArticle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InlineQueryResultAudio/">InlineQueryResultAudio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InlineQueryResultContact/">InlineQueryResultContact</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InlineQueryResultDocument/">InlineQueryResultDocument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InlineQueryResultAnimation/">InlineQueryResultAnimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InlineQueryResultLocation/">InlineQueryResultLocation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InlineQueryResultPhoto/">InlineQueryResultPhoto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InlineQueryResultVenue/">InlineQueryResultVenue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InlineQueryResultVideo/">InlineQueryResultVideo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InlineQueryResultVoice/">InlineQueryResultVoice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/ChosenInlineResult/">ChosenInlineResult</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/ActiveSession/">ActiveSession</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/ActiveSessions/">ActiveSessions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/SentCode/">SentCode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/TermsOfService/">TermsOfService</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InputChecklist/">InputChecklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InputContactMessageContent/">InputContactMessageContent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InputCredentials/">InputCredentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InputCredentialsApplePay/">InputCredentialsApplePay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InputCredentialsGooglePay/">InputCredentialsGooglePay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InputCredentialsNew/">InputCredentialsNew</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InputCredentialsSaved/">InputCredentialsSaved</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InputInvoice/">InputInvoice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InputInvoiceMessage/">InputInvoiceMessage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InputInvoiceMessageContent/">InputInvoiceMessageContent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InputInvoiceName/">InputInvoiceName</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InputLocationMessageContent/">InputLocationMessageContent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InputMedia/">InputMedia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InputMediaAnimation/">InputMediaAnimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InputMediaAudio/">InputMediaAudio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InputMediaDocument/">InputMediaDocument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InputMediaPhoto/">InputMediaPhoto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InputMediaVideo/">InputMediaVideo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InputMessageContent/">InputMessageContent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InputPhoneContact/">InputPhoneContact</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InputPrivacyRule/">InputPrivacyRule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InputPrivacyRuleAllowAll/">InputPrivacyRuleAllowAll</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InputPrivacyRuleAllowBots/">InputPrivacyRuleAllowBots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InputPrivacyRuleAllowChats/">InputPrivacyRuleAllowChats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InputPrivacyRuleAllowCloseFriends/">InputPrivacyRuleAllowCloseFriends</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InputPrivacyRuleAllowContacts/">InputPrivacyRuleAllowContacts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InputPrivacyRuleAllowPremium/">InputPrivacyRuleAllowPremium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InputPrivacyRuleAllowUsers/">InputPrivacyRuleAllowUsers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InputPrivacyRuleDisallowAll/">InputPrivacyRuleDisallowAll</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InputPrivacyRuleDisallowBots/">InputPrivacyRuleDisallowBots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InputPrivacyRuleDisallowChats/">InputPrivacyRuleDisallowChats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InputPrivacyRuleDisallowContacts/">InputPrivacyRuleDisallowContacts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InputPrivacyRuleDisallowUsers/">InputPrivacyRuleDisallowUsers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InputTextMessageContent/">InputTextMessageContent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/InputVenueMessageContent/">InputVenueMessageContent</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/bound-methods/">Bound Methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Message.click/">click</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Message.delete/">delete</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Message.download/">download</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Message.forward/">forward</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Message.copy/">copy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Message.copy_media_group/">copy_media_group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Message.pin/">pin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Message.unpin/">unpin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Message.edit/">edit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Message.edit_text/">edit_text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Message.edit_caption/">edit_caption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Message.edit_media/">edit_media</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Message.edit_checklist/">edit_checklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Message.edit_reply_markup/">edit_reply_markup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Message.reply/">reply</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Message.reply_text/">reply_text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Message.reply_animation/">reply_animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Message.reply_audio/">reply_audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Message.reply_cached_media/">reply_cached_media</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Message.reply_chat_action/">reply_chat_action</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Message.reply_contact/">reply_contact</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Message.reply_document/">reply_document</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Message.reply_game/">reply_game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Message.reply_inline_bot_result/">reply_inline_bot_result</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Message.reply_location/">reply_location</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Message.reply_media_group/">reply_media_group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Message.reply_photo/">reply_photo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Message.reply_poll/">reply_poll</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Message.reply_sticker/">reply_sticker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Message.reply_venue/">reply_venue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Message.reply_video/">reply_video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Message.reply_video_note/">reply_video_note</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Message.reply_voice/">reply_voice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Message.reply_web_page/">reply_web_page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Message.reply_checklist/">reply_checklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Message.get_media_group/">get_media_group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Message.react/">react</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Message.read/">read</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Message.view/">view</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Message.pay/">pay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Chat.archive/">archive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Chat.unarchive/">unarchive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Chat.set_title/">set_title</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Chat.set_description/">set_description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Chat.set_photo/">set_photo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Chat.set_ttl/">set_ttl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Chat.ban_member/">ban_member</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Chat.unban_member/">unban_member</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Chat.restrict_member/">restrict_member</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Chat.promote_member/">promote_member</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Chat.join/">join</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Chat.leave/">leave</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Chat.export_invite_link/">export_invite_link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Chat.get_member/">get_member</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Chat.get_members/">get_members</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Chat.add_members/">add_members</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Chat.mark_unread/">mark_unread</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Chat.set_protected_content/">set_protected_content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Chat.unpin_all_messages/">unpin_all_messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Chat.mute/">mute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Chat.unmute/">unmute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/User.archive/">archive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/User.unarchive/">unarchive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/User.block/">block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/User.unblock/">unblock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/User.get_common_chats/">get_common_chats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/CallbackQuery.answer/">answer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/CallbackQuery.edit_message_text/">edit_message_text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/CallbackQuery.edit_message_caption/">edit_message_caption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/CallbackQuery.edit_message_media/">edit_message_media</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/CallbackQuery.edit_message_reply_markup/">edit_message_reply_markup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/InlineQuery.answer/">answer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/PreCheckoutQuery.answer/">answer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/ShippingQuery.answer/">answer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/ChatJoinRequest.approve/">approve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/ChatJoinRequest.decline/">decline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Story.reply/">reply</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Story.reply_text/">reply_text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Story.reply_animation/">reply_animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Story.reply_audio/">reply_audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Story.reply_cached_media/">reply_cached_media</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Story.reply_media_group/">reply_media_group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Story.reply_photo/">reply_photo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Story.reply_sticker/">reply_sticker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Story.reply_video/">reply_video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Story.reply_video_note/">reply_video_note</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Story.reply_voice/">reply_voice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Story.copy/">copy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Story.delete/">delete</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Story.edit_media/">edit_media</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Story.edit_caption/">edit_caption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Story.edit_privacy/">edit_privacy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Story.react/">react</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Story.forward/">forward</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Story.download/">download</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Story.read/">read</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Story.view/">view</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Folder.delete/">delete</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Folder.edit/">edit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Folder.include_chat/">include_chat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Folder.exclude_chat/">exclude_chat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Folder.update_color/">update_color</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Folder.pin_chat/">pin_chat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Folder.remove_chat/">remove_chat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Folder.create_invite_link/">create_invite_link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/ActiveSession.reset/">reset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Gift.show/">show</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Gift.hide/">hide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Gift.convert/">convert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Gift.upgrade/">upgrade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Gift.transfer/">transfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Gift.wear/">wear</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Gift.buy/">buy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Gift.send/">send</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/bound-methods/Animation.add_to_gifs/">add_to_gifs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/enums/">Enumerations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/enums/BusinessSchedule/">BusinessSchedule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/enums/ChatAction/">ChatAction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/enums/ChatEventAction/">ChatEventAction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/enums/ChatJoinType/">ChatJoinType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/enums/ChatMemberStatus/">ChatMemberStatus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/enums/ChatMembersFilter/">ChatMembersFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/enums/ChatType/">ChatType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/enums/ClientPlatform/">ClientPlatform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/enums/FolderColor/">FolderColor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/enums/MessageEntityType/">MessageEntityType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/enums/MessageMediaType/">MessageMediaType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/enums/MessageOriginType/">MessageOriginType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/enums/MessageServiceType/">MessageServiceType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/enums/MessagesFilter/">MessagesFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/enums/NextCodeType/">NextCodeType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/enums/ParseMode/">ParseMode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/enums/PhoneCallDiscardReason/">PhoneCallDiscardReason</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/enums/PollType/">PollType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/enums/PrivacyKey/">PrivacyKey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/enums/ProfileColor/">ProfileColor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/enums/ProfileTab/">ProfileTab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/enums/ReplyColor/">ReplyColor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/enums/SentCodeType/">SentCodeType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/enums/StoriesPrivacyRules/">StoriesPrivacyRules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/enums/UserStatus/">UserStatus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/enums/GiftAttributeType/">GiftAttributeType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/enums/MediaAreaType/">MediaAreaType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/enums/PrivacyRuleType/">PrivacyRuleType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/enums/GiftForResaleOrder/">GiftForResaleOrder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/enums/PaymentFormType/">PaymentFormType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/enums/StickerType/">StickerType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/enums/MaskPointType/">MaskPointType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/enums/SuggestedPostRefundReason/">SuggestedPostRefundReason</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/enums/SuggestedPostState/">SuggestedPostState</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/handlers/">Update Handlers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/decorators/">Decorators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/errors/">RPC Errors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/errors/see-other/">303 - SeeOther</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/errors/bad-request/">400 - BadRequest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/errors/unauthorized/">401 - Unauthorized</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/errors/forbidden/">403 - Forbidden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/errors/not-acceptable/">406 - NotAcceptable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/errors/flood/">420 - Flood</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/errors/internal-server-error/">500 - InternalServerError</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/filters/">Update Filters</a></li>
+</ul>
+<p class="caption" role="heading" aria-level="3"><span class="caption-text">Topic Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../topics/use-filters/">Using Filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../topics/create-filters/">Creating Filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../topics/more-on-updates/">More on Updates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../topics/client-settings/">Client Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../topics/client-settings/#decreasing-chance-of-ban">Decreasing chance of ban</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../topics/speedups/">Speedups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../topics/text-formatting/">Text Formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../topics/smart-plugins/">Smart Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../topics/storage-engines/">Storage Engines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../topics/serializing/">Object Serialization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../topics/proxy/">Proxy Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../topics/scheduling/">Scheduling Tasks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../topics/mtproto-vs-botapi/">MTProto vs. Bot API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../topics/peers/">Peers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../topics/debugging/">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../topics/test-servers/">Test Servers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../topics/advanced-usage/">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../topics/voice-calls/">Voice Calls</a></li>
+</ul>
+<p class="caption" role="heading" aria-level="3"><span class="caption-text">Meta</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faq/">Frequently Asked Questions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../faq/why-is-the-api-key-needed-for-bots/">Why is the API key needed for bots?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../faq/how-to-use-webhooks/">How to use webhooks?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../faq/using-the-same-file-id-across-different-accounts/">Using the same file_id across different accounts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../faq/using-multiple-clients-at-once-on-the-same-account/">Using multiple clients at once on the same account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../faq/client-started-but-nothing-happens/">Client started, but nothing happens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../faq/what-are-the-ip-addresses-of-telegram-data-centers/">What are the IP addresses of Telegram Data Centers?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../faq/migrating-the-account-to-another-data-center/">Migrating the account to another data center</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../faq/why-is-the-client-reacting-slowly-in-supergroups-channels/">Why is the client reacting slowly in supergroups/channels?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../faq/peer-id-invalid-error/">PEER_ID_INVALID error</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../faq/code-hangs-when-calling-stop-restart-add-remove-handler/">Code hangs when calling stop, restart, add/remove_handler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../faq/unicodeencodeerror-codec-cant-encode/">UnicodeEncodeError: ‘…’ codec can’t encode …</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../faq/uploading-with-urls-gives-error-webpage-curl-failed/">Uploading with URLs gives error WEBPAGE_CURL_FAILED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../faq/sqlite3-operationalerror-database-is-locked/">sqlite3.OperationalError: database is locked</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../faq/sqlite3-interfaceerror-error-binding-parameter/">sqlite3.InterfaceError: Error binding parameter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../faq/socket-send-oserror-timeouterror-connection-lost-reset/">socket.send(), OSError(), TimeoutError(), Connection lost/reset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../faq/how-to-avoid-flood-waits/">How to avoid Flood Waits?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../faq/the-account-has-been-limited-deactivated/">The account has been limited/deactivated/frozen</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../support/">Support Kurigram</a></li>
+</ul>
+<p class="caption" role="heading" aria-level="3"><span class="caption-text">Telegram Raw API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../">Raw Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../types/">Raw Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../base/">Raw Base</a></li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-lucide close"></i>
+    </button>
+    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><div class="localtoc"><h3>On this page</h3><ul>
+<li><a class="reference internal" href="#pyrogram.raw.functions.phone.GetGroupCallStreamRtmpUrl"><code class="docutils literal notranslate"><span class="pre">GetGroupCallStreamRtmpUrl</span></code></a></li>
+</ul>
+</div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div></div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+<div class="sy-breadcrumbs" role="navigation">
+  <div class="sy-breadcrumbs-inner flex items-center">
+    <div class="md:hidden mr-3">
+      <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+        <i class="i-lucide menu"></i>
+      </button>
+    </div>
+    <ol class="flex-1" itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="../../../../"><span itemprop="name">KurimuzonAkuma's Fork</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="1" />
+      </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="../../"><span itemprop="name">Raw Functions</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="2" />
+      </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="../"><span itemprop="name">Phone</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="3" />
+      </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <strong itemprop="name">phone.GetGroupCallStreamRtmpUrl</strong>
+        <meta itemprop="position" content="4" />
+      </li></ol>
+    <div class="xl:hidden ml-1">
+      <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
+        aria-expanded="false">
+        <i class="i-lucide outdent"></i>
+      </button>
+    </div>
+  </div>
+</div><div class="flex flex-col break-words justify-between">
+      <div class="min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
+        <article class="yue" role="main">
+          <section id="phone-getgroupcallstreamrtmpurl">
+<h1>phone.GetGroupCallStreamRtmpUrl<a class="headerlink" href="#phone-getgroupcallstreamrtmpurl" title="Link to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyrogram.raw.functions.phone.GetGroupCallStreamRtmpUrl">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pyrogram.raw.functions.phone.</span></span><span class="sig-name descname"><span class="pre">GetGroupCallStreamRtmpUrl</span></span><a class="headerlink" href="#pyrogram.raw.functions.phone.GetGroupCallStreamRtmpUrl" title="Link to this definition">¶</a></dt>
+<dd><p>Get RTMP URL and stream key for RTMP livestreams. Can be used even before creating the actual RTMP livestream with <a class="reference external" href="https://corefork.telegram.org/method/phone.createGroupCall">phone.createGroupCall</a> (the <code class="docutils literal notranslate"><span class="pre">rtmp_stream</span></code> flag must be set).</p>
+<dl class="simple">
+<dt>Details:</dt><dd><ul class="simple">
+<li><p>Layer: <code class="docutils literal notranslate"><span class="pre">218</span></code></p></li>
+<li><p>ID: <code class="docutils literal notranslate"><span class="pre">5AF4C73A</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>peer</strong> (<a class="reference internal" href="../../../base/input-peer/#pyrogram.raw.base.InputPeer" title="pyrogram.raw.base.InputPeer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InputPeer</span></code></a>) – Peer to livestream into</p></li>
+<li><p><strong>revoke</strong> (<code class="docutils literal notranslate"><span class="pre">bool</span></code>) – Whether to revoke the previous stream key or simply return the existing one</p></li>
+<li><p><strong>live_story</strong> (<code class="docutils literal notranslate"><span class="pre">bool</span></code>, <em>optional</em>) – N/A</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="../../../base/phone/group-call-stream-rtmp-url/#pyrogram.raw.base.phone.GroupCallStreamRtmpUrl" title="pyrogram.raw.base.phone.GroupCallStreamRtmpUrl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">phone.GroupCallStreamRtmpUrl</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+        </article><button class="back-to-top" type="button">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+  </svg>
+  <span>Back to top</span>
+</button><div class="navigation flex print:hidden"><div class="navigation-prev">
+    <a href="../get-group-call-stream-channels/">
+      <i class="i-lucide chevron-left"></i>
+      <div class="page-info">
+        <span>Previous</span><div class="title">phone.GetGroupCallStreamChannels</div></div>
+    </a>
+  </div><div class="navigation-next">
+    <a href="../get-group-participants/">
+      <div class="page-info">
+        <span>Next</span>
+        <div class="title">phone.GetGroupParticipants</div>
+      </div>
+      <i class="i-lucide chevron-right"></i>
+    </a>
+  </div></div></div>
+    </div>
+  </main>
+</div>
+
+
+<footer class="sy-foot">
+    <div class="sy-foot-inner sy-container mx-auto">
+        <div class="sy-foot-reserved md:flex justify-between items-center">
+            <div class="sy-foot-copyright">
+                <p>
+                    <strong><a href="/">Kurigram</a></strong>
+                    <i class="far fa-copyright"></i> Copyright 2017–
+                    <script>
+                        document.write(new Date().getFullYear());
+                    </script>
+                    ,
+                    <a href="https://github.com/delivrance"
+                        ><i class="fas fa-cat"></i> Dan</a
+                    >,
+                    <a href="https://github.com/KurimuzonAkuma"
+                        ><i class="fas fa-ghost"></i> KurimuzonAkuma</a
+                    >
+                </p>
+
+                <p>
+                    Released under the
+                    <a href="https://opensource.org/licenses/LGPL-3.0">
+                        GNU LGPL v3.0</a
+                    >
+                    license
+                </p>
+            </div>
+            <div class="sy-foot-socials">
+                <p>
+                    <a href="https://kurigram.icu"
+                        ><i class="fas fa-globe"></i
+                    ></a>
+                    <a href="https://t.me/kurigram_news"
+                        ><i class="fab fa-telegram-plane"></i
+                    ></a>
+                    <a href="https://github.com/KurimuzonAkuma/kurigram"
+                        ><i class="fab fa-github"></i
+                    ></a>
+                    <a href="https://pypi.org/project/kurigram"
+                        ><i class="fab fa-python"></i
+                    ></a>
+                </p>
+                <p>
+                    <a href="https://docs.kurigram.icu/support">
+                        <i class="fas fa-hand-holding-heart"></i> Support
+                        Kurigram
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+      <script src="../../../../_static/documentation_options.js?v=7a06361e"></script>
+      <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../../_static/copybutton.js?v=a56c686a"></script>
+      <script src="../../../../_static/shibuya.js?v=c1cf1a6b"></script></body>
+</html>

@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Bitter:wght@400;600&family=Open+Sans:ital,wght@0,400;0,600;1,400;1,600&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+:root {
+    --color-green: green;
+    --color-red: red;
+}
+
+[data-color-mode=auto] .theme-switch .theme-icon {
+    --icon-url: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXN1bi1tb29uLWljb24gbHVjaWRlLXN1bi1tb29uIj48cGF0aCBkPSJNMTIgMnYyIi8+PHBhdGggZD0iTTE0LjgzNyAxNi4zODVhNiA2IDAgMSAxLTcuMjIzLTcuMjIyYy42MjQtLjE0Ny45Ny42Ni43MTUgMS4yNDhhNCA0IDAgMCAwIDUuMjYgNS4yNTljLjU4OS0uMjU1IDEuMzk2LjA5IDEuMjQ4LjcxNSIvPjxwYXRoIGQ9Ik0xNiAxMmE0IDQgMCAwIDAtNC00Ii8+PHBhdGggZD0ibTE5IDUtMS4yNTYgMS4yNTYiLz48cGF0aCBkPSJNMjAgMTJoMiIvPjwvc3ZnPg==");
+}
+
+.sy-foot-socials {
+    text-align: right;
+}
+
+.sy-foot-socials a {
+    color: var(--sy-c-foot-text);
+    font-size: .84rem;
+}
+
+.pyrogram-container a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+}
+
+.pyrogram-logo img {
+    width: 72px;
+    display: block;
+}
+
+.pyrogram-text {
+    font-family: var(--sy-f-heading);
+    font-size: calc(var(--font-size--normal) * 3);
+    color: var(--color-pyrogram-text);
+    letter-spacing: 0.0425em;
+    font-weight: bold;
+    margin-left: 12px;
+    font-size: 72px;
+}
+
+footer a:hover {
+    color: var(--accent-11);
+}
+
+[data-color-mode=dark] html[data-accent-color='orange'] {
+  --accent-1: #ec000007;
+  --accent-2: #f23e0211;
+  --accent-3: #fb22002f;
+  --accent-4: #ff000049;
+  --accent-5: #ff17005a;
+  --accent-6: #fd36006d;
+  --accent-7: #ff500487;
+  --accent-8: #ff560cb3;
+  --accent-9: #fe5811b7;
+  --accent-10: #ff4900a5;
+  --accent-11: #ff9369;
+  --accent-12: #ffd1c1;
+}
+
+[data-color-mode=light] html[data-accent-color='orange'] {
+    --accent-1: #c0400004;
+    --accent-2: #e3390009;
+    --accent-3: #eb3e0019;
+    --accent-4: #ff43002e;
+    --accent-5: #ff430041;
+    --accent-6: #ea3c0052;
+    --accent-7: #d3360068;
+    --accent-8: #c9330084;
+    --accent-9: #b63700ee;
+    --accent-10: #ab3500;
+    --accent-11: #bc3600e2;
+    --accent-12: #3f1000e0;
+}
