@@ -1,0 +1,93 @@
+name: Update Kurigram Docs
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Download docs archive
+        run: |
+          set -e
+          max_attempts=3
+          attempt=1
+
+          while [ $attempt -le $max_attempts ]; do
+            echo "Download attempt $attempt/$max_attempts..."
+            if curl -fL --connect-timeout 10 --max-time 60 https://docs.kurigram.icu/docs.zip -o docs.zip; then
+              echo "Download successful"
+              exit 0
+            fi
+
+            attempt=$((attempt + 1))
+            if [ $attempt -le $max_attempts ]; then
+              echo "Download failed, retrying in 5s..."
+              sleep 5
+            fi
+          done
+
+          echo "Failed to download docs.zip after $max_attempts attempts"
+          exit 1
+
+      - name: Verify archive integrity
+        run: |
+          unzip -t docs.zip > /dev/null
+          echo "Archive integrity verified"
+
+      - name: Extract to temp directory
+        run: |
+          set -e
+          rm -rf .tmp-docs
+          mkdir -p .tmp-docs
+          unzip -oq docs.zip -d .tmp-docs
+          rm -f docs.zip
+
+          if [ ! -d ".tmp-docs" ] || [ -z "$(ls -A .tmp-docs)" ]; then
+            echo "Archive extraction resulted in empty directory"
+            exit 1
+          fi
+
+      - name: Update kurigram-docs folder
+        run: |
+          set -e
+          mkdir -p kurigram-docs
+          find kurigram-docs -mindepth 1 -delete
+          rsync -a --delete .tmp-docs/ kurigram-docs/
+          rm -rf .tmp-docs
+
+      - name: Normalize line endings
+        run: |
+          find kurigram-docs -type f \
+            \( -iname "*.html" -o -iname "*.css" -o -iname "*.js" -o -iname "*.json" -o -iname "*.md" \) \
+            -exec perl -0pi -e 's/\r\n/\n/g' {} +
+
+      - name: Detect meaningful changes
+        id: changes
+        run: |
+          set -e
+          git add kurigram-docs
+
+          if git diff --cached --quiet --ignore-all-space --ignore-blank-lines -- kurigram-docs/; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit and push
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git commit -m "update(kurigram-docs): dump from $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git push
