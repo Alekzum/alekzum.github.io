@@ -1,9 +1,13 @@
 name: Update Kurigram Docs
 
 on:
-  schedule:
-    - cron: '0 0 * * *'
   workflow_dispatch:
+    inputs:
+      docs_url:
+        description: 'URL to docs.zip file'
+        required: true
+        type: string
+        default: 'https://docs.kurigram.icu/docs.zip'
 
 permissions:
   contents: write
@@ -14,51 +18,48 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          ref: main
+          python-version: '3.11'
 
       - name: Download docs archive
         run: |
           set -e
-          max_attempts=3
-          attempt=1
+          python -m pip install --upgrade pip
+          python -m pip install cloudscraper
+          python - <<'PY'
+          import sys
+          import time
+          import cloudscraper
 
-          while [ $attempt -le $max_attempts ]; do
-            echo "Download attempt $attempt/$max_attempts..."
-            if curl -fL --url 'https://docs.kurigram.icu/docs.zip' \
-              -b '${{ secrets.COOKIE }}' \
-              -H 'accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7' \
-              -H 'accept-language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7' \
-              -H 'priority: u=0, i' \
-              -H 'sec-ch-ua: "Not?A_Brand";v="24", "Chromium";v="152", "DuckDuckGo";v="152"' \
-              -H 'sec-ch-ua-mobile: ?0' \
-              -H 'sec-ch-ua-platform: "Windows"' \
-              -H 'sec-fetch-dest: document' \
-              -H 'sec-fetch-mode: navigate' \
-              -H 'sec-fetch-site: none' \
-              -H 'sec-fetch-user: ?1' \
-              -H 'sec-gpc: 1' \
-              -H 'upgrade-insecure-requests: 1' \
-              -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36' \
-              --connect-timeout 10 --max-time 60 -o docs.zip; then
-              echo "Download successful"
-              exit 0
-            fi
+          url = '${{ inputs.docs_url }}'
+          scraper = cloudscraper.create_scraper(browser={'browser': 'chrome', 'platform': 'windows', 'desktop': True})
 
-            attempt=$((attempt + 1))
-            if [ $attempt -le $max_attempts ]; then
-              echo "Download failed, retrying in 5s..."
-              sleep 5
-            fi
-          done
+          for attempt in range(1, 4):
+              try:
+                  print(f"Download attempt {attempt}/3...")
+                  response = scraper.get(url, timeout=60)
+                  response.raise_for_status()
+                  with open('docs.zip', 'wb') as f:
+                      f.write(response.content)
+                  print('Download successful')
+                  sys.exit(0)
+              except Exception as e:
+                  print(f'Download failed: {e}')
+                  if attempt < 3:
+                      print('Retrying in 5s...')
+                      time.sleep(5)
 
-          echo "Failed to download docs.zip after $max_attempts attempts"
-          exit 1
+          print('Failed to download docs.zip after 3 attempts')
+          sys.exit(1)
+          PY
 
       - name: Verify archive integrity
         run: |
           unzip -t docs.zip > /dev/null
-          echo "Archive integrity verified"
+          echo 'Archive integrity verified'
 
       - name: Extract to temp directory
         run: |
@@ -68,8 +69,8 @@ jobs:
           unzip -oq docs.zip -d .tmp-docs
           rm -f docs.zip
 
-          if [ ! -d ".tmp-docs" ] || [ -z "$(ls -A .tmp-docs)" ]; then
-            echo "Archive extraction resulted in empty directory"
+          if [ ! -d '.tmp-docs' ] || [ -z "$(ls -A .tmp-docs)" ]; then
+            echo 'Archive extraction resulted in empty directory'
             exit 1
           fi
 
@@ -84,7 +85,7 @@ jobs:
       - name: Normalize line endings
         run: |
           find kurigram-docs -type f \
-            \( -iname "*.html" -o -iname "*.css" -o -iname "*.js" -o -iname "*.json" -o -iname "*.md" \) \
+            \( -iname '*.html' -o -iname '*.css' -o -iname '*.js' -o -iname '*.json' -o -iname '*.md' \) \
             -exec perl -0pi -e 's/\r\n/\n/g' {} +
 
       - name: Detect meaningful changes
@@ -94,9 +95,9 @@ jobs:
           git add kurigram-docs
 
           if git diff --cached --quiet --ignore-all-space --ignore-blank-lines -- kurigram-docs/; then
-            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo 'changed=false' >> "$GITHUB_OUTPUT"
           else
-            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo 'changed=true' >> "$GITHUB_OUTPUT"
           fi
 
       - name: Commit and push
