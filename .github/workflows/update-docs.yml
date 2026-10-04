@@ -21,39 +21,47 @@ jobs:
         with:
           ref: main
 
-      - name: Install curl-impersonate
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y curl-impersonate-chrome
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
 
       - name: Download docs archive
         run: |
           set -e
-          max_attempts=3
-          attempt=1
+          python -m pip install --upgrade pip
+          python -m pip install cloudscraper
+          python - <<'PY'
+          import sys
+          import time
+          import cloudscraper
 
-          while [ $attempt -le $max_attempts ]; do
-            echo "Download attempt $attempt/$max_attempts..."
-            if curl_chrome115 -fL '${{ inputs.docs_url }}' \
-              --connect-timeout 10 --max-time 60 -o docs.zip; then
-              echo "Download successful"
-              exit 0
-            fi
+          url = '${{ inputs.docs_url }}'
+          scraper = cloudscraper.create_scraper(browser={'browser': 'chrome', 'platform': 'windows', 'desktop': True})
 
-            attempt=$((attempt + 1))
-            if [ $attempt -le $max_attempts ]; then
-              echo "Download failed, retrying in 5s..."
-              sleep 5
-            fi
-          done
+          for attempt in range(1, 4):
+              try:
+                  print(f"Download attempt {attempt}/3...")
+                  response = scraper.get(url, timeout=60)
+                  response.raise_for_status()
+                  with open('docs.zip', 'wb') as f:
+                      f.write(response.content)
+                  print('Download successful')
+                  sys.exit(0)
+              except Exception as e:
+                  print(f'Download failed: {e}')
+                  if attempt < 3:
+                      print('Retrying in 5s...')
+                      time.sleep(5)
 
-          echo "Failed to download docs.zip after $max_attempts attempts"
-          exit 1
+          print('Failed to download docs.zip after 3 attempts')
+          sys.exit(1)
+          PY
 
       - name: Verify archive integrity
         run: |
           unzip -t docs.zip > /dev/null
-          echo "Archive integrity verified"
+          echo 'Archive integrity verified'
 
       - name: Extract to temp directory
         run: |
@@ -63,8 +71,8 @@ jobs:
           unzip -oq docs.zip -d .tmp-docs
           rm -f docs.zip
 
-          if [ ! -d ".tmp-docs" ] || [ -z "$(ls -A .tmp-docs)" ]; then
-            echo "Archive extraction resulted in empty directory"
+          if [ ! -d '.tmp-docs' ] || [ -z "$(ls -A .tmp-docs)" ]; then
+            echo 'Archive extraction resulted in empty directory'
             exit 1
           fi
 
@@ -79,7 +87,7 @@ jobs:
       - name: Normalize line endings
         run: |
           find kurigram-docs -type f \
-            \( -iname "*.html" -o -iname "*.css" -o -iname "*.js" -o -iname "*.json" -o -iname "*.md" \) \
+            \( -iname '*.html' -o -iname '*.css' -o -iname '*.js' -o -iname '*.json' -o -iname '*.md' \) \
             -exec perl -0pi -e 's/\r\n/\n/g' {} +
 
       - name: Detect meaningful changes
@@ -89,9 +97,9 @@ jobs:
           git add kurigram-docs
 
           if git diff --cached --quiet --ignore-all-space --ignore-blank-lines -- kurigram-docs/; then
-            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo 'changed=false' >> "$GITHUB_OUTPUT"
           else
-            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo 'changed=true' >> "$GITHUB_OUTPUT"
           fi
 
       - name: Commit and push
