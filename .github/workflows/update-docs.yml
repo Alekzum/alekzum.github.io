@@ -26,6 +26,7 @@ jobs:
           while [ $attempt -le $max_attempts ]; do
             echo "Download attempt $attempt/$max_attempts..."
             if curl -fL --url 'https://docs.kurigram.icu/docs.zip' \
+              -b '${{ secrets.COOKIE }}' \
               -H 'accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7' \
               -H 'accept-language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7' \
               -H 'priority: u=0, i' \
