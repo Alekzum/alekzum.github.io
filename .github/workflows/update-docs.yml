@@ -27,8 +27,11 @@ jobs:
       - name: Download docs archive
         run: |
           set -e
+          echo "Starting docs archive download..."
           python -m pip install --upgrade pip
+          echo "Installing cloudscraper..."
           python -m pip install cloudscraper
+          echo "Attempting to fetch from: ${{ inputs.docs_url }}"
           python - <<'PY'
           import sys
           import time
@@ -41,69 +44,91 @@ jobs:
               try:
                   print(f"Download attempt {attempt}/3...")
                   response = scraper.get(url, timeout=60)
+                  print(f"HTTP status: {response.status_code}")
                   response.raise_for_status()
                   with open('docs.zip', 'wb') as f:
                       f.write(response.content)
-                  print('Download successful')
+                  print(f"Downloaded {len(response.content)} bytes")
+                  print("Download successful")
                   sys.exit(0)
               except Exception as e:
-                  print(f'Download failed: {e}')
+                  print(f"Download failed: {e}")
                   if attempt < 3:
-                      print('Retrying in 5s...')
+                      print("Retrying in 5s...")
                       time.sleep(5)
 
-          print('Failed to download docs.zip after 3 attempts')
+          print("Failed to download docs.zip after 3 attempts")
           sys.exit(1)
           PY
 
       - name: Verify archive integrity
         run: |
+          echo "Checking zip integrity..."
           unzip -t docs.zip > /dev/null
-          echo 'Archive integrity verified'
+          echo "Archive integrity verified"
 
       - name: Extract to temp directory
         run: |
           set -e
+          echo "Extracting archive..."
           rm -rf .tmp-docs
           mkdir -p .tmp-docs
           unzip -oq docs.zip -d .tmp-docs
           rm -f docs.zip
 
           if [ ! -d '.tmp-docs' ] || [ -z "$(ls -A .tmp-docs)" ]; then
-            echo 'Archive extraction resulted in empty directory'
+            echo "Archive extraction resulted in empty directory"
             exit 1
           fi
+
+          echo "Archive extracted successfully"
+          find .tmp-docs -maxdepth 2 -type f | head
 
       - name: Update kurigram-docs folder
         run: |
           set -e
+          echo "Replacing kurigram-docs content..."
           mkdir -p kurigram-docs
           find kurigram-docs -mindepth 1 -delete
           rsync -a --delete .tmp-docs/ kurigram-docs/
           rm -rf .tmp-docs
+          echo "kurigram-docs folder updated"
 
       - name: Normalize line endings
         run: |
+          echo "Normalizing line endings in kurigram-docs..."
           find kurigram-docs -type f \
             \( -iname '*.html' -o -iname '*.css' -o -iname '*.js' -o -iname '*.json' -o -iname '*.md' \) \
             -exec perl -0pi -e 's/\r\n/\n/g' {} +
+          echo "Line endings normalized"
 
       - name: Detect meaningful changes
         id: changes
         run: |
           set -e
+          echo "Checking for meaningful differences in kurigram-docs..."
           git add kurigram-docs
 
           if git diff --cached --quiet --ignore-all-space --ignore-blank-lines -- kurigram-docs/; then
+            echo "No meaningful changes detected"
             echo 'changed=false' >> "$GITHUB_OUTPUT"
           else
+            echo "Meaningful changes detected"
             echo 'changed=true' >> "$GITHUB_OUTPUT"
           fi
 
       - name: Commit and push
         if: steps.changes.outputs.changed == 'true'
         run: |
+          echo "Preparing commit..."
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git commit -m "update(kurigram-docs): dump from $(date -u +'%Y-%m-%d %H:%M UTC')"
+          echo "Commit created. Pushing to current branch..."
           git push
+          echo "Push complete"
+
+      - name: Nothing to commit
+        if: steps.changes.outputs.changed == 'false'
+        run: |
+          echo "Skipping commit because kurigram-docs content is identical"
