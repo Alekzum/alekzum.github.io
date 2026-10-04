@@ -18,33 +18,67 @@
     font-size: .84rem;
 }
 
-.pyrogram-container a {
+.pyrogram-container {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    text-align: center;
     border: 0;
 }
 
 .pyrogram-logo img {
-    width: 72px;
+    width: 64px;
     display: block;
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+.pyrogram-logo-text {
+    font-family: TaraType, var(--sy-f-heading);
+    color: var(--color-pyrogram-text);
+    letter-spacing: 0.0425em;
+    font-weight: bold;
+    font-size: 64px;
 }
 
 .pyrogram-text {
     font-family: var(--sy-f-heading);
-    font-size: calc(var(--font-size--normal) * 3);
     color: var(--color-pyrogram-text);
-    letter-spacing: 0.0425em;
     font-weight: bold;
-    margin-left: 12px;
-    font-size: 72px;
+    white-space: nowrap;
+    font-size: 64px;
+}
+
+.sidebar-links ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
 }
 
 footer a:hover {
     color: var(--accent-11);
 }
 
-[data-color-mode=dark] html[data-accent-color='orange'] {
+.yue h1, .yue h2, .yue h3, .yue table {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.yue section>div {
+    margin: 0;
+}
+
+.sd-tab-set .docutils {
+    margin: 0;
+}
+
+.yue hr, .yue p {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+html[data-color-mode=dark][data-accent-color='orange'] {
   --accent-1: #ec000007;
   --accent-2: #f23e0211;
   --accent-3: #fb22002f;
@@ -59,7 +93,7 @@ footer a:hover {
   --accent-12: #ffd1c1;
 }
 
-[data-color-mode=light] html[data-accent-color='orange'] {
+html[data-color-mode=light][data-accent-color='orange'] {
     --accent-1: #c0400004;
     --accent-2: #e3390009;
     --accent-3: #eb3e0019;
@@ -73,3 +107,24 @@ footer a:hover {
     --accent-11: #bc3600e2;
     --accent-12: #3f1000e0;
 }
+
+/* Kurigram colors */
+/* html.dark {
+    --sy-c-background: #202020;
+}
+
+#lside {
+    position: relative;
+    background: #181818;
+
+}
+
+#lside::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 100%;
+    width: 100vw;
+    height: 100%;
+    background: #181818;
+} */
