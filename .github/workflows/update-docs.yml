@@ -37,10 +37,10 @@ jobs:
           python -m pip install cloudscraper
           echo "Attempting to fetch from: ${{ env.DOCS_URL }}"
           python - <<'PY'
+          import os
           import sys
           import time
           import cloudscraper
-          import os
 
           url = os.environ.get('DOCS_URL', 'https://docs.kurigram.icu/docs.zip')
           scraper = cloudscraper.create_scraper(browser={'browser': 'chrome', 'platform': 'windows', 'desktop': True})
@@ -137,3 +137,18 @@ jobs:
         if: steps.changes.outputs.changed == 'false'
         run: |
           echo "Skipping commit because kurigram-docs content is identical"
+
+      - name: Final status notice
+        run: |
+          if [ "${{ steps.changes.outputs.changed }}" = "true" ]; then
+            echo "::notice title=Kurigram docs updated::Content in kurigram-docs changed and was committed to the current branch."
+          else
+            echo "::notice title=Kurigram docs unchanged::No meaningful diff was detected in kurigram-docs; nothing was committed."
+          fi
+
+          echo "## ✅ Kurigram Docs Update Result" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Status:** ${{ steps.changes.outputs.changed == 'true' && '✅ Changes committed' || '⏭️ No changes (content identical)' }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Source URL:** ${{ env.DOCS_URL }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Updated folder:** kurigram-docs/" >> $GITHUB_STEP_SUMMARY
+          echo "**Timestamp:** $(date -u +'%Y-%m-%d %H:%M UTC')" >> $GITHUB_STEP_SUMMARY
