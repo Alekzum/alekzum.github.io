@@ -2,7 +2,7 @@
 <html lang="en" data-accent-color="orange" data-content_root="../../../">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Checklist - Kurigram</title><link rel="shortcut icon" href="../../../_static/favicon.ico"/><link rel="index" title="Index" href="../../../genindex/" /><link rel="search" title="Search" href="../../../search/" /><link rel="next" title="RefundedPayment" href="../RefundedPayment/" /><link rel="prev" title="CommunityChatRemoved" href="../CommunityChatRemoved/" /><script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Checklist - Kurigram</title><link rel="shortcut icon" href="../../../_static/favicon.ico"/><link rel="index" title="Index" href="../../../genindex/" /><link rel="search" title="Search" href="../../../search/" /><link rel="next" title="RefundedPayment" href="../RefundedPayment/" /><link rel="prev" title="TonConnectRequest" href="../TonConnectRequest/" /><script>
     function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
     setColorMode(localStorage._theme||"auto");
   </script><link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=d88b86f9" />
@@ -530,6 +530,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../../methods/set_global_privacy_settings/">set_global_privacy_settings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../methods/set_inactive_session_ttl/">set_inactive_session_ttl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../methods/get_global_privacy_settings/">get_global_privacy_settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../methods/create_user_wallet/">create_user_wallet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../methods/invoke/">invoke</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../methods/recover_gaps/">recover_gaps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../methods/get_app_config/">get_app_config</a></li>
@@ -577,6 +578,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../PrivacyRule/">PrivacyRule</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../StoriesStealthMode/">StoriesStealthMode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../UserRating/">UserRating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UserTonWalletAddress/">UserTonWalletAddress</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../BotVerification/">BotVerification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../BusinessBotRights/">BusinessBotRights</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ChatSettings/">ChatSettings</a></li>
@@ -734,6 +736,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../RichTextAnchorLink/">RichTextAnchorLink</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../RichTextBankCardNumber/">RichTextBankCardNumber</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../RichTextBold/">RichTextBold</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RichTextTonAddress/">RichTextTonAddress</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../RichTextBotCommand/">RichTextBotCommand</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../RichTextButton/">RichTextButton</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../RichTextCashtag/">RichTextCashtag</a></li>
@@ -794,6 +797,8 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../CommunityChatAdded/">CommunityChatAdded</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../CommunityChatJoined/">CommunityChatJoined</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../CommunityChatRemoved/">CommunityChatRemoved</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TonWalletTransfer/">TonWalletTransfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TonConnectRequest/">TonConnectRequest</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Checklist</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../RefundedPayment/">RefundedPayment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ReplyParameters/">ReplyParameters</a></li>
@@ -1353,10 +1358,10 @@ If True, then the checklist is called “group checklist”.</p></li>
   </svg>
   <span>Back to top</span>
 </button><div class="navigation flex print:hidden"><div class="navigation-prev">
-    <a href="../CommunityChatRemoved/">
+    <a href="../TonConnectRequest/">
       <i class="i-lucide chevron-left"></i>
       <div class="page-info">
-        <span>Previous</span><div class="title">CommunityChatRemoved</div></div>
+        <span>Previous</span><div class="title">TonConnectRequest</div></div>
     </a>
   </div><div class="navigation-next">
     <a href="../RefundedPayment/">

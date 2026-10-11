@@ -530,6 +530,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../../../api/methods/set_global_privacy_settings/">set_global_privacy_settings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/methods/set_inactive_session_ttl/">set_inactive_session_ttl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/methods/get_global_privacy_settings/">get_global_privacy_settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/methods/create_user_wallet/">create_user_wallet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/methods/invoke/">invoke</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/methods/recover_gaps/">recover_gaps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/methods/get_app_config/">get_app_config</a></li>
@@ -577,6 +578,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/PrivacyRule/">PrivacyRule</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/StoriesStealthMode/">StoriesStealthMode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/UserRating/">UserRating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/types/UserTonWalletAddress/">UserTonWalletAddress</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/BotVerification/">BotVerification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/BusinessBotRights/">BusinessBotRights</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/ChatSettings/">ChatSettings</a></li>
@@ -734,6 +736,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/RichTextAnchorLink/">RichTextAnchorLink</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/RichTextBankCardNumber/">RichTextBankCardNumber</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/RichTextBold/">RichTextBold</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/types/RichTextTonAddress/">RichTextTonAddress</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/RichTextBotCommand/">RichTextBotCommand</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/RichTextButton/">RichTextButton</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/RichTextCashtag/">RichTextCashtag</a></li>
@@ -794,6 +797,8 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/CommunityChatAdded/">CommunityChatAdded</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/CommunityChatJoined/">CommunityChatJoined</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/CommunityChatRemoved/">CommunityChatRemoved</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/types/TonWalletTransfer/">TonWalletTransfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/types/TonConnectRequest/">TonConnectRequest</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/Checklist/">Checklist</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/RefundedPayment/">RefundedPayment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/ReplyParameters/">ReplyParameters</a></li>
@@ -1329,7 +1334,7 @@ data-aria-dark="Switch to auto color mode">
 <span class="sig-prename descclassname"><span class="pre">pyrogram.raw.base.</span></span><span class="sig-name descname"><span class="pre">MessageAction</span></span><a class="headerlink" href="#pyrogram.raw.base.MessageAction" title="Link to this definition">¶</a></dt>
 <dd><p>Object describing actions connected to a service message.</p>
 <dl>
-<dt>Constructors:</dt><dd><p>This base type has 69 constructors available.</p>
+<dt>Constructors:</dt><dd><p>This base type has 71 constructors available.</p>
 <div class="table-wrapper autosummary longtable docutils container">
 <table class="autosummary longtable docutils align-default">
 <tbody>
@@ -1417,122 +1422,128 @@ data-aria-dark="Switch to auto color mode">
 <tr class="row-even"><td><p><a class="reference internal" href="../../types/message-action-giveaway-results/#pyrogram.raw.types.MessageActionGiveawayResults" title="pyrogram.raw.types.MessageActionGiveawayResults"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionGiveawayResults</span></code></a></p></td>
 <td><p>A <a class="reference external" href="https://corefork.telegram.org/api/giveaways">giveaway</a> has ended.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../../types/message-action-group-call/#pyrogram.raw.types.MessageActionGroupCall" title="pyrogram.raw.types.MessageActionGroupCall"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionGroupCall</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../types/message-action-gram-transfer/#pyrogram.raw.types.MessageActionGramTransfer" title="pyrogram.raw.types.MessageActionGramTransfer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionGramTransfer</span></code></a></p></td>
+<td><p>Constructor of <a class="reference internal" href="#pyrogram.raw.base.MessageAction" title="pyrogram.raw.base.MessageAction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageAction</span></code></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../../types/message-action-group-call/#pyrogram.raw.types.MessageActionGroupCall" title="pyrogram.raw.types.MessageActionGroupCall"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionGroupCall</span></code></a></p></td>
 <td><p>A <a class="reference external" href="https://corefork.telegram.org/api/group-calls#video-chats-livestreams">video chat/livestream</a> was started or terminated.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../../types/message-action-group-call-scheduled/#pyrogram.raw.types.MessageActionGroupCallScheduled" title="pyrogram.raw.types.MessageActionGroupCallScheduled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionGroupCallScheduled</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../types/message-action-group-call-scheduled/#pyrogram.raw.types.MessageActionGroupCallScheduled" title="pyrogram.raw.types.MessageActionGroupCallScheduled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionGroupCallScheduled</span></code></a></p></td>
 <td><p>A <a class="reference external" href="https://corefork.telegram.org/api/group-calls#video-chats-livestreams">video chat/livestream</a> was scheduled.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../../types/message-action-history-clear/#pyrogram.raw.types.MessageActionHistoryClear" title="pyrogram.raw.types.MessageActionHistoryClear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionHistoryClear</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../../types/message-action-history-clear/#pyrogram.raw.types.MessageActionHistoryClear" title="pyrogram.raw.types.MessageActionHistoryClear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionHistoryClear</span></code></a></p></td>
 <td><p>Chat history was cleared</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../../types/message-action-invite-to-group-call/#pyrogram.raw.types.MessageActionInviteToGroupCall" title="pyrogram.raw.types.MessageActionInviteToGroupCall"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionInviteToGroupCall</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../types/message-action-invite-to-group-call/#pyrogram.raw.types.MessageActionInviteToGroupCall" title="pyrogram.raw.types.MessageActionInviteToGroupCall"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionInviteToGroupCall</span></code></a></p></td>
 <td><p>A set of users was invited to a <a class="reference external" href="https://corefork.telegram.org/api/group-calls#video-chats-livestreams">video chat/livestream »</a>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../../types/message-action-managed-bot-created/#pyrogram.raw.types.MessageActionManagedBotCreated" title="pyrogram.raw.types.MessageActionManagedBotCreated"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionManagedBotCreated</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../../types/message-action-managed-bot-created/#pyrogram.raw.types.MessageActionManagedBotCreated" title="pyrogram.raw.types.MessageActionManagedBotCreated"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionManagedBotCreated</span></code></a></p></td>
 <td><p>Service message sent by a user to a manager bot when a new <a class="reference external" href="https://corefork.telegram.org/api/bots/managed-bots">managed bot »</a> is created through it, by invoking <a class="reference external" href="https://corefork.telegram.org/method/messages.sendBotRequestedPeer">messages.sendBotRequestedPeer</a> with a <a class="reference external" href="https://corefork.telegram.org/constructor/requestPeerTypeCreateBot">requestPeerTypeCreateBot</a>, see <a class="reference external" href="https://corefork.telegram.org/api/bots/buttons#requesting-a-managed-bot">here »</a> for more info.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../../types/message-action-new-creator-pending/#pyrogram.raw.types.MessageActionNewCreatorPending" title="pyrogram.raw.types.MessageActionNewCreatorPending"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionNewCreatorPending</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../types/message-action-new-creator-pending/#pyrogram.raw.types.MessageActionNewCreatorPending" title="pyrogram.raw.types.MessageActionNewCreatorPending"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionNewCreatorPending</span></code></a></p></td>
 <td><p>Service message: emitted to a supergroup when the <a class="reference external" href="https://corefork.telegram.org/api/channel#leaving-groups-channels">group/channel creator leaves the group »</a>, indicating that ownership transfer is pending.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../../types/message-action-no-forwards-request/#pyrogram.raw.types.MessageActionNoForwardsRequest" title="pyrogram.raw.types.MessageActionNoForwardsRequest"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionNoForwardsRequest</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../../types/message-action-no-forwards-request/#pyrogram.raw.types.MessageActionNoForwardsRequest" title="pyrogram.raw.types.MessageActionNoForwardsRequest"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionNoForwardsRequest</span></code></a></p></td>
 <td><p>Emitted only in private chats if the other side requested to disable <a class="reference external" href="https://corefork.telegram.org/api/content-protection#for-users">content protection »</a>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../../types/message-action-no-forwards-toggle/#pyrogram.raw.types.MessageActionNoForwardsToggle" title="pyrogram.raw.types.MessageActionNoForwardsToggle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionNoForwardsToggle</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../types/message-action-no-forwards-toggle/#pyrogram.raw.types.MessageActionNoForwardsToggle" title="pyrogram.raw.types.MessageActionNoForwardsToggle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionNoForwardsToggle</span></code></a></p></td>
 <td><p>Emitted only in private chats when enabling or disabling <a class="reference external" href="https://corefork.telegram.org/api/content-protection#for-users">content protection »</a>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../../types/message-action-paid-messages-price/#pyrogram.raw.types.MessageActionPaidMessagesPrice" title="pyrogram.raw.types.MessageActionPaidMessagesPrice"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionPaidMessagesPrice</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../../types/message-action-paid-messages-price/#pyrogram.raw.types.MessageActionPaidMessagesPrice" title="pyrogram.raw.types.MessageActionPaidMessagesPrice"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionPaidMessagesPrice</span></code></a></p></td>
 <td><p>The price of <a class="reference external" href="https://corefork.telegram.org/api/paid-messages">paid messages »</a> in this chat was changed.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../../types/message-action-paid-messages-refunded/#pyrogram.raw.types.MessageActionPaidMessagesRefunded" title="pyrogram.raw.types.MessageActionPaidMessagesRefunded"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionPaidMessagesRefunded</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../types/message-action-paid-messages-refunded/#pyrogram.raw.types.MessageActionPaidMessagesRefunded" title="pyrogram.raw.types.MessageActionPaidMessagesRefunded"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionPaidMessagesRefunded</span></code></a></p></td>
 <td><p>Sent from peer A to B, indicates that A refunded all <a class="reference external" href="https://corefork.telegram.org/api/stars">stars</a> B previously paid to send messages to A, see <a class="reference external" href="https://corefork.telegram.org/api/paid-messages">here »</a> for more info on paid messages.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../../types/message-action-payment-refunded/#pyrogram.raw.types.MessageActionPaymentRefunded" title="pyrogram.raw.types.MessageActionPaymentRefunded"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionPaymentRefunded</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../../types/message-action-payment-refunded/#pyrogram.raw.types.MessageActionPaymentRefunded" title="pyrogram.raw.types.MessageActionPaymentRefunded"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionPaymentRefunded</span></code></a></p></td>
 <td><p>Describes a payment refund (service message received by both users and bots).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../../types/message-action-payment-sent/#pyrogram.raw.types.MessageActionPaymentSent" title="pyrogram.raw.types.MessageActionPaymentSent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionPaymentSent</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../types/message-action-payment-sent/#pyrogram.raw.types.MessageActionPaymentSent" title="pyrogram.raw.types.MessageActionPaymentSent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionPaymentSent</span></code></a></p></td>
 <td><p>A payment was sent</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../../types/message-action-payment-sent-me/#pyrogram.raw.types.MessageActionPaymentSentMe" title="pyrogram.raw.types.MessageActionPaymentSentMe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionPaymentSentMe</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../../types/message-action-payment-sent-me/#pyrogram.raw.types.MessageActionPaymentSentMe" title="pyrogram.raw.types.MessageActionPaymentSentMe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionPaymentSentMe</span></code></a></p></td>
 <td><p>A user just sent a payment to me (a bot)</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../../types/message-action-phone-call/#pyrogram.raw.types.MessageActionPhoneCall" title="pyrogram.raw.types.MessageActionPhoneCall"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionPhoneCall</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../types/message-action-phone-call/#pyrogram.raw.types.MessageActionPhoneCall" title="pyrogram.raw.types.MessageActionPhoneCall"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionPhoneCall</span></code></a></p></td>
 <td><p>A phone call</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../../types/message-action-pin-message/#pyrogram.raw.types.MessageActionPinMessage" title="pyrogram.raw.types.MessageActionPinMessage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionPinMessage</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../../types/message-action-pin-message/#pyrogram.raw.types.MessageActionPinMessage" title="pyrogram.raw.types.MessageActionPinMessage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionPinMessage</span></code></a></p></td>
 <td><p>A message was pinned</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../../types/message-action-poll-append-answer/#pyrogram.raw.types.MessageActionPollAppendAnswer" title="pyrogram.raw.types.MessageActionPollAppendAnswer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionPollAppendAnswer</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../types/message-action-poll-append-answer/#pyrogram.raw.types.MessageActionPollAppendAnswer" title="pyrogram.raw.types.MessageActionPollAppendAnswer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionPollAppendAnswer</span></code></a></p></td>
 <td><p>A new answer option was added to an <a class="reference external" href="https://corefork.telegram.org/api/poll#open-answer-polls">open-answer poll »</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../../types/message-action-poll-delete-answer/#pyrogram.raw.types.MessageActionPollDeleteAnswer" title="pyrogram.raw.types.MessageActionPollDeleteAnswer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionPollDeleteAnswer</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../../types/message-action-poll-delete-answer/#pyrogram.raw.types.MessageActionPollDeleteAnswer" title="pyrogram.raw.types.MessageActionPollDeleteAnswer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionPollDeleteAnswer</span></code></a></p></td>
 <td><p>An answer option was removed from an <a class="reference external" href="https://corefork.telegram.org/api/poll#open-answer-polls">open-answer poll »</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../../types/message-action-prize-stars/#pyrogram.raw.types.MessageActionPrizeStars" title="pyrogram.raw.types.MessageActionPrizeStars"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionPrizeStars</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../types/message-action-prize-stars/#pyrogram.raw.types.MessageActionPrizeStars" title="pyrogram.raw.types.MessageActionPrizeStars"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionPrizeStars</span></code></a></p></td>
 <td><p>You won some <a class="reference external" href="https://corefork.telegram.org/api/stars">Telegram Stars</a> in a <a class="reference external" href="https://corefork.telegram.org/api/giveaways#star-giveaways">Telegram Star giveaway »</a>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../../types/message-action-requested-peer/#pyrogram.raw.types.MessageActionRequestedPeer" title="pyrogram.raw.types.MessageActionRequestedPeer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionRequestedPeer</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../../types/message-action-requested-peer/#pyrogram.raw.types.MessageActionRequestedPeer" title="pyrogram.raw.types.MessageActionRequestedPeer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionRequestedPeer</span></code></a></p></td>
 <td><p>Contains info about one or more peers that the we (the user) shared with the bot after clicking on a <a class="reference external" href="https://corefork.telegram.org/constructor/keyboardButtonRequestPeer">keyboardButtonRequestPeer</a> button (service message sent by the user).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../../types/message-action-requested-peer-sent-me/#pyrogram.raw.types.MessageActionRequestedPeerSentMe" title="pyrogram.raw.types.MessageActionRequestedPeerSentMe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionRequestedPeerSentMe</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../types/message-action-requested-peer-sent-me/#pyrogram.raw.types.MessageActionRequestedPeerSentMe" title="pyrogram.raw.types.MessageActionRequestedPeerSentMe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionRequestedPeerSentMe</span></code></a></p></td>
 <td><p>Contains info about one or more peers that the a user shared with the me (the bot) after clicking on a <a class="reference external" href="https://corefork.telegram.org/constructor/keyboardButtonRequestPeer">keyboardButtonRequestPeer</a> button (service message received by the bot).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../../types/message-action-screenshot-taken/#pyrogram.raw.types.MessageActionScreenshotTaken" title="pyrogram.raw.types.MessageActionScreenshotTaken"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionScreenshotTaken</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../../types/message-action-screenshot-taken/#pyrogram.raw.types.MessageActionScreenshotTaken" title="pyrogram.raw.types.MessageActionScreenshotTaken"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionScreenshotTaken</span></code></a></p></td>
 <td><p>A screenshot of the chat was taken</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../../types/message-action-secure-values-sent/#pyrogram.raw.types.MessageActionSecureValuesSent" title="pyrogram.raw.types.MessageActionSecureValuesSent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionSecureValuesSent</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../types/message-action-secure-values-sent/#pyrogram.raw.types.MessageActionSecureValuesSent" title="pyrogram.raw.types.MessageActionSecureValuesSent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionSecureValuesSent</span></code></a></p></td>
 <td><p>Request for secure <a class="reference external" href="https://corefork.telegram.org/passport">telegram passport</a> values was sent</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../../types/message-action-secure-values-sent-me/#pyrogram.raw.types.MessageActionSecureValuesSentMe" title="pyrogram.raw.types.MessageActionSecureValuesSentMe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionSecureValuesSentMe</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../../types/message-action-secure-values-sent-me/#pyrogram.raw.types.MessageActionSecureValuesSentMe" title="pyrogram.raw.types.MessageActionSecureValuesSentMe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionSecureValuesSentMe</span></code></a></p></td>
 <td><p>Secure <a class="reference external" href="https://corefork.telegram.org/passport">telegram passport</a> values were received</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../../types/message-action-set-chat-theme/#pyrogram.raw.types.MessageActionSetChatTheme" title="pyrogram.raw.types.MessageActionSetChatTheme"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionSetChatTheme</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../types/message-action-set-chat-theme/#pyrogram.raw.types.MessageActionSetChatTheme" title="pyrogram.raw.types.MessageActionSetChatTheme"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionSetChatTheme</span></code></a></p></td>
 <td><p>The chat theme was changed</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../../types/message-action-set-chat-wall-paper/#pyrogram.raw.types.MessageActionSetChatWallPaper" title="pyrogram.raw.types.MessageActionSetChatWallPaper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionSetChatWallPaper</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../../types/message-action-set-chat-wall-paper/#pyrogram.raw.types.MessageActionSetChatWallPaper" title="pyrogram.raw.types.MessageActionSetChatWallPaper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionSetChatWallPaper</span></code></a></p></td>
 <td><p>The <a class="reference external" href="https://corefork.telegram.org/api/wallpapers">wallpaper »</a> of the current chat was changed.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../../types/message-action-set-messages-ttl/#pyrogram.raw.types.MessageActionSetMessagesTTL" title="pyrogram.raw.types.MessageActionSetMessagesTTL"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionSetMessagesTTL</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../types/message-action-set-messages-ttl/#pyrogram.raw.types.MessageActionSetMessagesTTL" title="pyrogram.raw.types.MessageActionSetMessagesTTL"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionSetMessagesTTL</span></code></a></p></td>
 <td><p>The Time-To-Live of messages in this chat was changed.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../../types/message-action-star-gift/#pyrogram.raw.types.MessageActionStarGift" title="pyrogram.raw.types.MessageActionStarGift"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionStarGift</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../../types/message-action-star-gift/#pyrogram.raw.types.MessageActionStarGift" title="pyrogram.raw.types.MessageActionStarGift"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionStarGift</span></code></a></p></td>
 <td><p>You received a <a class="reference external" href="https://corefork.telegram.org/api/gifts">gift, see here »</a> for more info.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../../types/message-action-star-gift-purchase-offer/#pyrogram.raw.types.MessageActionStarGiftPurchaseOffer" title="pyrogram.raw.types.MessageActionStarGiftPurchaseOffer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionStarGiftPurchaseOffer</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../types/message-action-star-gift-purchase-offer/#pyrogram.raw.types.MessageActionStarGiftPurchaseOffer" title="pyrogram.raw.types.MessageActionStarGiftPurchaseOffer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionStarGiftPurchaseOffer</span></code></a></p></td>
 <td><p>Contains an offer to purchase a <a class="reference external" href="https://corefork.telegram.org/api/gifts#collectible-gift-purchase-offers">collectible gift »</a>, see <a class="reference external" href="https://corefork.telegram.org/api/gifts#collectible-gift-purchase-offers">here »</a> for the full flow.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../../types/message-action-star-gift-purchase-offer-declined/#pyrogram.raw.types.MessageActionStarGiftPurchaseOfferDeclined" title="pyrogram.raw.types.MessageActionStarGiftPurchaseOfferDeclined"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionStarGiftPurchaseOfferDeclined</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../../types/message-action-star-gift-purchase-offer-declined/#pyrogram.raw.types.MessageActionStarGiftPurchaseOfferDeclined" title="pyrogram.raw.types.MessageActionStarGiftPurchaseOfferDeclined"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionStarGiftPurchaseOfferDeclined</span></code></a></p></td>
 <td><p>A <a class="reference external" href="https://corefork.telegram.org/api/gifts#collectible-gift-purchase-offers">collectible gift purchase offer »</a> was declined, or the offer expired, see <a class="reference external" href="https://corefork.telegram.org/api/gifts#collectible-gift-purchase-offers">here »</a> for the full flow.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../../types/message-action-star-gift-unique/#pyrogram.raw.types.MessageActionStarGiftUnique" title="pyrogram.raw.types.MessageActionStarGiftUnique"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionStarGiftUnique</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../types/message-action-star-gift-unique/#pyrogram.raw.types.MessageActionStarGiftUnique" title="pyrogram.raw.types.MessageActionStarGiftUnique"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionStarGiftUnique</span></code></a></p></td>
 <td><p>A <a class="reference external" href="https://corefork.telegram.org/api/gifts">gift »</a> was upgraded to a <a class="reference external" href="https://corefork.telegram.org/api/gifts#collectible-gifts">collectible gift »</a>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../../types/message-action-suggest-birthday/#pyrogram.raw.types.MessageActionSuggestBirthday" title="pyrogram.raw.types.MessageActionSuggestBirthday"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionSuggestBirthday</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../../types/message-action-suggest-birthday/#pyrogram.raw.types.MessageActionSuggestBirthday" title="pyrogram.raw.types.MessageActionSuggestBirthday"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionSuggestBirthday</span></code></a></p></td>
 <td><p>A new birthday was suggested using <a class="reference external" href="https://corefork.telegram.org/method/users.suggestBirthday">users.suggestBirthday</a>, see <a class="reference external" href="https://corefork.telegram.org/api/profile#birthday">here »</a> for more info on birthdays in the API.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../../types/message-action-suggest-profile-photo/#pyrogram.raw.types.MessageActionSuggestProfilePhoto" title="pyrogram.raw.types.MessageActionSuggestProfilePhoto"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionSuggestProfilePhoto</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../types/message-action-suggest-profile-photo/#pyrogram.raw.types.MessageActionSuggestProfilePhoto" title="pyrogram.raw.types.MessageActionSuggestProfilePhoto"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionSuggestProfilePhoto</span></code></a></p></td>
 <td><p>A new profile picture was suggested using <a class="reference external" href="https://corefork.telegram.org/method/photos.uploadContactProfilePhoto">photos.uploadContactProfilePhoto</a>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../../types/message-action-suggested-post-approval/#pyrogram.raw.types.MessageActionSuggestedPostApproval" title="pyrogram.raw.types.MessageActionSuggestedPostApproval"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionSuggestedPostApproval</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../../types/message-action-suggested-post-approval/#pyrogram.raw.types.MessageActionSuggestedPostApproval" title="pyrogram.raw.types.MessageActionSuggestedPostApproval"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionSuggestedPostApproval</span></code></a></p></td>
 <td><p>A <a class="reference external" href="https://corefork.telegram.org/api/suggested-posts">suggested post »</a> was approved or rejected.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../../types/message-action-suggested-post-refund/#pyrogram.raw.types.MessageActionSuggestedPostRefund" title="pyrogram.raw.types.MessageActionSuggestedPostRefund"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionSuggestedPostRefund</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../types/message-action-suggested-post-refund/#pyrogram.raw.types.MessageActionSuggestedPostRefund" title="pyrogram.raw.types.MessageActionSuggestedPostRefund"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionSuggestedPostRefund</span></code></a></p></td>
 <td><p>A <a class="reference external" href="https://corefork.telegram.org/api/suggested-posts">suggested post »</a> was accepted and posted or scheduled, but either the channel deleted the posted/scheduled post before <a class="reference external" href="https://corefork.telegram.org/api/config#stars-suggested-post-age-min">stars_suggested_post_age_min</a> seconds have elapsed, or the user refunded the payment for the stars used to pay for the suggested post.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../../types/message-action-suggested-post-success/#pyrogram.raw.types.MessageActionSuggestedPostSuccess" title="pyrogram.raw.types.MessageActionSuggestedPostSuccess"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionSuggestedPostSuccess</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../../types/message-action-suggested-post-success/#pyrogram.raw.types.MessageActionSuggestedPostSuccess" title="pyrogram.raw.types.MessageActionSuggestedPostSuccess"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionSuggestedPostSuccess</span></code></a></p></td>
 <td><p>A <a class="reference external" href="https://corefork.telegram.org/api/suggested-posts">suggested post »</a> was successfully posted, and payment for it was successfully received.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../../types/message-action-todo-append-tasks/#pyrogram.raw.types.MessageActionTodoAppendTasks" title="pyrogram.raw.types.MessageActionTodoAppendTasks"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionTodoAppendTasks</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../types/message-action-todo-append-tasks/#pyrogram.raw.types.MessageActionTodoAppendTasks" title="pyrogram.raw.types.MessageActionTodoAppendTasks"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionTodoAppendTasks</span></code></a></p></td>
 <td><p>Items were appended to the <a class="reference external" href="https://corefork.telegram.org/api/todo">todo list »</a>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../../types/message-action-todo-completions/#pyrogram.raw.types.MessageActionTodoCompletions" title="pyrogram.raw.types.MessageActionTodoCompletions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionTodoCompletions</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../../types/message-action-todo-completions/#pyrogram.raw.types.MessageActionTodoCompletions" title="pyrogram.raw.types.MessageActionTodoCompletions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionTodoCompletions</span></code></a></p></td>
 <td><p>Items were marked as completed or not completed in a <a class="reference external" href="https://corefork.telegram.org/api/todo">todo list »</a>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../../types/message-action-topic-create/#pyrogram.raw.types.MessageActionTopicCreate" title="pyrogram.raw.types.MessageActionTopicCreate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionTopicCreate</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../types/message-action-topic-create/#pyrogram.raw.types.MessageActionTopicCreate" title="pyrogram.raw.types.MessageActionTopicCreate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionTopicCreate</span></code></a></p></td>
 <td><p>A <a class="reference external" href="https://corefork.telegram.org/api/forum#forum-topics">forum topic</a> was created.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../../types/message-action-topic-edit/#pyrogram.raw.types.MessageActionTopicEdit" title="pyrogram.raw.types.MessageActionTopicEdit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionTopicEdit</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../../types/message-action-topic-edit/#pyrogram.raw.types.MessageActionTopicEdit" title="pyrogram.raw.types.MessageActionTopicEdit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionTopicEdit</span></code></a></p></td>
 <td><p><a class="reference external" href="https://corefork.telegram.org/api/forum#forum-topics">Forum topic</a> information was edited.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../types/message-action-wallet-ton-connect-request/#pyrogram.raw.types.MessageActionWalletTonConnectRequest" title="pyrogram.raw.types.MessageActionWalletTonConnectRequest"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionWalletTonConnectRequest</span></code></a></p></td>
+<td><p>Constructor of <a class="reference internal" href="#pyrogram.raw.base.MessageAction" title="pyrogram.raw.base.MessageAction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageAction</span></code></a>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="../../types/message-action-web-view-data-sent/#pyrogram.raw.types.MessageActionWebViewDataSent" title="pyrogram.raw.types.MessageActionWebViewDataSent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageActionWebViewDataSent</span></code></a></p></td>
 <td><p>Data from an opened <a class="reference external" href="https://corefork.telegram.org/api/bots/webapps">reply keyboard bot mini app</a> was relayed to the bot that owns it (user side service message).</p></td>

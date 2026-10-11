@@ -530,6 +530,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../../methods/set_global_privacy_settings/">set_global_privacy_settings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../methods/set_inactive_session_ttl/">set_inactive_session_ttl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../methods/get_global_privacy_settings/">get_global_privacy_settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../methods/create_user_wallet/">create_user_wallet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../methods/invoke/">invoke</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../methods/recover_gaps/">recover_gaps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../methods/get_app_config/">get_app_config</a></li>
@@ -577,6 +578,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../../types/PrivacyRule/">PrivacyRule</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../types/StoriesStealthMode/">StoriesStealthMode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../types/UserRating/">UserRating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../types/UserTonWalletAddress/">UserTonWalletAddress</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../types/BotVerification/">BotVerification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../types/BusinessBotRights/">BusinessBotRights</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../types/ChatSettings/">ChatSettings</a></li>
@@ -734,6 +736,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../../types/RichTextAnchorLink/">RichTextAnchorLink</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../types/RichTextBankCardNumber/">RichTextBankCardNumber</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../types/RichTextBold/">RichTextBold</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../types/RichTextTonAddress/">RichTextTonAddress</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../types/RichTextBotCommand/">RichTextBotCommand</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../types/RichTextButton/">RichTextButton</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../types/RichTextCashtag/">RichTextCashtag</a></li>
@@ -794,6 +797,8 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../../types/CommunityChatAdded/">CommunityChatAdded</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../types/CommunityChatJoined/">CommunityChatJoined</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../types/CommunityChatRemoved/">CommunityChatRemoved</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../types/TonWalletTransfer/">TonWalletTransfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../types/TonConnectRequest/">TonConnectRequest</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../types/Checklist/">Checklist</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../types/RefundedPayment/">RefundedPayment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../types/ReplyParameters/">ReplyParameters</a></li>
@@ -1348,8 +1353,8 @@ You can combine both syntaxes together.</p></li>
 Users will receive a notification with no sound.</p></li>
 <li><p><strong>reply_parameters</strong> (<a class="reference internal" href="../../types/ReplyParameters/#pyrogram.types.ReplyParameters" title="pyrogram.types.ReplyParameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ReplyParameters</span></code></a>, <em>optional</em>) – Describes reply parameters for the message that is being sent.</p></li>
 <li><p><strong>suggested_post_parameters</strong> (<a class="reference internal" href="../../types/SuggestedPostParameters/#pyrogram.types.SuggestedPostParameters" title="pyrogram.types.SuggestedPostParameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SuggestedPostParameters</span></code></a>, <em>optional</em>) – Information about the suggested post.</p></li>
-<li><p><strong>schedule_date</strong> (<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">datetime</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.timedelta" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">timedelta</span></code></a>, <em>optional</em>) – Date when the message will be automatically sent.
-A <a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.timedelta" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">timedelta</span></code></a> is counted from now.</p></li>
+<li><p><strong>schedule_date</strong> (<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.15)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">datetime</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.timedelta" title="(in Python v3.15)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">timedelta</span></code></a>, <em>optional</em>) – Date when the message will be automatically sent.
+A <a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.timedelta" title="(in Python v3.15)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">timedelta</span></code></a> is counted from now.</p></li>
 <li><p><strong>protect_content</strong> (<code class="docutils literal notranslate"><span class="pre">bool</span></code>, <em>optional</em>) – Protects the contents of the sent message from forwarding and saving.</p></li>
 <li><p><strong>show_caption_above_media</strong> (<code class="docutils literal notranslate"><span class="pre">bool</span></code>, <em>optional</em>) – Pass True, if the caption must be shown above the message media.</p></li>
 </ul>

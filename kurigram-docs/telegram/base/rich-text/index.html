@@ -530,6 +530,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../../../api/methods/set_global_privacy_settings/">set_global_privacy_settings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/methods/set_inactive_session_ttl/">set_inactive_session_ttl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/methods/get_global_privacy_settings/">get_global_privacy_settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/methods/create_user_wallet/">create_user_wallet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/methods/invoke/">invoke</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/methods/recover_gaps/">recover_gaps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/methods/get_app_config/">get_app_config</a></li>
@@ -577,6 +578,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/PrivacyRule/">PrivacyRule</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/StoriesStealthMode/">StoriesStealthMode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/UserRating/">UserRating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/types/UserTonWalletAddress/">UserTonWalletAddress</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/BotVerification/">BotVerification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/BusinessBotRights/">BusinessBotRights</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/ChatSettings/">ChatSettings</a></li>
@@ -734,6 +736,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/RichTextAnchorLink/">RichTextAnchorLink</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/RichTextBankCardNumber/">RichTextBankCardNumber</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/RichTextBold/">RichTextBold</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/types/RichTextTonAddress/">RichTextTonAddress</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/RichTextBotCommand/">RichTextBotCommand</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/RichTextButton/">RichTextButton</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/RichTextCashtag/">RichTextCashtag</a></li>
@@ -794,6 +797,8 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/CommunityChatAdded/">CommunityChatAdded</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/CommunityChatJoined/">CommunityChatJoined</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/CommunityChatRemoved/">CommunityChatRemoved</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/types/TonWalletTransfer/">TonWalletTransfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/types/TonConnectRequest/">TonConnectRequest</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/Checklist/">Checklist</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/RefundedPayment/">RefundedPayment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/ReplyParameters/">ReplyParameters</a></li>
@@ -1329,7 +1334,7 @@ data-aria-dark="Switch to auto color mode">
 <span class="sig-prename descclassname"><span class="pre">pyrogram.raw.base.</span></span><span class="sig-name descname"><span class="pre">RichText</span></span><a class="headerlink" href="#pyrogram.raw.base.RichText" title="Link to this definition">¶</a></dt>
 <dd><p>Rich text</p>
 <dl>
-<dt>Constructors:</dt><dd><p>This base type has 31 constructors available.</p>
+<dt>Constructors:</dt><dd><p>This base type has 32 constructors available.</p>
 <div class="table-wrapper autosummary longtable docutils container">
 <table class="autosummary longtable docutils align-default">
 <tbody>
@@ -1420,10 +1425,13 @@ data-aria-dark="Switch to auto color mode">
 <tr class="row-odd"><td><p><a class="reference internal" href="../../types/text-superscript/#pyrogram.raw.types.TextSuperscript" title="pyrogram.raw.types.TextSuperscript"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TextSuperscript</span></code></a></p></td>
 <td><p>Superscript text</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../../types/text-underline/#pyrogram.raw.types.TextUnderline" title="pyrogram.raw.types.TextUnderline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TextUnderline</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../../types/text-ton-address/#pyrogram.raw.types.TextTonAddress" title="pyrogram.raw.types.TextTonAddress"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TextTonAddress</span></code></a></p></td>
+<td><p>Constructor of <a class="reference internal" href="#pyrogram.raw.base.RichText" title="pyrogram.raw.base.RichText"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RichText</span></code></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../types/text-underline/#pyrogram.raw.types.TextUnderline" title="pyrogram.raw.types.TextUnderline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TextUnderline</span></code></a></p></td>
 <td><p>Underlined text</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../../types/text-url/#pyrogram.raw.types.TextUrl" title="pyrogram.raw.types.TextUrl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TextUrl</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../../types/text-url/#pyrogram.raw.types.TextUrl" title="pyrogram.raw.types.TextUrl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TextUrl</span></code></a></p></td>
 <td><p>Link</p></td>
 </tr>
 </tbody>

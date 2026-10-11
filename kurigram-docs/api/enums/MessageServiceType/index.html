@@ -530,6 +530,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../../methods/set_global_privacy_settings/">set_global_privacy_settings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../methods/set_inactive_session_ttl/">set_inactive_session_ttl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../methods/get_global_privacy_settings/">get_global_privacy_settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../methods/create_user_wallet/">create_user_wallet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../methods/invoke/">invoke</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../methods/recover_gaps/">recover_gaps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../methods/get_app_config/">get_app_config</a></li>
@@ -577,6 +578,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../../types/PrivacyRule/">PrivacyRule</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../types/StoriesStealthMode/">StoriesStealthMode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../types/UserRating/">UserRating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../types/UserTonWalletAddress/">UserTonWalletAddress</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../types/BotVerification/">BotVerification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../types/BusinessBotRights/">BusinessBotRights</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../types/ChatSettings/">ChatSettings</a></li>
@@ -734,6 +736,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../../types/RichTextAnchorLink/">RichTextAnchorLink</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../types/RichTextBankCardNumber/">RichTextBankCardNumber</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../types/RichTextBold/">RichTextBold</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../types/RichTextTonAddress/">RichTextTonAddress</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../types/RichTextBotCommand/">RichTextBotCommand</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../types/RichTextButton/">RichTextButton</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../types/RichTextCashtag/">RichTextCashtag</a></li>
@@ -794,6 +797,8 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../../types/CommunityChatAdded/">CommunityChatAdded</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../types/CommunityChatJoined/">CommunityChatJoined</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../types/CommunityChatRemoved/">CommunityChatRemoved</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../types/TonWalletTransfer/">TonWalletTransfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../types/TonConnectRequest/">TonConnectRequest</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../types/Checklist/">Checklist</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../types/RefundedPayment/">RefundedPayment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../types/ReplyParameters/">ReplyParameters</a></li>
@@ -1361,6 +1366,8 @@ data-aria-dark="Switch to auto color mode">
 <li><a class="reference internal" href="#pyrogram.enums.MessageServiceType.UPGRADED_GIFT_PURCHASE_OFFER_REJECTED"><code class="docutils literal notranslate">UPGRADED_GIFT_PURCHASE_OFFER_REJECTED</span></code></a></li>
 <li><a class="reference internal" href="#pyrogram.enums.MessageServiceType.CHAT_HAS_PROTECTED_CONTENT_TOGGLED"><code class="docutils literal notranslate">CHAT_HAS_PROTECTED_CONTENT_TOGGLED</span></code></a></li>
 <li><a class="reference internal" href="#pyrogram.enums.MessageServiceType.CHAT_HAS_PROTECTED_CONTENT_DISABLE_REQUESTED"><code class="docutils literal notranslate">CHAT_HAS_PROTECTED_CONTENT_DISABLE_REQUESTED</span></code></a></li>
+<li><a class="reference internal" href="#pyrogram.enums.MessageServiceType.TON_WALLET_TRANSFER"><code class="docutils literal notranslate">TON_WALLET_TRANSFER</span></code></a></li>
+<li><a class="reference internal" href="#pyrogram.enums.MessageServiceType.TON_CONNECT_REQUEST"><code class="docutils literal notranslate">TON_CONNECT_REQUEST</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -1839,6 +1846,18 @@ data-aria-dark="Switch to auto color mode">
 <dt class="sig sig-object py" id="pyrogram.enums.MessageServiceType.CHAT_HAS_PROTECTED_CONTENT_DISABLE_REQUESTED">
 <span class="sig-name descname"><span class="pre">CHAT_HAS_PROTECTED_CONTENT_DISABLE_REQUESTED</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'chat_has_protected_content_disable_requested'</span></span><a class="headerlink" href="#pyrogram.enums.MessageServiceType.CHAT_HAS_PROTECTED_CONTENT_DISABLE_REQUESTED" title="Link to this definition">¶</a></dt>
 <dd><p>Chat has protected content disable requested</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyrogram.enums.MessageServiceType.TON_WALLET_TRANSFER">
+<span class="sig-name descname"><span class="pre">TON_WALLET_TRANSFER</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ton_wallet_transfer'</span></span><a class="headerlink" href="#pyrogram.enums.MessageServiceType.TON_WALLET_TRANSFER" title="Link to this definition">¶</a></dt>
+<dd><p>A transfer with the TON wallet of the current user</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyrogram.enums.MessageServiceType.TON_CONNECT_REQUEST">
+<span class="sig-name descname"><span class="pre">TON_CONNECT_REQUEST</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ton_connect_request'</span></span><a class="headerlink" href="#pyrogram.enums.MessageServiceType.TON_CONNECT_REQUEST" title="Link to this definition">¶</a></dt>
+<dd><p>A request from a dApp was received through TON Connect</p>
 </dd></dl>
 
 </dd></dl>

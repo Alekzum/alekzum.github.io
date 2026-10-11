@@ -530,6 +530,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../../../api/methods/set_global_privacy_settings/">set_global_privacy_settings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/methods/set_inactive_session_ttl/">set_inactive_session_ttl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/methods/get_global_privacy_settings/">get_global_privacy_settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/methods/create_user_wallet/">create_user_wallet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/methods/invoke/">invoke</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/methods/recover_gaps/">recover_gaps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/methods/get_app_config/">get_app_config</a></li>
@@ -577,6 +578,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/PrivacyRule/">PrivacyRule</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/StoriesStealthMode/">StoriesStealthMode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/UserRating/">UserRating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/types/UserTonWalletAddress/">UserTonWalletAddress</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/BotVerification/">BotVerification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/BusinessBotRights/">BusinessBotRights</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/ChatSettings/">ChatSettings</a></li>
@@ -734,6 +736,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/RichTextAnchorLink/">RichTextAnchorLink</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/RichTextBankCardNumber/">RichTextBankCardNumber</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/RichTextBold/">RichTextBold</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/types/RichTextTonAddress/">RichTextTonAddress</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/RichTextBotCommand/">RichTextBotCommand</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/RichTextButton/">RichTextButton</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/RichTextCashtag/">RichTextCashtag</a></li>
@@ -794,6 +797,8 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/CommunityChatAdded/">CommunityChatAdded</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/CommunityChatJoined/">CommunityChatJoined</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/CommunityChatRemoved/">CommunityChatRemoved</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/types/TonWalletTransfer/">TonWalletTransfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/types/TonConnectRequest/">TonConnectRequest</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/Checklist/">Checklist</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/RefundedPayment/">RefundedPayment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/types/ReplyParameters/">ReplyParameters</a></li>
@@ -1331,8 +1336,8 @@ data-aria-dark="Switch to auto color mode">
 <p>Constructor of <a class="reference internal" href="../../base/bot-verifier-settings/#pyrogram.raw.base.BotVerifierSettings" title="pyrogram.raw.base.BotVerifierSettings"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BotVerifierSettings</span></code></a>.</p>
 <dl class="simple">
 <dt>Details:</dt><dd><ul class="simple">
-<li><p>Layer: <code class="docutils literal notranslate"><span class="pre">229</span></code></p></li>
-<li><p>ID: <code class="docutils literal notranslate"><span class="pre">B0CD6617</span></code></p></li>
+<li><p>Layer: <code class="docutils literal notranslate"><span class="pre">230</span></code></p></li>
+<li><p>ID: <code class="docutils literal notranslate"><span class="pre">A12AEFFF</span></code></p></li>
 </ul>
 </dd>
 </dl>
@@ -1342,7 +1347,7 @@ data-aria-dark="Switch to auto color mode">
 <li><p><strong>icon</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code> <code class="docutils literal notranslate"><span class="pre">64-bit</span></code>) – Verification icon</p></li>
 <li><p><strong>company</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>) – The name of the organization that provides the verification</p></li>
 <li><p><strong>can_modify_custom_description</strong> (<code class="docutils literal notranslate"><span class="pre">bool</span></code>, <em>optional</em>) – Indicates whether the bot is allowed to set a custom description field for individual verified peers, different from the <code class="docutils literal notranslate"><span class="pre">custom_description</span></code> provided here.</p></li>
-<li><p><strong>custom_description</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>, <em>optional</em>) – An optional default description for the verification</p></li>
+<li><p><strong>custom_description</strong> (<a class="reference internal" href="../../base/text-with-entities/#pyrogram.raw.base.TextWithEntities" title="pyrogram.raw.base.TextWithEntities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TextWithEntities</span></code></a>, <em>optional</em>) – An optional default description for the verification</p></li>
 </ul>
 </dd>
 </dl>

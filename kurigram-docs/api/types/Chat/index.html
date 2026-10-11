@@ -530,6 +530,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../../methods/set_global_privacy_settings/">set_global_privacy_settings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../methods/set_inactive_session_ttl/">set_inactive_session_ttl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../methods/get_global_privacy_settings/">get_global_privacy_settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../methods/create_user_wallet/">create_user_wallet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../methods/invoke/">invoke</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../methods/recover_gaps/">recover_gaps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../methods/get_app_config/">get_app_config</a></li>
@@ -577,6 +578,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../PrivacyRule/">PrivacyRule</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../StoriesStealthMode/">StoriesStealthMode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../UserRating/">UserRating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UserTonWalletAddress/">UserTonWalletAddress</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../BotVerification/">BotVerification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../BusinessBotRights/">BusinessBotRights</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ChatSettings/">ChatSettings</a></li>
@@ -734,6 +736,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../RichTextAnchorLink/">RichTextAnchorLink</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../RichTextBankCardNumber/">RichTextBankCardNumber</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../RichTextBold/">RichTextBold</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RichTextTonAddress/">RichTextTonAddress</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../RichTextBotCommand/">RichTextBotCommand</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../RichTextButton/">RichTextButton</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../RichTextCashtag/">RichTextCashtag</a></li>
@@ -794,6 +797,8 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../CommunityChatAdded/">CommunityChatAdded</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../CommunityChatJoined/">CommunityChatJoined</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../CommunityChatRemoved/">CommunityChatRemoved</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TonWalletTransfer/">TonWalletTransfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TonConnectRequest/">TonConnectRequest</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Checklist/">Checklist</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../RefundedPayment/">RefundedPayment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ReplyParameters/">ReplyParameters</a></li>
@@ -1438,11 +1443,11 @@ Returned only in <a class="reference internal" href="../../methods/get_chat/#pyr
 <li><p><strong>message_auto_delete_time</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>, <em>optional</em>) – The time after which all messages sent to the chat will be automatically deleted; in seconds.</p></li>
 <li><p><strong>unrestrict_boost_count</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>, <em>optional</em>) – For supergroups, the minimum number of boosts that a non-administrator user needs to add in order to ignore slow mode and chat permissions.</p></li>
 <li><p><strong>slow_mode_delay</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>, <em>optional</em>) – For supergroups, the minimum allowed delay between consecutive messages sent by each unpriviledged user; in seconds.</p></li>
-<li><p><strong>slowmode_next_send_date</strong> (<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">datetime</span></code></a>, <em>optional</em>) – Indicates when the user will be allowed to send another message in the chat. For supergroups only.</p></li>
+<li><p><strong>slowmode_next_send_date</strong> (<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.15)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">datetime</span></code></a>, <em>optional</em>) – Indicates when the user will be allowed to send another message in the chat. For supergroups only.</p></li>
 <li><p><strong>join_by_request</strong> (<code class="docutils literal notranslate"><span class="pre">bool</span></code>, <em>optional</em>) – True, if all users directly joining the supergroup need to be approved by supergroup administrators.</p></li>
 <li><p><strong>join_requests_count</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>, <em>optional</em>) – Number of users who requested to join the chat.</p></li>
-<li><p><strong>banned_until_date</strong> (<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">datetime</span></code></a>, <em>optional</em>) – Date when the user will be unbanned.</p></li>
-<li><p><strong>subscription_until_date</strong> (<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">datetime</span></code></a>, <em>optional</em>) – Date when the the subscription will end.</p></li>
+<li><p><strong>banned_until_date</strong> (<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.15)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">datetime</span></code></a>, <em>optional</em>) – Date when the user will be unbanned.</p></li>
+<li><p><strong>subscription_until_date</strong> (<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.15)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">datetime</span></code></a>, <em>optional</em>) – Date when the the subscription will end.</p></li>
 <li><p><strong>reactions_limit</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>, <em>optional</em>) – This flag may be used to impose a custom limit of unique reactions (i.e. a customizable version of appConfig.reactions_uniq_max).</p></li>
 <li><p><strong>gift_count</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>, <em>optional</em>) – Number of saved to profile gifts for channels without <cite>can_post_messages</cite> administrator right, otherwise, the total number of received gifts.</p></li>
 <li><p><strong>bot_verification</strong> (<a class="reference internal" href="../BotVerification/#pyrogram.types.BotVerification" title="pyrogram.types.BotVerification"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BotVerification</span></code></a>, <em>optional</em>) – Information about bot verification.</p></li>
@@ -1452,7 +1457,7 @@ Returned only in <a class="reference internal" href="../../methods/get_chat/#pyr
 Returned only in <a class="reference internal" href="../../methods/get_chat/#pyrogram.Client.get_chat" title="pyrogram.Client.get_chat"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_chat()</span></code></a>.</p></li>
 <li><p><strong>rating</strong> (<a class="reference internal" href="../UserRating/#pyrogram.types.UserRating" title="pyrogram.types.UserRating"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UserRating</span></code></a>, <em>optional</em>) – Description of the current rating of the user.</p></li>
 <li><p><strong>pending_rating</strong> (<a class="reference internal" href="../UserRating/#pyrogram.types.UserRating" title="pyrogram.types.UserRating"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UserRating</span></code></a>, <em>optional</em>) – Description of the rating of the user after the next change.</p></li>
-<li><p><strong>pending_rating_date</strong> (<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">datetime</span></code></a>, <em>optional</em>) – Date when rating of the user will change to pending_rating.</p></li>
+<li><p><strong>pending_rating_date</strong> (<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.15)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">datetime</span></code></a>, <em>optional</em>) – Date when rating of the user will change to pending_rating.</p></li>
 <li><p><strong>settings</strong> (<a class="reference internal" href="../ChatSettings/#pyrogram.types.ChatSettings" title="pyrogram.types.ChatSettings"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatSettings</span></code></a>, <em>optional</em>) – Chat settings.
 Returned only in <a class="reference internal" href="../../methods/get_chat/#pyrogram.Client.get_chat" title="pyrogram.Client.get_chat"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_chat()</span></code></a>.</p></li>
 <li><p><strong>admins_count</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>, <em>optional</em>) – Number of admins in channel.

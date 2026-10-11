@@ -530,6 +530,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../../methods/set_global_privacy_settings/">set_global_privacy_settings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../methods/set_inactive_session_ttl/">set_inactive_session_ttl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../methods/get_global_privacy_settings/">get_global_privacy_settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../methods/create_user_wallet/">create_user_wallet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../methods/invoke/">invoke</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../methods/recover_gaps/">recover_gaps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../methods/get_app_config/">get_app_config</a></li>
@@ -577,6 +578,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../PrivacyRule/">PrivacyRule</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../StoriesStealthMode/">StoriesStealthMode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../UserRating/">UserRating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UserTonWalletAddress/">UserTonWalletAddress</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../BotVerification/">BotVerification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../BusinessBotRights/">BusinessBotRights</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ChatSettings/">ChatSettings</a></li>
@@ -734,6 +736,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../RichTextAnchorLink/">RichTextAnchorLink</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../RichTextBankCardNumber/">RichTextBankCardNumber</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../RichTextBold/">RichTextBold</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RichTextTonAddress/">RichTextTonAddress</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../RichTextBotCommand/">RichTextBotCommand</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../RichTextButton/">RichTextButton</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../RichTextCashtag/">RichTextCashtag</a></li>
@@ -794,6 +797,8 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../CommunityChatAdded/">CommunityChatAdded</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../CommunityChatJoined/">CommunityChatJoined</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../CommunityChatRemoved/">CommunityChatRemoved</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TonWalletTransfer/">TonWalletTransfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TonConnectRequest/">TonConnectRequest</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Checklist/">Checklist</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../RefundedPayment/">RefundedPayment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ReplyParameters/">ReplyParameters</a></li>
@@ -1332,7 +1337,7 @@ data-aria-dark="Switch to auto color mode">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>user</strong> (<a class="reference internal" href="../User/#pyrogram.types.User" title="pyrogram.types.User"><code class="xref py py-obj docutils literal notranslate"><span class="pre">User</span></code></a>) – Information about the user.</p></li>
-<li><p><strong>date</strong> (<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">datetime</span></code></a>) – Date when the user joined.</p></li>
+<li><p><strong>date</strong> (<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.15)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">datetime</span></code></a>) – Date when the user joined.</p></li>
 <li><p><strong>bio</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>, <em>optional</em>) – Bio of the user.</p></li>
 <li><p><strong>pending</strong> (<code class="docutils literal notranslate"><span class="pre">bool</span></code>, <em>optional</em>) – True in case the chat joiner has a pending request.</p></li>
 <li><p><strong>approved_by</strong> (<a class="reference internal" href="../User/#pyrogram.types.User" title="pyrogram.types.User"><code class="xref py py-obj docutils literal notranslate"><span class="pre">User</span></code></a>, <em>optional</em>) – Administrator who approved this chat joiner.</p></li>

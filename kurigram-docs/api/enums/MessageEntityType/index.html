@@ -530,6 +530,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../../methods/set_global_privacy_settings/">set_global_privacy_settings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../methods/set_inactive_session_ttl/">set_inactive_session_ttl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../methods/get_global_privacy_settings/">get_global_privacy_settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../methods/create_user_wallet/">create_user_wallet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../methods/invoke/">invoke</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../methods/recover_gaps/">recover_gaps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../methods/get_app_config/">get_app_config</a></li>
@@ -577,6 +578,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../../types/PrivacyRule/">PrivacyRule</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../types/StoriesStealthMode/">StoriesStealthMode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../types/UserRating/">UserRating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../types/UserTonWalletAddress/">UserTonWalletAddress</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../types/BotVerification/">BotVerification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../types/BusinessBotRights/">BusinessBotRights</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../types/ChatSettings/">ChatSettings</a></li>
@@ -734,6 +736,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../../types/RichTextAnchorLink/">RichTextAnchorLink</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../types/RichTextBankCardNumber/">RichTextBankCardNumber</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../types/RichTextBold/">RichTextBold</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../types/RichTextTonAddress/">RichTextTonAddress</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../types/RichTextBotCommand/">RichTextBotCommand</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../types/RichTextButton/">RichTextButton</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../types/RichTextCashtag/">RichTextCashtag</a></li>
@@ -794,6 +797,8 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../../types/CommunityChatAdded/">CommunityChatAdded</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../types/CommunityChatJoined/">CommunityChatJoined</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../types/CommunityChatRemoved/">CommunityChatRemoved</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../types/TonWalletTransfer/">TonWalletTransfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../types/TonConnectRequest/">TonConnectRequest</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../types/Checklist/">Checklist</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../types/RefundedPayment/">RefundedPayment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../types/ReplyParameters/">ReplyParameters</a></li>
@@ -1308,6 +1313,7 @@ data-aria-dark="Switch to auto color mode">
 <li><a class="reference internal" href="#pyrogram.enums.MessageEntityType.BANK_CARD"><code class="docutils literal notranslate">BANK_CARD</span></code></a></li>
 <li><a class="reference internal" href="#pyrogram.enums.MessageEntityType.CUSTOM_EMOJI"><code class="docutils literal notranslate">CUSTOM_EMOJI</span></code></a></li>
 <li><a class="reference internal" href="#pyrogram.enums.MessageEntityType.DATE_TIME"><code class="docutils literal notranslate">DATE_TIME</span></code></a></li>
+<li><a class="reference internal" href="#pyrogram.enums.MessageEntityType.TON_ADDRESS"><code class="docutils literal notranslate">TON_ADDRESS</span></code></a></li>
 <li><a class="reference internal" href="#pyrogram.enums.MessageEntityType.UNKNOWN"><code class="docutils literal notranslate">UNKNOWN</span></code></a></li>
 </ul>
 </li>
@@ -1469,6 +1475,12 @@ data-aria-dark="Switch to auto color mode">
 <dt class="sig sig-object py" id="pyrogram.enums.MessageEntityType.DATE_TIME">
 <span class="sig-name descname"><span class="pre">DATE_TIME</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;class</span> <span class="pre">'pyrogram.raw.types.message_entity_formatted_date.MessageEntityFormattedDate'&gt;</span></span><a class="headerlink" href="#pyrogram.enums.MessageEntityType.DATE_TIME" title="Link to this definition">¶</a></dt>
 <dd><p>Date time</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyrogram.enums.MessageEntityType.TON_ADDRESS">
+<span class="sig-name descname"><span class="pre">TON_ADDRESS</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;class</span> <span class="pre">'pyrogram.raw.types.message_entity_ton_address.MessageEntityTonAddress'&gt;</span></span><a class="headerlink" href="#pyrogram.enums.MessageEntityType.TON_ADDRESS" title="Link to this definition">¶</a></dt>
+<dd><p>An address in the TON blockchain</p>
 </dd></dl>
 
 <dl class="py attribute">

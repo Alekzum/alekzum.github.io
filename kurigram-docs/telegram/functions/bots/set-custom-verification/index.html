@@ -530,6 +530,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/set_global_privacy_settings/">set_global_privacy_settings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/set_inactive_session_ttl/">set_inactive_session_ttl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_global_privacy_settings/">get_global_privacy_settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/create_user_wallet/">create_user_wallet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/invoke/">invoke</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/recover_gaps/">recover_gaps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/methods/get_app_config/">get_app_config</a></li>
@@ -577,6 +578,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/types/PrivacyRule/">PrivacyRule</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/types/StoriesStealthMode/">StoriesStealthMode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/types/UserRating/">UserRating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/UserTonWalletAddress/">UserTonWalletAddress</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/types/BotVerification/">BotVerification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/types/BusinessBotRights/">BusinessBotRights</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/types/ChatSettings/">ChatSettings</a></li>
@@ -734,6 +736,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/types/RichTextAnchorLink/">RichTextAnchorLink</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/types/RichTextBankCardNumber/">RichTextBankCardNumber</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/types/RichTextBold/">RichTextBold</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/RichTextTonAddress/">RichTextTonAddress</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/types/RichTextBotCommand/">RichTextBotCommand</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/types/RichTextButton/">RichTextButton</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/types/RichTextCashtag/">RichTextCashtag</a></li>
@@ -794,6 +797,8 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/types/CommunityChatAdded/">CommunityChatAdded</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/types/CommunityChatJoined/">CommunityChatJoined</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/types/CommunityChatRemoved/">CommunityChatRemoved</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/TonWalletTransfer/">TonWalletTransfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/types/TonConnectRequest/">TonConnectRequest</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/types/Checklist/">Checklist</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/types/RefundedPayment/">RefundedPayment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/types/ReplyParameters/">ReplyParameters</a></li>
@@ -1336,8 +1341,8 @@ data-aria-dark="Switch to auto color mode">
 <span class="usable-by"><i class="fa-solid fa-check" style="color: var(--color-green)"></i> Users</span>
 <span class="usable-by"><i class="fa-solid fa-check" style="color: var(--color-green)"></i> Bots</span><dl class="simple">
 <dt>Details:</dt><dd><ul class="simple">
-<li><p>Layer: <code class="docutils literal notranslate"><span class="pre">229</span></code></p></li>
-<li><p>ID: <code class="docutils literal notranslate"><span class="pre">8B89DFBD</span></code></p></li>
+<li><p>Layer: <code class="docutils literal notranslate"><span class="pre">230</span></code></p></li>
+<li><p>ID: <code class="docutils literal notranslate"><span class="pre">F4946757</span></code></p></li>
 </ul>
 </dd>
 </dl>
@@ -1347,7 +1352,7 @@ data-aria-dark="Switch to auto color mode">
 <li><p><strong>peer</strong> (<a class="reference internal" href="../../../base/input-peer/#pyrogram.raw.base.InputPeer" title="pyrogram.raw.base.InputPeer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InputPeer</span></code></a>) – The peer to verify</p></li>
 <li><p><strong>enabled</strong> (<code class="docutils literal notranslate"><span class="pre">bool</span></code>, <em>optional</em>) – If set, adds the verification; otherwise removes verification.</p></li>
 <li><p><strong>bot</strong> (<a class="reference internal" href="../../../base/input-user/#pyrogram.raw.base.InputUser" title="pyrogram.raw.base.InputUser"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InputUser</span></code></a>, <em>optional</em>) – Must <strong>not</strong> be set if invoked by a bot, <strong>must</strong> be set to the ID of an owned bot if invoked by a user.</p></li>
-<li><p><strong>custom_description</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>, <em>optional</em>) – Custom description for the verification, the UTF-8 length limit for this field is contained in <a class="reference external" href="https://corefork.telegram.org/api/config#bot-verification-description-length-limit">bot_verification_description_length_limit »</a>.</p>
+<li><p><strong>custom_description</strong> (<a class="reference internal" href="../../../base/text-with-entities/#pyrogram.raw.base.TextWithEntities" title="pyrogram.raw.base.TextWithEntities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TextWithEntities</span></code></a>, <em>optional</em>) – Custom description for the verification, the UTF-8 length limit for this field is contained in <a class="reference external" href="https://corefork.telegram.org/api/config#bot-verification-description-length-limit">bot_verification_description_length_limit »</a>.</p>
 <p>If not set, <code class="docutils literal notranslate"><span class="pre">Was</span> <span class="pre">verified</span> <span class="pre">by</span> <span class="pre">organization</span> <span class="pre">&quot;organization_name&quot;</span></code> will be used as description.</p>
 </li>
 </ul>

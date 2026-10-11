@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link media="print" rel="stylesheet" type="text/css" href="../_static/print.css?v=20ff2c19" />
     <link rel="stylesheet" type="text/css" href="../_static/css/all.min.css?v=24d2f23b" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=7a56ed06" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=48ad8924" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -115,7 +115,7 @@ data-aria-dark="Switch to auto color mode">
 </ul>
 <p class="caption" role="heading" aria-level="3"><span class="caption-text">API Reference</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../api/client/">Pyrogram Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/client/">Kurigram Client</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/methods/">Available Methods</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../api/methods/start/">start</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/methods/stop/">stop</a></li>
@@ -315,6 +315,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../api/methods/set_upgraded_gift_colors/">set_upgraded_gift_colors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/methods/update_chat_notifications/">update_chat_notifications</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/methods/create_folder_invite_link/">create_folder_invite_link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/methods/edit_folder_invite_link/">edit_folder_invite_link</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/methods/get_chats_for_folder_invite_link/">get_chats_for_folder_invite_link</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/methods/get_folders/">get_folders</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/methods/create_folder/">create_folder</a></li>
@@ -342,6 +343,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../api/methods/get_chat_photos_count/">get_chat_photos_count</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/methods/get_chat_audios_count/">get_chat_audios_count</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/methods/set_profile_photo/">set_profile_photo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/methods/set_bot_profile_photo/">set_bot_profile_photo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/methods/set_personal_channel/">set_personal_channel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/methods/delete_profile_photos/">delete_profile_photos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/methods/set_username/">set_username</a></li>
@@ -528,8 +530,10 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../api/methods/set_global_privacy_settings/">set_global_privacy_settings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/methods/set_inactive_session_ttl/">set_inactive_session_ttl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/methods/get_global_privacy_settings/">get_global_privacy_settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/methods/create_user_wallet/">create_user_wallet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/methods/invoke/">invoke</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/methods/recover_gaps/">recover_gaps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/methods/get_app_config/">get_app_config</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/methods/resolve_peer/">resolve_peer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/methods/save_file/">save_file</a></li>
 </ul>
@@ -555,7 +559,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../api/types/ChatInviteLink/">ChatInviteLink</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/types/ChatAdminWithInviteLinks/">ChatAdminWithInviteLinks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEvent/">ChatEvent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventFilter/">ChatEventFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventLogFilters/">ChatEventLogFilters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/types/ChatMemberUpdated/">ChatMemberUpdated</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/types/ChatJoinRequest/">ChatJoinRequest</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/types/ChatJoinResult/">ChatJoinResult</a></li>
@@ -574,6 +578,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../api/types/PrivacyRule/">PrivacyRule</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/types/StoriesStealthMode/">StoriesStealthMode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/types/UserRating/">UserRating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/UserTonWalletAddress/">UserTonWalletAddress</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/types/BotVerification/">BotVerification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/types/BusinessBotRights/">BusinessBotRights</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/types/ChatSettings/">ChatSettings</a></li>
@@ -589,6 +594,60 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../api/types/CommunityMemberStatusLeft/">CommunityMemberStatusLeft</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/types/CommunityMemberStatusBanned/">CommunityMemberStatusBanned</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/types/CommunityPermissions/">CommunityPermissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventAction/">ChatEventAction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionMessageEdited/">ChatEventActionMessageEdited</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionMessageDeleted/">ChatEventActionMessageDeleted</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionMessagePinned/">ChatEventActionMessagePinned</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionMessageUnpinned/">ChatEventActionMessageUnpinned</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionPollStopped/">ChatEventActionPollStopped</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionMemberJoined/">ChatEventActionMemberJoined</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionMemberJoinedByInviteLink/">ChatEventActionMemberJoinedByInviteLink</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionMemberJoinedByRequest/">ChatEventActionMemberJoinedByRequest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionMemberInvited/">ChatEventActionMemberInvited</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionMemberLeft/">ChatEventActionMemberLeft</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionMemberPromoted/">ChatEventActionMemberPromoted</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionMemberRestricted/">ChatEventActionMemberRestricted</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionMemberTagChanged/">ChatEventActionMemberTagChanged</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionMemberSubscriptionExtended/">ChatEventActionMemberSubscriptionExtended</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionAvailableReactionsChanged/">ChatEventActionAvailableReactionsChanged</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionBackgroundChanged/">ChatEventActionBackgroundChanged</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionDescriptionChanged/">ChatEventActionDescriptionChanged</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionEmojiStatusChanged/">ChatEventActionEmojiStatusChanged</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionLinkedChatChanged/">ChatEventActionLinkedChatChanged</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionLocationChanged/">ChatEventActionLocationChanged</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionMessageAutoDeleteTimeChanged/">ChatEventActionMessageAutoDeleteTimeChanged</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionPermissionsChanged/">ChatEventActionPermissionsChanged</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionPhotoChanged/">ChatEventActionPhotoChanged</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionSlowModeDelayChanged/">ChatEventActionSlowModeDelayChanged</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionStickerSetChanged/">ChatEventActionStickerSetChanged</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionCustomEmojiStickerSetChanged/">ChatEventActionCustomEmojiStickerSetChanged</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionTitleChanged/">ChatEventActionTitleChanged</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionUsernameChanged/">ChatEventActionUsernameChanged</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionActiveUsernamesChanged/">ChatEventActionActiveUsernamesChanged</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionAccentColorChanged/">ChatEventActionAccentColorChanged</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionProfileAccentColorChanged/">ChatEventActionProfileAccentColorChanged</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionHasProtectedContentToggled/">ChatEventActionHasProtectedContentToggled</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionInvitesToggled/">ChatEventActionInvitesToggled</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionIsAllHistoryAvailableToggled/">ChatEventActionIsAllHistoryAvailableToggled</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionHasAggressiveAntiSpamEnabledToggled/">ChatEventActionHasAggressiveAntiSpamEnabledToggled</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionSignMessagesToggled/">ChatEventActionSignMessagesToggled</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionShowMessageSenderToggled/">ChatEventActionShowMessageSenderToggled</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionAutomaticTranslationToggled/">ChatEventActionAutomaticTranslationToggled</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionInviteLinkEdited/">ChatEventActionInviteLinkEdited</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionInviteLinkRevoked/">ChatEventActionInviteLinkRevoked</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionInviteLinkDeleted/">ChatEventActionInviteLinkDeleted</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionVideoChatCreated/">ChatEventActionVideoChatCreated</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionVideoChatEnded/">ChatEventActionVideoChatEnded</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionVideoChatMuteNewParticipantsToggled/">ChatEventActionVideoChatMuteNewParticipantsToggled</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionVideoChatParticipantIsMutedToggled/">ChatEventActionVideoChatParticipantIsMutedToggled</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionVideoChatParticipantVolumeLevelChanged/">ChatEventActionVideoChatParticipantVolumeLevelChanged</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionIsForumToggled/">ChatEventActionIsForumToggled</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionForumTopicCreated/">ChatEventActionForumTopicCreated</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionForumTopicEdited/">ChatEventActionForumTopicEdited</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionForumTopicToggleIsClosed/">ChatEventActionForumTopicToggleIsClosed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionForumTopicToggleIsHidden/">ChatEventActionForumTopicToggleIsHidden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionForumTopicDeleted/">ChatEventActionForumTopicDeleted</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/ChatEventActionForumTopicPinned/">ChatEventActionForumTopicPinned</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/types/BusinessMessage/">BusinessMessage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/types/Message/">Message</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/types/MessageEntity/">MessageEntity</a></li>
@@ -677,6 +736,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../api/types/RichTextAnchorLink/">RichTextAnchorLink</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/types/RichTextBankCardNumber/">RichTextBankCardNumber</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/types/RichTextBold/">RichTextBold</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/RichTextTonAddress/">RichTextTonAddress</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/types/RichTextBotCommand/">RichTextBotCommand</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/types/RichTextButton/">RichTextButton</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/types/RichTextCashtag/">RichTextCashtag</a></li>
@@ -737,6 +797,8 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../api/types/CommunityChatAdded/">CommunityChatAdded</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/types/CommunityChatJoined/">CommunityChatJoined</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/types/CommunityChatRemoved/">CommunityChatRemoved</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/TonWalletTransfer/">TonWalletTransfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/types/TonConnectRequest/">TonConnectRequest</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/types/Checklist/">Checklist</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/types/RefundedPayment/">RefundedPayment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/types/ReplyParameters/">ReplyParameters</a></li>
@@ -1115,7 +1177,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../api/enums/BusinessSchedule/">BusinessSchedule</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/enums/ButtonStyle/">ButtonStyle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/enums/ChatAction/">ChatAction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/enums/ChatEventAction/">ChatEventAction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/enums/ChatEventActionType/">ChatEventActionType</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/enums/ChatJoinType/">ChatJoinType</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/enums/ChatMemberStatus/">ChatMemberStatus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/enums/ChatMembersFilter/">ChatMembersFilter</a></li>
@@ -1290,22 +1352,7 @@ a sponsor of the project. You can support me via the ways shown below:</p>
 <label class="sd-tab-label" for="sd-tab-item-0">
 RUB</label><div class="sd-tab-content docutils">
 <div class="docutils">
-<p><a class="sd-sphinx-override sd-btn sd-text-wrap sd-btn-primary reference external" href="tg://resolve?domain=tribute&amp;appname=app&amp;startapp=dG3w"><span>Donate with Tribute</span></a></p>
 <p><a class="sd-sphinx-override sd-btn sd-text-wrap sd-btn-primary reference external" href="https://fetta.app/u/KurimuzonAkuma"><span>Donate with Fetta</span></a></p>
-</div>
-</div>
-<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
-<label class="sd-tab-label" for="sd-tab-item-1">
-USD</label><div class="sd-tab-content docutils">
-<div class="docutils">
-<p><a class="sd-sphinx-override sd-btn sd-text-wrap sd-btn-primary reference external" href="tg://resolve?domain=tribute&amp;appname=app&amp;startapp=dJmU"><span>Donate with Tribute</span></a></p>
-</div>
-</div>
-<input id="sd-tab-item-2" name="sd-tab-set-0" type="radio">
-<label class="sd-tab-label" for="sd-tab-item-2">
-EUR</label><div class="sd-tab-content docutils">
-<div class="docutils">
-<p><a class="sd-sphinx-override sd-btn sd-text-wrap sd-btn-primary reference external" href="tg://resolve?domain=tribute&amp;appname=app&amp;startapp=dJmT"><span>Donate with Tribute</span></a></p>
 </div>
 </div>
 </div>
@@ -1315,22 +1362,22 @@ EUR</label><div class="sd-tab-content docutils">
 <h2>Crypto<a class="headerlink" href="#crypto" title="Link to this heading">¶</a></h2>
 <p><span class="sd-sphinx-override sd-badge sd-outline-primary sd-text-primary">USDT</span></p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
-<label class="sd-tab-label" for="sd-tab-item-3">
+<input checked="checked" id="sd-tab-item-1" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-1">
 TRON (TRC20)</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span data-line="1">TYAY3cVST3NY5mqs1M2qGV6PjXDjLLeC6v
 </span></pre></div>
 </div>
 </div>
-<input id="sd-tab-item-4" name="sd-tab-set-1" type="radio">
-<label class="sd-tab-label" for="sd-tab-item-4">
+<input id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-2">
 BEP20</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span data-line="1">0xd16839F9eB144AFc90ff59A0cd25d77d4936B215
 </span></pre></div>
 </div>
 </div>
-<input id="sd-tab-item-5" name="sd-tab-set-1" type="radio">
-<label class="sd-tab-label" for="sd-tab-item-5">
+<input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-3">
 💎 TON</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span data-line="1">kurimuzonakuma.ton
 </span></pre></div>

@@ -530,6 +530,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../../api/methods/set_global_privacy_settings/">set_global_privacy_settings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/methods/set_inactive_session_ttl/">set_inactive_session_ttl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/methods/get_global_privacy_settings/">get_global_privacy_settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/methods/create_user_wallet/">create_user_wallet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/methods/invoke/">invoke</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/methods/recover_gaps/">recover_gaps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/methods/get_app_config/">get_app_config</a></li>
@@ -577,6 +578,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../../api/types/PrivacyRule/">PrivacyRule</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/types/StoriesStealthMode/">StoriesStealthMode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/types/UserRating/">UserRating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/types/UserTonWalletAddress/">UserTonWalletAddress</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/types/BotVerification/">BotVerification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/types/BusinessBotRights/">BusinessBotRights</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/types/ChatSettings/">ChatSettings</a></li>
@@ -734,6 +736,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../../api/types/RichTextAnchorLink/">RichTextAnchorLink</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/types/RichTextBankCardNumber/">RichTextBankCardNumber</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/types/RichTextBold/">RichTextBold</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/types/RichTextTonAddress/">RichTextTonAddress</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/types/RichTextBotCommand/">RichTextBotCommand</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/types/RichTextButton/">RichTextButton</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/types/RichTextCashtag/">RichTextCashtag</a></li>
@@ -794,6 +797,8 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../../api/types/CommunityChatAdded/">CommunityChatAdded</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/types/CommunityChatJoined/">CommunityChatJoined</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/types/CommunityChatRemoved/">CommunityChatRemoved</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/types/TonWalletTransfer/">TonWalletTransfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/types/TonConnectRequest/">TonConnectRequest</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/types/Checklist/">Checklist</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/types/RefundedPayment/">RefundedPayment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/types/ReplyParameters/">ReplyParameters</a></li>
@@ -1514,6 +1519,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="payments/check-can-send-gift-result/">CheckCanSendGiftResult</a></li>
 <li class="toctree-l2"><a class="reference internal" href="payments/checked-gift-code/">CheckedGiftCode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="payments/connected-star-ref-bots/">ConnectedStarRefBots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="payments/currency-rates/">CurrencyRates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="payments/exported-invoice/">ExportedInvoice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="payments/giveaway-info/">GiveawayInfo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="payments/payment-form/">PaymentForm</a></li>
@@ -1596,6 +1602,11 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="stories/story-views-list/">StoryViewsList</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="toncenter/">Toncenter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="toncenter/api-response/">ApiResponse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toncenter/streaming-url/">StreamingUrl</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="updates/">Updates</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="updates/channel-difference/">ChannelDifference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="updates/difference/">Difference</a></li>
@@ -1612,6 +1623,22 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="users/saved-music/">SavedMusic</a></li>
 <li class="toctree-l2"><a class="reference internal" href="users/user-full/">UserFull</a></li>
 <li class="toctree-l2"><a class="reference internal" href="users/users/">Users</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="wallet/">Wallet</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="wallet/encrypted-secret-phrase-part/">EncryptedSecretPhrasePart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wallet/existing-balance/">ExistingBalance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wallet/holder-dc/">HolderDc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wallet/nft-attribute/">NftAttribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wallet/nft-item/">NftItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wallet/nft-items/">NftItems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wallet/proof-challenge/">ProofChallenge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wallet/secret-phrase-parts/">SecretPhraseParts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wallet/ton-connect-challenge/">TonConnectChallenge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wallet/ton-connect-pending/">TonConnectPending</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wallet/ton-connect-sessions/">TonConnectSessions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wallet/transactions/">Transactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wallet/user-addresses/">UserAddresses</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="access-point-rule/">AccessPointRule</a></li>
@@ -1693,6 +1720,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l1"><a class="reference internal" href="contact/">Contact</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contact-birthday/">ContactBirthday</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contact-status/">ContactStatus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="currency-rate/">CurrencyRate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data-json/">DataJSON</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dc-option/">DcOption</a></li>
 <li class="toctree-l1"><a class="reference internal" href="default-history-ttl/">DefaultHistoryTTL</a></li>
@@ -1810,6 +1838,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l1"><a class="reference internal" href="input-theme-settings/">InputThemeSettings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="input-user/">InputUser</a></li>
 <li class="toctree-l1"><a class="reference internal" href="input-wall-paper/">InputWallPaper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input-wallet-replacement/">InputWalletReplacement</a></li>
 <li class="toctree-l1"><a class="reference internal" href="input-web-document/">InputWebDocument</a></li>
 <li class="toctree-l1"><a class="reference internal" href="input-web-file-location/">InputWebFileLocation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="invoice/">Invoice</a></li>
@@ -1857,6 +1886,12 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l1"><a class="reference internal" href="new-session/">NewSession</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notification-sound/">NotificationSound</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notify-peer/">NotifyPeer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="onramp-availability/">OnrampAvailability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="onramp-limits/">OnrampLimits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="onramp-method-availability/">OnrampMethodAvailability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="onramp-provider-info/">OnrampProviderInfo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="onramp-quote/">OnrampQuote</a></li>
+<li class="toctree-l1"><a class="reference internal" href="onramp-session/">OnrampSession</a></li>
 <li class="toctree-l1"><a class="reference internal" href="outbox-read-date/">OutboxReadDate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pq-inner-data/">PQInnerData</a></li>
 <li class="toctree-l1"><a class="reference internal" href="page/">Page</a></li>
@@ -2007,6 +2042,10 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l1"><a class="reference internal" href="todo-completion/">TodoCompletion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="todo-item/">TodoItem</a></li>
 <li class="toctree-l1"><a class="reference internal" href="todo-list/">TodoList</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ton-connect-manifest/">TonConnectManifest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ton-connect-next-event-id/">TonConnectNextEventId</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ton-connect-request/">TonConnectRequest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ton-connect-session/">TonConnectSession</a></li>
 <li class="toctree-l1"><a class="reference internal" href="top-peer/">TopPeer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="top-peer-category/">TopPeerCategory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="top-peer-category-peers/">TopPeerCategoryPeers</a></li>
@@ -2021,6 +2060,11 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l1"><a class="reference internal" href="video-size/">VideoSize</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wall-paper/">WallPaper</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wall-paper-settings/">WallPaperSettings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wallet-ownership-proof/">WalletOwnershipProof</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wallet-state/">WalletState</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wallet-transaction/">WalletTransaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wallet-transaction-peer/">WalletTransactionPeer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wallet-user-address/">WalletUserAddress</a></li>
 <li class="toctree-l1"><a class="reference internal" href="web-authorization/">WebAuthorization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="web-document/">WebDocument</a></li>
 <li class="toctree-l1"><a class="reference internal" href="web-domain-exception/">WebDomainException</a></li>

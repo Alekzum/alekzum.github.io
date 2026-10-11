@@ -530,6 +530,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../../api/methods/set_global_privacy_settings/">set_global_privacy_settings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/methods/set_inactive_session_ttl/">set_inactive_session_ttl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/methods/get_global_privacy_settings/">get_global_privacy_settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/methods/create_user_wallet/">create_user_wallet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/methods/invoke/">invoke</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/methods/recover_gaps/">recover_gaps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/methods/get_app_config/">get_app_config</a></li>
@@ -577,6 +578,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../../api/types/PrivacyRule/">PrivacyRule</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/types/StoriesStealthMode/">StoriesStealthMode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/types/UserRating/">UserRating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/types/UserTonWalletAddress/">UserTonWalletAddress</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/types/BotVerification/">BotVerification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/types/BusinessBotRights/">BusinessBotRights</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/types/ChatSettings/">ChatSettings</a></li>
@@ -734,6 +736,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../../api/types/RichTextAnchorLink/">RichTextAnchorLink</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/types/RichTextBankCardNumber/">RichTextBankCardNumber</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/types/RichTextBold/">RichTextBold</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/types/RichTextTonAddress/">RichTextTonAddress</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/types/RichTextBotCommand/">RichTextBotCommand</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/types/RichTextButton/">RichTextButton</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/types/RichTextCashtag/">RichTextCashtag</a></li>
@@ -794,6 +797,8 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../../api/types/CommunityChatAdded/">CommunityChatAdded</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/types/CommunityChatJoined/">CommunityChatJoined</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/types/CommunityChatRemoved/">CommunityChatRemoved</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/types/TonWalletTransfer/">TonWalletTransfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/types/TonConnectRequest/">TonConnectRequest</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/types/Checklist/">Checklist</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/types/RefundedPayment/">RefundedPayment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/types/ReplyParameters/">ReplyParameters</a></li>
@@ -1464,6 +1469,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="auth/accept-login-token/">AcceptLoginToken</a></li>
 <li class="toctree-l2"><a class="reference internal" href="auth/bind-temp-auth-key/">BindTempAuthKey</a></li>
 <li class="toctree-l2"><a class="reference internal" href="auth/cancel-code/">CancelCode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auth/cancel-web-token-authorization/">CancelWebTokenAuthorization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="auth/check-paid-auth/">CheckPaidAuth</a></li>
 <li class="toctree-l2"><a class="reference internal" href="auth/check-password/">CheckPassword</a></li>
 <li class="toctree-l2"><a class="reference internal" href="auth/check-recovery-password/">CheckRecoveryPassword</a></li>
@@ -1494,6 +1500,7 @@ data-aria-dark="Switch to auto color mode">
 </li>
 <li class="toctree-l1"><a class="reference internal" href="bots/">Bots</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="bots/add-preview-media/">AddPreviewMedia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bots/add-username/">AddUsername</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bots/allow-send-message/">AllowSendMessage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bots/answer-webhook-json-query/">AnswerWebhookJSONQuery</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bots/can-send-message/">CanSendMessage</a></li>
@@ -1515,6 +1522,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="bots/get-preview-medias/">GetPreviewMedias</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bots/get-requested-web-view-button/">GetRequestedWebViewButton</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bots/invoke-web-view-custom-method/">InvokeWebViewCustomMethod</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bots/remove-username/">RemoveUsername</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bots/reorder-preview-medias/">ReorderPreviewMedias</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bots/reorder-usernames/">ReorderUsernames</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bots/request-web-view-button/">RequestWebViewButton</a></li>
@@ -1985,6 +1993,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="payments/connect-star-ref-bot/">ConnectStarRefBot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="payments/convert-star-gift/">ConvertStarGift</a></li>
 <li class="toctree-l2"><a class="reference internal" href="payments/craft-star-gift/">CraftStarGift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="payments/create-onramp-session/">CreateOnrampSession</a></li>
 <li class="toctree-l2"><a class="reference internal" href="payments/create-star-gift-collection/">CreateStarGiftCollection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="payments/delete-star-gift-collection/">DeleteStarGiftCollection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="payments/edit-connected-star-ref-bot/">EditConnectedStarRefBot</a></li>
@@ -1994,7 +2003,13 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="payments/get-connected-star-ref-bot/">GetConnectedStarRefBot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="payments/get-connected-star-ref-bots/">GetConnectedStarRefBots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="payments/get-craft-star-gifts/">GetCraftStarGifts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="payments/get-currency-rates/">GetCurrencyRates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="payments/get-giveaway-info/">GetGiveawayInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="payments/get-onramp-availability/">GetOnrampAvailability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="payments/get-onramp-base-currencies/">GetOnrampBaseCurrencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="payments/get-onramp-limits/">GetOnrampLimits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="payments/get-onramp-providers/">GetOnrampProviders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="payments/get-onramp-quote/">GetOnrampQuote</a></li>
 <li class="toctree-l2"><a class="reference internal" href="payments/get-payment-form/">GetPaymentForm</a></li>
 <li class="toctree-l2"><a class="reference internal" href="payments/get-payment-receipt/">GetPaymentReceipt</a></li>
 <li class="toctree-l2"><a class="reference internal" href="payments/get-premium-gift-code-options/">GetPremiumGiftCodeOptions</a></li>
@@ -2173,6 +2188,11 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="stories/update-album/">UpdateAlbum</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="toncenter/">Toncenter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="toncenter/get-streaming-url/">GetStreamingUrl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toncenter/perform-api-request/">PerformApiRequest</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="updates/">Updates</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="updates/get-channel-difference/">GetChannelDifference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="updates/get-difference/">GetDifference</a></li>
@@ -2198,6 +2218,34 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="users/get-users/">GetUsers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="users/set-secure-value-errors/">SetSecureValueErrors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="users/suggest-birthday/">SuggestBirthday</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="wallet/">Wallet</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="wallet/disable-backup/">DisableBackup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wallet/enable-backup/">EnableBackup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wallet/export-secret-phrase/">ExportSecretPhrase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wallet/fetch-encrypted-secret-phrase-part/">FetchEncryptedSecretPhrasePart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wallet/get-backup-holder-dcs/">GetBackupHolderDcs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wallet/get-existing-walt-balance/">GetExistingWaltBalance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wallet/get-gasless-info/">GetGaslessInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wallet/get-nfts/">GetNfts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wallet/get-proof-challenge/">GetProofChallenge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wallet/get-state/">GetState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wallet/get-transactions/">GetTransactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wallet/get-transactions-by-i-ds/">GetTransactionsByIDs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wallet/get-transactions-by-msg-hash/">GetTransactionsByMsgHash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wallet/get-user-addresses/">GetUserAddresses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wallet/replace-wallet/">ReplaceWallet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wallet/send-transfer/">SendTransfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wallet/ton-connect-claim-request/">TonConnectClaimRequest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wallet/ton-connect-close-session/">TonConnectCloseSession</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wallet/ton-connect-create-session/">TonConnectCreateSession</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wallet/ton-connect-get-pending/">TonConnectGetPending</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wallet/ton-connect-get-sessions/">TonConnectGetSessions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wallet/ton-connect-next-event-id/">TonConnectNextEventId</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wallet/ton-connect-register-key/">TonConnectRegisterKey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wallet/ton-connect-submit-connect-result/">TonConnectSubmitConnectResult</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wallet/ton-connect-submit-response/">TonConnectSubmitResponse</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="destroy-auth-key/">DestroyAuthKey</a></li>

@@ -530,6 +530,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../../methods/set_global_privacy_settings/">set_global_privacy_settings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../methods/set_inactive_session_ttl/">set_inactive_session_ttl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../methods/get_global_privacy_settings/">get_global_privacy_settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../methods/create_user_wallet/">create_user_wallet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../methods/invoke/">invoke</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../methods/recover_gaps/">recover_gaps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../methods/get_app_config/">get_app_config</a></li>
@@ -577,6 +578,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../PrivacyRule/">PrivacyRule</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../StoriesStealthMode/">StoriesStealthMode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../UserRating/">UserRating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UserTonWalletAddress/">UserTonWalletAddress</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../BotVerification/">BotVerification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../BusinessBotRights/">BusinessBotRights</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ChatSettings/">ChatSettings</a></li>
@@ -734,6 +736,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../RichTextAnchorLink/">RichTextAnchorLink</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../RichTextBankCardNumber/">RichTextBankCardNumber</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../RichTextBold/">RichTextBold</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RichTextTonAddress/">RichTextTonAddress</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../RichTextBotCommand/">RichTextBotCommand</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../RichTextButton/">RichTextButton</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../RichTextCashtag/">RichTextCashtag</a></li>
@@ -794,6 +797,8 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../CommunityChatAdded/">CommunityChatAdded</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../CommunityChatJoined/">CommunityChatJoined</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../CommunityChatRemoved/">CommunityChatRemoved</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TonWalletTransfer/">TonWalletTransfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TonConnectRequest/">TonConnectRequest</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Checklist/">Checklist</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../RefundedPayment/">RefundedPayment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ReplyParameters/">ReplyParameters</a></li>
@@ -1346,7 +1351,7 @@ For supergroups only.</p></li>
 <li><p><strong>receiver_user</strong> (<a class="reference internal" href="../User/#pyrogram.types.User" title="pyrogram.types.User"><code class="xref py py-obj docutils literal notranslate"><span class="pre">User</span></code></a>, <em>optional</em>) – For ephemeral messages, the user who received the message.</p></li>
 <li><p><strong>ephemeral_message_id</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>, <em>optional</em>) – For ephemeral messages, identifier of the ephemeral message inside this chat.
 The identifier may be reused for another ephemeral message after the message is deleted or expires.</p></li>
-<li><p><strong>date</strong> (<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">datetime</span></code></a>, <em>optional</em>) – Date the message was sent.</p></li>
+<li><p><strong>date</strong> (<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.15)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">datetime</span></code></a>, <em>optional</em>) – Date the message was sent.</p></li>
 <li><p><strong>guest_query_id</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>, <em>optional</em>) – The unique identifier for the guest query.
 Use this identifier with the method <a class="reference internal" href="../../methods/answer_guest_query/#pyrogram.Client.answer_guest_query" title="pyrogram.Client.answer_guest_query"><code class="xref py py-meth docutils literal notranslate"><span class="pre">answer_guest_query()</span></code></a> to send a response message.
 If non-empty, the message belongs to the chat where the guest bot was summoned, which may not coincide with other existing bot chats sharing the same identifier.</p></li>
@@ -1386,7 +1391,7 @@ You can use <code class="docutils literal notranslate"><span class="pre">media</
 <li><p><strong>paid_media</strong> (<a class="reference internal" href="../PaidMediaInfo/#pyrogram.types.PaidMediaInfo" title="pyrogram.types.PaidMediaInfo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PaidMediaInfo</span></code></a>, <em>optional</em>) – The message is a paid media message.</p></li>
 <li><p><strong>checklist</strong> (<a class="reference internal" href="../Checklist/#pyrogram.types.Checklist" title="pyrogram.types.Checklist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Checklist</span></code></a>, <em>optional</em>) – The message is a checklist message.</p></li>
 <li><p><strong>show_caption_above_media</strong> (<code class="docutils literal notranslate"><span class="pre">bool</span></code>, <em>optional</em>) – If True, caption must be shown above the message media.</p></li>
-<li><p><strong>edit_date</strong> (<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">datetime</span></code></a>, <em>optional</em>) – Date the message was last edited.</p></li>
+<li><p><strong>edit_date</strong> (<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.15)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">datetime</span></code></a>, <em>optional</em>) – Date the message was last edited.</p></li>
 <li><p><strong>edit_hidden</strong> (<code class="docutils literal notranslate"><span class="pre">bool</span></code>, <em>optional</em>) – The message shown as not modified.
 A message can be not modified in case it has received a reaction.</p></li>
 <li><p><strong>media_group_id</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>, <em>optional</em>) – The unique identifier of a media message group this message belongs to.</p></li>
@@ -1497,6 +1502,8 @@ Only applicable when using <a class="reference internal" href="../../filters/#py
 <li><p><strong>community_chat_added</strong> (<a class="reference internal" href="../CommunityChatAdded/#pyrogram.types.CommunityChatAdded" title="pyrogram.types.CommunityChatAdded"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CommunityChatAdded</span></code></a>, <em>optional</em>) – Service message: chat added to a <a class="reference internal" href="../Community/#pyrogram.types.Community" title="pyrogram.types.Community"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Community</span></code></a>.</p></li>
 <li><p><strong>community_chat_removed</strong> (<a class="reference internal" href="../CommunityChatRemoved/#pyrogram.types.CommunityChatRemoved" title="pyrogram.types.CommunityChatRemoved"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CommunityChatRemoved</span></code></a>, <em>optional</em>) – Service message: chat removed from a <a class="reference internal" href="../Community/#pyrogram.types.Community" title="pyrogram.types.Community"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Community</span></code></a>.</p></li>
 <li><p><strong>community_chat_joined</strong> (<a class="reference internal" href="../CommunityChatJoined/#pyrogram.types.CommunityChatJoined" title="pyrogram.types.CommunityChatJoined"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CommunityChatJoined</span></code></a>, <em>optional</em>) – Service message: chat was joined by a user from a <a class="reference internal" href="../Community/#pyrogram.types.Community" title="pyrogram.types.Community"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Community</span></code></a>.</p></li>
+<li><p><strong>ton_wallet_transfer</strong> (<a class="reference internal" href="../TonWalletTransfer/#pyrogram.types.TonWalletTransfer" title="pyrogram.types.TonWalletTransfer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TonWalletTransfer</span></code></a>, <em>optional</em>) – Service message: a transfer with the TON wallet of the current user.</p></li>
+<li><p><strong>ton_connect_request</strong> (<a class="reference internal" href="../TonConnectRequest/#pyrogram.types.TonConnectRequest" title="pyrogram.types.TonConnectRequest"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TonConnectRequest</span></code></a>, <em>optional</em>) – Service message: a request from a dApp was received through TON Connect.</p></li>
 <li><p><strong>premium_gift_code</strong> (<a class="reference internal" href="../PremiumGiftCode/#pyrogram.types.PremiumGiftCode" title="pyrogram.types.PremiumGiftCode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PremiumGiftCode</span></code></a>, <em>optional</em>) – Service message: premium gift code information.</p></li>
 <li><p><strong>gifted_premium</strong> (<a class="reference internal" href="../GiftedPremium/#pyrogram.types.GiftedPremium" title="pyrogram.types.GiftedPremium"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GiftedPremium</span></code></a>, <em>optional</em>) – Service message: gifted premium information.</p></li>
 <li><p><strong>gifted_stars</strong> (<a class="reference internal" href="../GiftedStars/#pyrogram.types.GiftedStars" title="pyrogram.types.GiftedStars"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GiftedStars</span></code></a>, <em>optional</em>) – Service message: gifted stars information.</p></li>
