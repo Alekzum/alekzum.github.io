@@ -531,6 +531,11 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../methods/set_inactive_session_ttl/">set_inactive_session_ttl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../methods/get_global_privacy_settings/">get_global_privacy_settings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../methods/create_user_wallet/">create_user_wallet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../methods/delete_ton_wallet/">delete_ton_wallet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../methods/replace_ton_wallet/">replace_ton_wallet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../methods/get_address_ton_wallet/">get_address_ton_wallet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../methods/get_user_ton_wallet_addresses/">get_user_ton_wallet_addresses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../methods/get_ton_wallet_ownership_proof_challenge/">get_ton_wallet_ownership_proof_challenge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../methods/invoke/">invoke</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../methods/recover_gaps/">recover_gaps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../methods/get_app_config/">get_app_config</a></li>
@@ -579,6 +584,9 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="StoriesStealthMode/">StoriesStealthMode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="UserRating/">UserRating</a></li>
 <li class="toctree-l2"><a class="reference internal" href="UserTonWalletAddress/">UserTonWalletAddress</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TonWalletOwnershipProof/">TonWalletOwnershipProof</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TonWalletOwnershipProofChallenge/">TonWalletOwnershipProofChallenge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TonWalletState/">TonWalletState</a></li>
 <li class="toctree-l2"><a class="reference internal" href="BotVerification/">BotVerification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="BusinessBotRights/">BusinessBotRights</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ChatSettings/">ChatSettings</a></li>
@@ -1470,211 +1478,220 @@ Empty fields aren’t shown when, for example, using <code class="docutils liter
 <tr class="row-even"><td><p><a class="reference internal" href="UserTonWalletAddress/#pyrogram.types.UserTonWalletAddress" title="pyrogram.types.UserTonWalletAddress"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UserTonWalletAddress</span></code></a></p></td>
 <td><p>Contains TON wallet address of a user.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="BotVerification/#pyrogram.types.BotVerification" title="pyrogram.types.BotVerification"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BotVerification</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="TonWalletOwnershipProof/#pyrogram.types.TonWalletOwnershipProof" title="pyrogram.types.TonWalletOwnershipProof"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TonWalletOwnershipProof</span></code></a></p></td>
+<td><p>Represents a proof of TON wallet ownership.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="TonWalletOwnershipProofChallenge/#pyrogram.types.TonWalletOwnershipProofChallenge" title="pyrogram.types.TonWalletOwnershipProofChallenge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TonWalletOwnershipProofChallenge</span></code></a></p></td>
+<td><p>Represents a challenge for TON wallet ownership proof.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="TonWalletState/#pyrogram.types.TonWalletState" title="pyrogram.types.TonWalletState"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TonWalletState</span></code></a></p></td>
+<td><p>Describes state of the wallet of the current user in the TON blockchain.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="BotVerification/#pyrogram.types.BotVerification" title="pyrogram.types.BotVerification"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BotVerification</span></code></a></p></td>
 <td><p>Information about bot verification.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="BusinessBotRights/#pyrogram.types.BusinessBotRights" title="pyrogram.types.BusinessBotRights"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BusinessBotRights</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="BusinessBotRights/#pyrogram.types.BusinessBotRights" title="pyrogram.types.BusinessBotRights"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BusinessBotRights</span></code></a></p></td>
 <td><p>Describes actions that a connected business bot is allowed to take in a chat.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="ChatSettings/#pyrogram.types.ChatSettings" title="pyrogram.types.ChatSettings"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatSettings</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="ChatSettings/#pyrogram.types.ChatSettings" title="pyrogram.types.ChatSettings"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatSettings</span></code></a></p></td>
 <td><p>A list of actions that are possible when interacting with this user, to be shown as suggested actions in the chat action bar.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="GlobalPrivacySettings/#pyrogram.types.GlobalPrivacySettings" title="pyrogram.types.GlobalPrivacySettings"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GlobalPrivacySettings</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="GlobalPrivacySettings/#pyrogram.types.GlobalPrivacySettings" title="pyrogram.types.GlobalPrivacySettings"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GlobalPrivacySettings</span></code></a></p></td>
 <td><p>Birthday information of a user.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="HistoryCleared/#pyrogram.types.HistoryCleared" title="pyrogram.types.HistoryCleared"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HistoryCleared</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="HistoryCleared/#pyrogram.types.HistoryCleared" title="pyrogram.types.HistoryCleared"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HistoryCleared</span></code></a></p></td>
 <td><p>A service message about a cleared history in chat.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="ChatFolderInviteLinkInfo/#pyrogram.types.ChatFolderInviteLinkInfo" title="pyrogram.types.ChatFolderInviteLinkInfo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatFolderInviteLinkInfo</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="ChatFolderInviteLinkInfo/#pyrogram.types.ChatFolderInviteLinkInfo" title="pyrogram.types.ChatFolderInviteLinkInfo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatFolderInviteLinkInfo</span></code></a></p></td>
 <td><p>Contains information about an invite link to a chat folder.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="Community/#pyrogram.types.Community" title="pyrogram.types.Community"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Community</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="Community/#pyrogram.types.Community" title="pyrogram.types.Community"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Community</span></code></a></p></td>
 <td><p>Represents a community (a group of chats).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="CommunityAdministratorRights/#pyrogram.types.CommunityAdministratorRights" title="pyrogram.types.CommunityAdministratorRights"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CommunityAdministratorRights</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="CommunityAdministratorRights/#pyrogram.types.CommunityAdministratorRights" title="pyrogram.types.CommunityAdministratorRights"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CommunityAdministratorRights</span></code></a></p></td>
 <td><p>Describes rights of the administrator in a community.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="CommunityMemberStatus/#pyrogram.types.CommunityMemberStatus" title="pyrogram.types.CommunityMemberStatus"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CommunityMemberStatus</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="CommunityMemberStatus/#pyrogram.types.CommunityMemberStatus" title="pyrogram.types.CommunityMemberStatus"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CommunityMemberStatus</span></code></a></p></td>
 <td><p>Provides information about the status of a member in a community.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="CommunityMemberStatusCreator/#pyrogram.types.CommunityMemberStatusCreator" title="pyrogram.types.CommunityMemberStatusCreator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CommunityMemberStatusCreator</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="CommunityMemberStatusCreator/#pyrogram.types.CommunityMemberStatusCreator" title="pyrogram.types.CommunityMemberStatusCreator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CommunityMemberStatusCreator</span></code></a></p></td>
 <td><p>The user is the owner of the community and has all the administrator privileges.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="CommunityMemberStatusAdministrator/#pyrogram.types.CommunityMemberStatusAdministrator" title="pyrogram.types.CommunityMemberStatusAdministrator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CommunityMemberStatusAdministrator</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="CommunityMemberStatusAdministrator/#pyrogram.types.CommunityMemberStatusAdministrator" title="pyrogram.types.CommunityMemberStatusAdministrator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CommunityMemberStatusAdministrator</span></code></a></p></td>
 <td><p>The user is a member of the community and has some additional privileges.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="CommunityMemberStatusMember/#pyrogram.types.CommunityMemberStatusMember" title="pyrogram.types.CommunityMemberStatusMember"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CommunityMemberStatusMember</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="CommunityMemberStatusMember/#pyrogram.types.CommunityMemberStatusMember" title="pyrogram.types.CommunityMemberStatusMember"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CommunityMemberStatusMember</span></code></a></p></td>
 <td><p>The user is a member of the community, without any additional privileges or restrictions.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="CommunityMemberStatusLeft/#pyrogram.types.CommunityMemberStatusLeft" title="pyrogram.types.CommunityMemberStatusLeft"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CommunityMemberStatusLeft</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="CommunityMemberStatusLeft/#pyrogram.types.CommunityMemberStatusLeft" title="pyrogram.types.CommunityMemberStatusLeft"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CommunityMemberStatusLeft</span></code></a></p></td>
 <td><p>The user or the chat is not a community member.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="CommunityMemberStatusBanned/#pyrogram.types.CommunityMemberStatusBanned" title="pyrogram.types.CommunityMemberStatusBanned"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CommunityMemberStatusBanned</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="CommunityMemberStatusBanned/#pyrogram.types.CommunityMemberStatusBanned" title="pyrogram.types.CommunityMemberStatusBanned"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CommunityMemberStatusBanned</span></code></a></p></td>
 <td><p>The user or the chat was banned in the community; implies ban in all chats in the community.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="CommunityPermissions/#pyrogram.types.CommunityPermissions" title="pyrogram.types.CommunityPermissions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CommunityPermissions</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="CommunityPermissions/#pyrogram.types.CommunityPermissions" title="pyrogram.types.CommunityPermissions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CommunityPermissions</span></code></a></p></td>
 <td><p>Describes actions that a user is allowed to take in a community.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="ChatEventAction/#pyrogram.types.ChatEventAction" title="pyrogram.types.ChatEventAction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventAction</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventAction/#pyrogram.types.ChatEventAction" title="pyrogram.types.ChatEventAction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventAction</span></code></a></p></td>
 <td><p>Contains information about chat event.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionMessageEdited/#pyrogram.types.ChatEventActionMessageEdited" title="pyrogram.types.ChatEventActionMessageEdited"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionMessageEdited</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionMessageEdited/#pyrogram.types.ChatEventActionMessageEdited" title="pyrogram.types.ChatEventActionMessageEdited"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionMessageEdited</span></code></a></p></td>
 <td><p>A message was edited.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionMessageDeleted/#pyrogram.types.ChatEventActionMessageDeleted" title="pyrogram.types.ChatEventActionMessageDeleted"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionMessageDeleted</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionMessageDeleted/#pyrogram.types.ChatEventActionMessageDeleted" title="pyrogram.types.ChatEventActionMessageDeleted"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionMessageDeleted</span></code></a></p></td>
 <td><p>A message was deleted.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionMessagePinned/#pyrogram.types.ChatEventActionMessagePinned" title="pyrogram.types.ChatEventActionMessagePinned"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionMessagePinned</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionMessagePinned/#pyrogram.types.ChatEventActionMessagePinned" title="pyrogram.types.ChatEventActionMessagePinned"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionMessagePinned</span></code></a></p></td>
 <td><p>A message was pinned.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionMessageUnpinned/#pyrogram.types.ChatEventActionMessageUnpinned" title="pyrogram.types.ChatEventActionMessageUnpinned"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionMessageUnpinned</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionMessageUnpinned/#pyrogram.types.ChatEventActionMessageUnpinned" title="pyrogram.types.ChatEventActionMessageUnpinned"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionMessageUnpinned</span></code></a></p></td>
 <td><p>A message was unpinned.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionPollStopped/#pyrogram.types.ChatEventActionPollStopped" title="pyrogram.types.ChatEventActionPollStopped"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionPollStopped</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionPollStopped/#pyrogram.types.ChatEventActionPollStopped" title="pyrogram.types.ChatEventActionPollStopped"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionPollStopped</span></code></a></p></td>
 <td><p>A poll in a message was stopped.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionMemberJoined/#pyrogram.types.ChatEventActionMemberJoined" title="pyrogram.types.ChatEventActionMemberJoined"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionMemberJoined</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionMemberJoined/#pyrogram.types.ChatEventActionMemberJoined" title="pyrogram.types.ChatEventActionMemberJoined"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionMemberJoined</span></code></a></p></td>
 <td><p>A new member joined the chat.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionMemberJoinedByInviteLink/#pyrogram.types.ChatEventActionMemberJoinedByInviteLink" title="pyrogram.types.ChatEventActionMemberJoinedByInviteLink"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionMemberJoinedByInviteLink</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionMemberJoinedByInviteLink/#pyrogram.types.ChatEventActionMemberJoinedByInviteLink" title="pyrogram.types.ChatEventActionMemberJoinedByInviteLink"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionMemberJoinedByInviteLink</span></code></a></p></td>
 <td><p>A new member joined the chat via an invite link.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionMemberJoinedByRequest/#pyrogram.types.ChatEventActionMemberJoinedByRequest" title="pyrogram.types.ChatEventActionMemberJoinedByRequest"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionMemberJoinedByRequest</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionMemberJoinedByRequest/#pyrogram.types.ChatEventActionMemberJoinedByRequest" title="pyrogram.types.ChatEventActionMemberJoinedByRequest"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionMemberJoinedByRequest</span></code></a></p></td>
 <td><p>A new member was accepted to the chat by an administrator.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionMemberInvited/#pyrogram.types.ChatEventActionMemberInvited" title="pyrogram.types.ChatEventActionMemberInvited"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionMemberInvited</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionMemberInvited/#pyrogram.types.ChatEventActionMemberInvited" title="pyrogram.types.ChatEventActionMemberInvited"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionMemberInvited</span></code></a></p></td>
 <td><p>A new chat member was invited.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionMemberLeft/#pyrogram.types.ChatEventActionMemberLeft" title="pyrogram.types.ChatEventActionMemberLeft"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionMemberLeft</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionMemberLeft/#pyrogram.types.ChatEventActionMemberLeft" title="pyrogram.types.ChatEventActionMemberLeft"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionMemberLeft</span></code></a></p></td>
 <td><p>A member left the chat.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionMemberPromoted/#pyrogram.types.ChatEventActionMemberPromoted" title="pyrogram.types.ChatEventActionMemberPromoted"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionMemberPromoted</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionMemberPromoted/#pyrogram.types.ChatEventActionMemberPromoted" title="pyrogram.types.ChatEventActionMemberPromoted"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionMemberPromoted</span></code></a></p></td>
 <td><p>A chat member has gained/lost administrator status, or the list of their administrator privileges has changed.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionMemberRestricted/#pyrogram.types.ChatEventActionMemberRestricted" title="pyrogram.types.ChatEventActionMemberRestricted"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionMemberRestricted</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionMemberRestricted/#pyrogram.types.ChatEventActionMemberRestricted" title="pyrogram.types.ChatEventActionMemberRestricted"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionMemberRestricted</span></code></a></p></td>
 <td><p>A chat member was restricted/unrestricted or banned/unbanned, or the list of their restrictions has changed.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionMemberTagChanged/#pyrogram.types.ChatEventActionMemberTagChanged" title="pyrogram.types.ChatEventActionMemberTagChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionMemberTagChanged</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionMemberTagChanged/#pyrogram.types.ChatEventActionMemberTagChanged" title="pyrogram.types.ChatEventActionMemberTagChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionMemberTagChanged</span></code></a></p></td>
 <td><p>A chat member tag has been changed.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionMemberSubscriptionExtended/#pyrogram.types.ChatEventActionMemberSubscriptionExtended" title="pyrogram.types.ChatEventActionMemberSubscriptionExtended"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionMemberSubscriptionExtended</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionMemberSubscriptionExtended/#pyrogram.types.ChatEventActionMemberSubscriptionExtended" title="pyrogram.types.ChatEventActionMemberSubscriptionExtended"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionMemberSubscriptionExtended</span></code></a></p></td>
 <td><p>A chat member extended their subscription to the chat.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionAvailableReactionsChanged/#pyrogram.types.ChatEventActionAvailableReactionsChanged" title="pyrogram.types.ChatEventActionAvailableReactionsChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionAvailableReactionsChanged</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionAvailableReactionsChanged/#pyrogram.types.ChatEventActionAvailableReactionsChanged" title="pyrogram.types.ChatEventActionAvailableReactionsChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionAvailableReactionsChanged</span></code></a></p></td>
 <td><p>The chat available reactions were changed.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionBackgroundChanged/#pyrogram.types.ChatEventActionBackgroundChanged" title="pyrogram.types.ChatEventActionBackgroundChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionBackgroundChanged</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionBackgroundChanged/#pyrogram.types.ChatEventActionBackgroundChanged" title="pyrogram.types.ChatEventActionBackgroundChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionBackgroundChanged</span></code></a></p></td>
 <td><p>The chat background was changed.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionDescriptionChanged/#pyrogram.types.ChatEventActionDescriptionChanged" title="pyrogram.types.ChatEventActionDescriptionChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionDescriptionChanged</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionDescriptionChanged/#pyrogram.types.ChatEventActionDescriptionChanged" title="pyrogram.types.ChatEventActionDescriptionChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionDescriptionChanged</span></code></a></p></td>
 <td><p>The chat description was changed.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionEmojiStatusChanged/#pyrogram.types.ChatEventActionEmojiStatusChanged" title="pyrogram.types.ChatEventActionEmojiStatusChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionEmojiStatusChanged</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionEmojiStatusChanged/#pyrogram.types.ChatEventActionEmojiStatusChanged" title="pyrogram.types.ChatEventActionEmojiStatusChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionEmojiStatusChanged</span></code></a></p></td>
 <td><p>The chat emoji status was changed.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionLinkedChatChanged/#pyrogram.types.ChatEventActionLinkedChatChanged" title="pyrogram.types.ChatEventActionLinkedChatChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionLinkedChatChanged</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionLinkedChatChanged/#pyrogram.types.ChatEventActionLinkedChatChanged" title="pyrogram.types.ChatEventActionLinkedChatChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionLinkedChatChanged</span></code></a></p></td>
 <td><p>The linked chat of a supergroup was changed.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionLocationChanged/#pyrogram.types.ChatEventActionLocationChanged" title="pyrogram.types.ChatEventActionLocationChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionLocationChanged</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionLocationChanged/#pyrogram.types.ChatEventActionLocationChanged" title="pyrogram.types.ChatEventActionLocationChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionLocationChanged</span></code></a></p></td>
 <td><p>The supergroup location was changed.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionMessageAutoDeleteTimeChanged/#pyrogram.types.ChatEventActionMessageAutoDeleteTimeChanged" title="pyrogram.types.ChatEventActionMessageAutoDeleteTimeChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionMessageAutoDeleteTimeChanged</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionMessageAutoDeleteTimeChanged/#pyrogram.types.ChatEventActionMessageAutoDeleteTimeChanged" title="pyrogram.types.ChatEventActionMessageAutoDeleteTimeChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionMessageAutoDeleteTimeChanged</span></code></a></p></td>
 <td><p>The message auto-delete timer was changed.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionPermissionsChanged/#pyrogram.types.ChatEventActionPermissionsChanged" title="pyrogram.types.ChatEventActionPermissionsChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionPermissionsChanged</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionPermissionsChanged/#pyrogram.types.ChatEventActionPermissionsChanged" title="pyrogram.types.ChatEventActionPermissionsChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionPermissionsChanged</span></code></a></p></td>
 <td><p>The chat permissions were changed.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionPhotoChanged/#pyrogram.types.ChatEventActionPhotoChanged" title="pyrogram.types.ChatEventActionPhotoChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionPhotoChanged</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionPhotoChanged/#pyrogram.types.ChatEventActionPhotoChanged" title="pyrogram.types.ChatEventActionPhotoChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionPhotoChanged</span></code></a></p></td>
 <td><p>The chat photo was changed.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionSlowModeDelayChanged/#pyrogram.types.ChatEventActionSlowModeDelayChanged" title="pyrogram.types.ChatEventActionSlowModeDelayChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionSlowModeDelayChanged</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionSlowModeDelayChanged/#pyrogram.types.ChatEventActionSlowModeDelayChanged" title="pyrogram.types.ChatEventActionSlowModeDelayChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionSlowModeDelayChanged</span></code></a></p></td>
 <td><p>The slow_mode_delay setting of a supergroup was changed.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionStickerSetChanged/#pyrogram.types.ChatEventActionStickerSetChanged" title="pyrogram.types.ChatEventActionStickerSetChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionStickerSetChanged</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionStickerSetChanged/#pyrogram.types.ChatEventActionStickerSetChanged" title="pyrogram.types.ChatEventActionStickerSetChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionStickerSetChanged</span></code></a></p></td>
 <td><p>The supergroup sticker set was changed.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionCustomEmojiStickerSetChanged/#pyrogram.types.ChatEventActionCustomEmojiStickerSetChanged" title="pyrogram.types.ChatEventActionCustomEmojiStickerSetChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionCustomEmojiStickerSetChanged</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionCustomEmojiStickerSetChanged/#pyrogram.types.ChatEventActionCustomEmojiStickerSetChanged" title="pyrogram.types.ChatEventActionCustomEmojiStickerSetChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionCustomEmojiStickerSetChanged</span></code></a></p></td>
 <td><p>The supergroup sticker set with allowed custom emoji was changed.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionTitleChanged/#pyrogram.types.ChatEventActionTitleChanged" title="pyrogram.types.ChatEventActionTitleChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionTitleChanged</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionTitleChanged/#pyrogram.types.ChatEventActionTitleChanged" title="pyrogram.types.ChatEventActionTitleChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionTitleChanged</span></code></a></p></td>
 <td><p>The chat title was changed.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionUsernameChanged/#pyrogram.types.ChatEventActionUsernameChanged" title="pyrogram.types.ChatEventActionUsernameChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionUsernameChanged</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionUsernameChanged/#pyrogram.types.ChatEventActionUsernameChanged" title="pyrogram.types.ChatEventActionUsernameChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionUsernameChanged</span></code></a></p></td>
 <td><p>The chat editable username was changed.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionActiveUsernamesChanged/#pyrogram.types.ChatEventActionActiveUsernamesChanged" title="pyrogram.types.ChatEventActionActiveUsernamesChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionActiveUsernamesChanged</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionActiveUsernamesChanged/#pyrogram.types.ChatEventActionActiveUsernamesChanged" title="pyrogram.types.ChatEventActionActiveUsernamesChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionActiveUsernamesChanged</span></code></a></p></td>
 <td><p>The chat active usernames were changed.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionAccentColorChanged/#pyrogram.types.ChatEventActionAccentColorChanged" title="pyrogram.types.ChatEventActionAccentColorChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionAccentColorChanged</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionAccentColorChanged/#pyrogram.types.ChatEventActionAccentColorChanged" title="pyrogram.types.ChatEventActionAccentColorChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionAccentColorChanged</span></code></a></p></td>
 <td><p>The chat accent color or background custom emoji were changed.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionProfileAccentColorChanged/#pyrogram.types.ChatEventActionProfileAccentColorChanged" title="pyrogram.types.ChatEventActionProfileAccentColorChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionProfileAccentColorChanged</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionProfileAccentColorChanged/#pyrogram.types.ChatEventActionProfileAccentColorChanged" title="pyrogram.types.ChatEventActionProfileAccentColorChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionProfileAccentColorChanged</span></code></a></p></td>
 <td><p>The chat's profile accent color or profile background custom emoji were changed.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionHasProtectedContentToggled/#pyrogram.types.ChatEventActionHasProtectedContentToggled" title="pyrogram.types.ChatEventActionHasProtectedContentToggled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionHasProtectedContentToggled</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionHasProtectedContentToggled/#pyrogram.types.ChatEventActionHasProtectedContentToggled" title="pyrogram.types.ChatEventActionHasProtectedContentToggled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionHasProtectedContentToggled</span></code></a></p></td>
 <td><p>The has_protected_content setting of a chat was toggled.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionInvitesToggled/#pyrogram.types.ChatEventActionInvitesToggled" title="pyrogram.types.ChatEventActionInvitesToggled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionInvitesToggled</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionInvitesToggled/#pyrogram.types.ChatEventActionInvitesToggled" title="pyrogram.types.ChatEventActionInvitesToggled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionInvitesToggled</span></code></a></p></td>
 <td><p>The can_invite_users permission of a supergroup chat was toggled.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionIsAllHistoryAvailableToggled/#pyrogram.types.ChatEventActionIsAllHistoryAvailableToggled" title="pyrogram.types.ChatEventActionIsAllHistoryAvailableToggled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionIsAllHistoryAvailableToggled</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionIsAllHistoryAvailableToggled/#pyrogram.types.ChatEventActionIsAllHistoryAvailableToggled" title="pyrogram.types.ChatEventActionIsAllHistoryAvailableToggled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionIsAllHistoryAvailableToggled</span></code></a></p></td>
 <td><p>The is_all_history_available setting of a supergroup was toggled.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionHasAggressiveAntiSpamEnabledToggled/#pyrogram.types.ChatEventActionHasAggressiveAntiSpamEnabledToggled" title="pyrogram.types.ChatEventActionHasAggressiveAntiSpamEnabledToggled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionHasAggressiveAntiSpamEnabledToggled</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionHasAggressiveAntiSpamEnabledToggled/#pyrogram.types.ChatEventActionHasAggressiveAntiSpamEnabledToggled" title="pyrogram.types.ChatEventActionHasAggressiveAntiSpamEnabledToggled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionHasAggressiveAntiSpamEnabledToggled</span></code></a></p></td>
 <td><p>The has_aggressive_anti_spam_enabled setting of a supergroup was toggled.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionSignMessagesToggled/#pyrogram.types.ChatEventActionSignMessagesToggled" title="pyrogram.types.ChatEventActionSignMessagesToggled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionSignMessagesToggled</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionSignMessagesToggled/#pyrogram.types.ChatEventActionSignMessagesToggled" title="pyrogram.types.ChatEventActionSignMessagesToggled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionSignMessagesToggled</span></code></a></p></td>
 <td><p>The sign_messages setting of a channel was toggled.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionShowMessageSenderToggled/#pyrogram.types.ChatEventActionShowMessageSenderToggled" title="pyrogram.types.ChatEventActionShowMessageSenderToggled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionShowMessageSenderToggled</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionShowMessageSenderToggled/#pyrogram.types.ChatEventActionShowMessageSenderToggled" title="pyrogram.types.ChatEventActionShowMessageSenderToggled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionShowMessageSenderToggled</span></code></a></p></td>
 <td><p>The show_message_sender setting of a channel was toggled.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionAutomaticTranslationToggled/#pyrogram.types.ChatEventActionAutomaticTranslationToggled" title="pyrogram.types.ChatEventActionAutomaticTranslationToggled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionAutomaticTranslationToggled</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionAutomaticTranslationToggled/#pyrogram.types.ChatEventActionAutomaticTranslationToggled" title="pyrogram.types.ChatEventActionAutomaticTranslationToggled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionAutomaticTranslationToggled</span></code></a></p></td>
 <td><p>The has_automatic_translation setting of a channel was toggled.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionInviteLinkEdited/#pyrogram.types.ChatEventActionInviteLinkEdited" title="pyrogram.types.ChatEventActionInviteLinkEdited"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionInviteLinkEdited</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionInviteLinkEdited/#pyrogram.types.ChatEventActionInviteLinkEdited" title="pyrogram.types.ChatEventActionInviteLinkEdited"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionInviteLinkEdited</span></code></a></p></td>
 <td><p>A chat invite link was edited.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionInviteLinkRevoked/#pyrogram.types.ChatEventActionInviteLinkRevoked" title="pyrogram.types.ChatEventActionInviteLinkRevoked"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionInviteLinkRevoked</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionInviteLinkRevoked/#pyrogram.types.ChatEventActionInviteLinkRevoked" title="pyrogram.types.ChatEventActionInviteLinkRevoked"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionInviteLinkRevoked</span></code></a></p></td>
 <td><p>A chat invite link was revoked.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionInviteLinkDeleted/#pyrogram.types.ChatEventActionInviteLinkDeleted" title="pyrogram.types.ChatEventActionInviteLinkDeleted"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionInviteLinkDeleted</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionInviteLinkDeleted/#pyrogram.types.ChatEventActionInviteLinkDeleted" title="pyrogram.types.ChatEventActionInviteLinkDeleted"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionInviteLinkDeleted</span></code></a></p></td>
 <td><p>A revoked chat invite link was deleted.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionVideoChatCreated/#pyrogram.types.ChatEventActionVideoChatCreated" title="pyrogram.types.ChatEventActionVideoChatCreated"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionVideoChatCreated</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionVideoChatCreated/#pyrogram.types.ChatEventActionVideoChatCreated" title="pyrogram.types.ChatEventActionVideoChatCreated"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionVideoChatCreated</span></code></a></p></td>
 <td><p>A video chat was created.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionVideoChatEnded/#pyrogram.types.ChatEventActionVideoChatEnded" title="pyrogram.types.ChatEventActionVideoChatEnded"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionVideoChatEnded</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionVideoChatEnded/#pyrogram.types.ChatEventActionVideoChatEnded" title="pyrogram.types.ChatEventActionVideoChatEnded"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionVideoChatEnded</span></code></a></p></td>
 <td><p>A video chat was ended.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionVideoChatMuteNewParticipantsToggled/#pyrogram.types.ChatEventActionVideoChatMuteNewParticipantsToggled" title="pyrogram.types.ChatEventActionVideoChatMuteNewParticipantsToggled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionVideoChatMuteNewParticipantsToggled</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionVideoChatMuteNewParticipantsToggled/#pyrogram.types.ChatEventActionVideoChatMuteNewParticipantsToggled" title="pyrogram.types.ChatEventActionVideoChatMuteNewParticipantsToggled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionVideoChatMuteNewParticipantsToggled</span></code></a></p></td>
 <td><p>The mute_new_participants setting of a video chat was toggled.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionVideoChatParticipantIsMutedToggled/#pyrogram.types.ChatEventActionVideoChatParticipantIsMutedToggled" title="pyrogram.types.ChatEventActionVideoChatParticipantIsMutedToggled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionVideoChatParticipantIsMutedToggled</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionVideoChatParticipantIsMutedToggled/#pyrogram.types.ChatEventActionVideoChatParticipantIsMutedToggled" title="pyrogram.types.ChatEventActionVideoChatParticipantIsMutedToggled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionVideoChatParticipantIsMutedToggled</span></code></a></p></td>
 <td><p>A video chat participant was muted or unmuted.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionVideoChatParticipantVolumeLevelChanged/#pyrogram.types.ChatEventActionVideoChatParticipantVolumeLevelChanged" title="pyrogram.types.ChatEventActionVideoChatParticipantVolumeLevelChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionVideoChatParticipantVolumeLevelChanged</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionVideoChatParticipantVolumeLevelChanged/#pyrogram.types.ChatEventActionVideoChatParticipantVolumeLevelChanged" title="pyrogram.types.ChatEventActionVideoChatParticipantVolumeLevelChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionVideoChatParticipantVolumeLevelChanged</span></code></a></p></td>
 <td><p>A video chat participant volume level was changed.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionIsForumToggled/#pyrogram.types.ChatEventActionIsForumToggled" title="pyrogram.types.ChatEventActionIsForumToggled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionIsForumToggled</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionIsForumToggled/#pyrogram.types.ChatEventActionIsForumToggled" title="pyrogram.types.ChatEventActionIsForumToggled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionIsForumToggled</span></code></a></p></td>
 <td><p>The is_forum setting of a supergroup was toggled.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionForumTopicCreated/#pyrogram.types.ChatEventActionForumTopicCreated" title="pyrogram.types.ChatEventActionForumTopicCreated"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionForumTopicCreated</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionForumTopicCreated/#pyrogram.types.ChatEventActionForumTopicCreated" title="pyrogram.types.ChatEventActionForumTopicCreated"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionForumTopicCreated</span></code></a></p></td>
 <td><p>A forum topic was created.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionForumTopicEdited/#pyrogram.types.ChatEventActionForumTopicEdited" title="pyrogram.types.ChatEventActionForumTopicEdited"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionForumTopicEdited</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionForumTopicEdited/#pyrogram.types.ChatEventActionForumTopicEdited" title="pyrogram.types.ChatEventActionForumTopicEdited"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionForumTopicEdited</span></code></a></p></td>
 <td><p>A forum topic was edited.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionForumTopicToggleIsClosed/#pyrogram.types.ChatEventActionForumTopicToggleIsClosed" title="pyrogram.types.ChatEventActionForumTopicToggleIsClosed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionForumTopicToggleIsClosed</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionForumTopicToggleIsClosed/#pyrogram.types.ChatEventActionForumTopicToggleIsClosed" title="pyrogram.types.ChatEventActionForumTopicToggleIsClosed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionForumTopicToggleIsClosed</span></code></a></p></td>
 <td><p>A forum topic was closed or reopened.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionForumTopicToggleIsHidden/#pyrogram.types.ChatEventActionForumTopicToggleIsHidden" title="pyrogram.types.ChatEventActionForumTopicToggleIsHidden"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionForumTopicToggleIsHidden</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionForumTopicToggleIsHidden/#pyrogram.types.ChatEventActionForumTopicToggleIsHidden" title="pyrogram.types.ChatEventActionForumTopicToggleIsHidden"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionForumTopicToggleIsHidden</span></code></a></p></td>
 <td><p>The General forum topic was hidden or unhidden.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionForumTopicDeleted/#pyrogram.types.ChatEventActionForumTopicDeleted" title="pyrogram.types.ChatEventActionForumTopicDeleted"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionForumTopicDeleted</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionForumTopicDeleted/#pyrogram.types.ChatEventActionForumTopicDeleted" title="pyrogram.types.ChatEventActionForumTopicDeleted"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionForumTopicDeleted</span></code></a></p></td>
 <td><p>A forum topic was deleted.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="ChatEventActionForumTopicPinned/#pyrogram.types.ChatEventActionForumTopicPinned" title="pyrogram.types.ChatEventActionForumTopicPinned"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionForumTopicPinned</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="ChatEventActionForumTopicPinned/#pyrogram.types.ChatEventActionForumTopicPinned" title="pyrogram.types.ChatEventActionForumTopicPinned"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChatEventActionForumTopicPinned</span></code></a></p></td>
 <td><p>A pinned forum topic was changed.</p></td>
 </tr>
 </tbody>

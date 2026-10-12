@@ -2,7 +2,7 @@
 <html lang="en" data-accent-color="orange" data-content_root="../../../">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>UserTonWalletAddress - Kurigram</title><link rel="shortcut icon" href="../../../_static/favicon.ico"/><link rel="index" title="Index" href="../../../genindex/" /><link rel="search" title="Search" href="../../../search/" /><link rel="next" title="BotVerification" href="../BotVerification/" /><link rel="prev" title="UserRating" href="../UserRating/" /><script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>UserTonWalletAddress - Kurigram</title><link rel="shortcut icon" href="../../../_static/favicon.ico"/><link rel="index" title="Index" href="../../../genindex/" /><link rel="search" title="Search" href="../../../search/" /><link rel="next" title="TonWalletOwnershipProof" href="../TonWalletOwnershipProof/" /><link rel="prev" title="UserRating" href="../UserRating/" /><script>
     function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
     setColorMode(localStorage._theme||"auto");
   </script><link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=d88b86f9" />
@@ -531,6 +531,11 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../../methods/set_inactive_session_ttl/">set_inactive_session_ttl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../methods/get_global_privacy_settings/">get_global_privacy_settings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../methods/create_user_wallet/">create_user_wallet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../methods/delete_ton_wallet/">delete_ton_wallet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../methods/replace_ton_wallet/">replace_ton_wallet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../methods/get_address_ton_wallet/">get_address_ton_wallet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../methods/get_user_ton_wallet_addresses/">get_user_ton_wallet_addresses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../methods/get_ton_wallet_ownership_proof_challenge/">get_ton_wallet_ownership_proof_challenge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../methods/invoke/">invoke</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../methods/recover_gaps/">recover_gaps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../methods/get_app_config/">get_app_config</a></li>
@@ -579,6 +584,9 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../StoriesStealthMode/">StoriesStealthMode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../UserRating/">UserRating</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">UserTonWalletAddress</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TonWalletOwnershipProof/">TonWalletOwnershipProof</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TonWalletOwnershipProofChallenge/">TonWalletOwnershipProofChallenge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TonWalletState/">TonWalletState</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../BotVerification/">BotVerification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../BusinessBotRights/">BusinessBotRights</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ChatSettings/">ChatSettings</a></li>
@@ -1336,9 +1344,9 @@ data-aria-dark="Switch to auto color mode">
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>user</strong> (<a class="reference internal" href="../User/#pyrogram.types.User" title="pyrogram.types.User"><code class="xref py py-obj docutils literal notranslate"><span class="pre">User</span></code></a>, <em>optional</em>) – Bot that is verified this user.</p></li>
 <li><p><strong>wallet_address</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>) – Address of the user’s wallet in the TON blockchain.</p></li>
 <li><p><strong>public_key</strong> (<code class="docutils literal notranslate"><span class="pre">bytes</span></code>) – Additional description about the verification.</p></li>
+<li><p><strong>user</strong> (<a class="reference internal" href="../User/#pyrogram.types.User" title="pyrogram.types.User"><code class="xref py py-obj docutils literal notranslate"><span class="pre">User</span></code></a>, <em>optional</em>) – The user to whom the wallet belongs.</p></li>
 </ul>
 </dd>
 </dl>
@@ -1358,10 +1366,10 @@ data-aria-dark="Switch to auto color mode">
         <span>Previous</span><div class="title">UserRating</div></div>
     </a>
   </div><div class="navigation-next">
-    <a href="../BotVerification/">
+    <a href="../TonWalletOwnershipProof/">
       <div class="page-info">
         <span>Next</span>
-        <div class="title">BotVerification</div>
+        <div class="title">TonWalletOwnershipProof</div>
       </div>
       <i class="i-lucide chevron-right"></i>
     </a>

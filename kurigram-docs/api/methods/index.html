@@ -531,6 +531,11 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="set_inactive_session_ttl/">set_inactive_session_ttl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="get_global_privacy_settings/">get_global_privacy_settings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="create_user_wallet/">create_user_wallet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="delete_ton_wallet/">delete_ton_wallet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="replace_ton_wallet/">replace_ton_wallet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get_address_ton_wallet/">get_address_ton_wallet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get_user_ton_wallet_addresses/">get_user_ton_wallet_addresses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get_ton_wallet_ownership_proof_challenge/">get_ton_wallet_ownership_proof_challenge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="invoke/">invoke</a></li>
 <li class="toctree-l2"><a class="reference internal" href="recover_gaps/">recover_gaps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="get_app_config/">get_app_config</a></li>
@@ -579,6 +584,9 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../types/StoriesStealthMode/">StoriesStealthMode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../types/UserRating/">UserRating</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../types/UserTonWalletAddress/">UserTonWalletAddress</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../types/TonWalletOwnershipProof/">TonWalletOwnershipProof</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../types/TonWalletOwnershipProofChallenge/">TonWalletOwnershipProofChallenge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../types/TonWalletState/">TonWalletState</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../types/BotVerification/">BotVerification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../types/BusinessBotRights/">BusinessBotRights</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../types/ChatSettings/">ChatSettings</a></li>
@@ -2798,6 +2806,21 @@ the main package directly.</p>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="create_user_wallet/#pyrogram.Client.create_user_wallet" title="pyrogram.Client.create_user_wallet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_user_wallet</span></code></a></p></td>
 <td><p>Creates a TON wallet for the specified regular user.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="delete_ton_wallet/#pyrogram.Client.delete_ton_wallet" title="pyrogram.Client.delete_ton_wallet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">delete_ton_wallet</span></code></a></p></td>
+<td><p>Deletes the current TON wallet of the user and creates a new one.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="replace_ton_wallet/#pyrogram.Client.replace_ton_wallet" title="pyrogram.Client.replace_ton_wallet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">replace_ton_wallet</span></code></a></p></td>
+<td><p>Replaces the current TON wallet with another existing v6r2 wallet or changes private key of the current TON wallet.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="get_address_ton_wallet/#pyrogram.Client.get_address_ton_wallet" title="pyrogram.Client.get_address_ton_wallet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_address_ton_wallet</span></code></a></p></td>
+<td><p>Returns information about a TON wallet with the given address.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="get_user_ton_wallet_addresses/#pyrogram.Client.get_user_ton_wallet_addresses" title="pyrogram.Client.get_user_ton_wallet_addresses"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_user_ton_wallet_addresses</span></code></a></p></td>
+<td><p>Returns TON wallet addresses of the specified users.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="get_ton_wallet_ownership_proof_challenge/#pyrogram.Client.get_ton_wallet_ownership_proof_challenge" title="pyrogram.Client.get_ton_wallet_ownership_proof_challenge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_ton_wallet_ownership_proof_challenge</span></code></a></p></td>
+<td><p>Returns a challenge which may be used to proof ownership of a TON wallet.</p></td>
 </tr>
 </tbody>
 </table>
