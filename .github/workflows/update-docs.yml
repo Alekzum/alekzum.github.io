@@ -23,104 +23,119 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name: Set up Node
+        uses: actions/setup-node@v4
         with:
-          python-version: '3.11'
+          node-version: '20'
 
-      - name: Download docs archive
+      - name: Install Playwright
         run: |
-          set -e
-          echo "Starting docs archive download..."
-          python -m pip install --upgrade pip
-          echo "Installing cloudscraper..."
-          python -m pip install cloudscraper
-          echo "Attempting to fetch from: ${{ env.DOCS_URL }}"
-          python - <<'PY'
-          import os
-          import sys
-          import time
-          import cloudscraper
+          npm init -y
+          npm install playwright@1.46.1
+          npx playwright install --with-deps chromium
 
-          url = os.environ.get('DOCS_URL', 'https://docs.kurigram.icu/docs.zip')
-          scraper = cloudscraper.create_scraper(
-              browser={'browser': 'chrome', 'platform': 'windows', 'desktop': True}
-          )
+      - name: Download docs archive via real browser
+        env:
+          DOCS_URL: ${{ env.DOCS_URL }}
+        run: |
+          node <<'NODE'
+          const { chromium } = require('playwright');
+          const fs = require('fs');
 
-          print(f"Scraper user-agent: {scraper.headers.get('User-Agent')}")
-          print(f"Target URL: {url}")
+          (async () => {
+            const url = process.env.DOCS_URL || 'https://docs.kurigram.icu/docs.zip';
 
-          def dump_headers(headers):
-              if not headers:
-                  print('  <no headers>')
-                  return
-              for key in sorted(headers.keys(), key=lambda x: x.lower()):
-                  lower = key.lower()
-                  if lower in {
-                      'server', 'content-type', 'content-length', 'location',
-                      'cf-ray', 'cf-cache-status', 'set-cookie', 'x-powered-by',
-                      'x-frame-options', 'strict-transport-security', 'via', 'report-to',
-                      'nel', 'vary', 'cache-control', 'expires', 'date'
-                  } or lower.startswith('cf-') or lower.startswith('x-'):
-                      print(f"  {key}: {headers.get(key)}")
+            console.log('Trying browser download from:', url);
 
-          def body_preview(response, max_chars=4000):
-              payload = getattr(response, 'text', None)
-              if payload is None:
-                  payload = response.content
-                  if isinstance(payload, (bytes, bytearray)):
-                      payload = payload[:max_chars].decode('utf-8', 'replace')
-                  else:
-                      payload = str(payload)[:max_chars]
-              else:
-                  payload = payload[:max_chars]
-              return payload
+            const browser = await chromium.launch({
+              headless: true,
+              args: [
+                '--disable-dev-shm-usage',
+                '--disable-gpu',
+                '--no-sandbox',
+                '--disable-setuid-sandbox',
+              ]
+            });
 
-          for attempt in range(1, 4):
-              try:
-                  print(f"Download attempt {attempt}/3...")
-                  response = scraper.get(url, timeout=60, allow_redirects=True)
-                  print(f"HTTP status: {response.status_code}")
-                  print(f"Final URL: {response.url}")
-                  print("Response headers (interesting subset):")
-                  dump_headers(response.headers)
-                  print(f"Content-Type: {response.headers.get('Content-Type')}")
-                  print(f"Content-Length: {response.headers.get('Content-Length')}")
-                  print(f"Downloaded bytes: {len(response.content)}")
+            const context = await browser.newContext({
+              userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36',
+              viewport: { width: 1440, height: 1400 },
+              locale: 'en-US',
+              timezoneId: 'Europe/Berlin',
+              acceptDownloads: true,
+              extraHTTPHeaders: {
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
+                'Accept-Language': 'en-US,en;q=0.9',
+                'Upgrade-Insecure-Requests': '1',
+                'Cache-Control': 'no-cache',
+                'Pragma': 'no-cache',
+              }
+            });
 
-                  if response.status_code >= 400:
-                      print("Response body preview:")
-                      print(body_preview(response))
+            const page = await context.newPage();
 
-                  response.raise_for_status()
-                  with open('docs.zip', 'wb') as f:
-                      f.write(response.content)
-                  print(f"Downloaded {len(response.content)} bytes")
-                  print("Download successful")
-                  sys.exit(0)
-              except Exception as e:
-                  print(f"Download failed: {type(e).__name__}: {e}")
+            try {
+              const response = await page.goto(url, {
+                waitUntil: 'domcontentloaded',
+                timeout: 120000,
+              });
 
-                  response = getattr(e, 'response', None)
-                  if response is not None:
-                      print(f"Exception response status: {getattr(response, 'status_code', None)}")
-                      print(f"Exception response URL: {getattr(response, 'url', None)}")
-                      print("Exception response headers (interesting subset):")
-                      dump_headers(getattr(response, 'headers', {}))
-                      print("Exception response body preview:")
-                      print(body_preview(response))
+              const status = response ? response.status() : 0;
+              const finalUrl = page.url();
+              console.log('HTTP status:', status);
+              console.log('Final URL:', finalUrl);
 
-                  cookies = scraper.cookies.get_dict() if hasattr(scraper, 'cookies') else {}
-                  if cookies:
-                      print(f"Current scraper cookies: {cookies}")
+              const headers = response ? response.headers() : {};
+              console.log('Content-Type:', headers['content-type']);
+              console.log('Server:', headers.server || 'n/a');
 
-                  if attempt < 3:
-                      print("Retrying in 5s...")
-                      time.sleep(5)
+              let bodyText = '';
+              try {
+                bodyText = await page.textContent('body');
+              } catch (e) {
+                bodyText = '';
+              }
 
-          print("Failed to download docs.zip after 3 attempts")
-          sys.exit(1)
-          PY
+              if (bodyText) {
+                const snippet = bodyText.replace(/\s+/g, ' ').slice(0, 2000);
+                console.log('Body snippet:', snippet);
+              }
+
+              if (status >= 400) {
+                throw new Error(`Browser download failed with HTTP ${status}. Likely Cloudflare challenge or server-side block.`);
+              }
+
+              const lower = (bodyText || '').toLowerCase();
+              if (
+                lower.includes('just a moment') ||
+                lower.includes('checking your browser') ||
+                lower.includes('cf-challenge') ||
+                lower.includes('cloudflare')
+              ) {
+                throw new Error('Cloudflare challenge page detected instead of the ZIP file.');
+              }
+
+              if (!response) {
+                throw new Error('No HTTP response received from browser');
+              }
+
+              const buffer = await response.body();
+              if (!buffer || buffer.length === 0) {
+                throw new Error('Empty response body received from browser');
+              }
+
+              fs.writeFileSync('docs.zip', buffer);
+              console.log('Downloaded ZIP bytes:', buffer.length);
+              console.log('Browser download succeeded.');
+
+            } finally {
+              await browser.close();
+            }
+          })().catch((err) => {
+            console.error('FATAL:', err.message || err);
+            process.exit(1);
+          });
+          NODE
 
       - name: Verify archive integrity
         run: |
